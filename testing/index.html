@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Symphony Anthology Browser Smoke Harness</title>
+  <link rel="stylesheet" href="../dist/symphony.css">
+  <link rel="stylesheet" href="./testing.css">
+</head>
+<body data-testing-page="harness">
+  <main class="harness stack" data-gap="lg">
+    <div class="theme-switch">
+      <button type="button" data-variant="ghost" onclick="document.documentElement.setAttribute('data-theme', 'light')">Light</button>
+      <button type="button" data-variant="ghost" onclick="document.documentElement.setAttribute('data-theme', 'dark')">Dark</button>
+    </div>
+
+    <header class="stack" data-gap="sm">
+      <p class="text-sm text-muted">Manual smoke suite</p>
+      <h1>Symphony Anthology browser harness</h1>
+      <p>Use this page as a manual smoke harness in Chrome, Firefox, and Safari.</p>
+    </header>
+
+    <section class="harness-section stack" data-gap="md">
+      <h2>How to run this smoke</h2>
+      <div class="smoke-grid">
+        <article class="card">
+          <div class="stack p-lg" data-gap="sm">
+            <h3>Browsers</h3>
+            <ul>
+              <li>Chrome latest</li>
+              <li>Firefox latest</li>
+              <li>Safari latest</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="stack p-lg" data-gap="sm">
+            <h3>Viewports</h3>
+            <ul>
+              <li>Desktop around 1440px wide</li>
+              <li>Tablet around 768px wide</li>
+              <li>Mobile around 390px wide</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="stack p-lg" data-gap="sm">
+            <h3>Check</h3>
+            <ul>
+              <li>Light and dark themes</li>
+              <li>Keyboard focus visibility</li>
+              <li>Resize and reflow behavior</li>
+              <li>Dialog and disclosure interaction</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+
+      <p class="smoke-note">
+        Release rule: do not ship a public release if one browser regresses on navigation,
+        forms, dialog, accordion, table, or layout reflow.
+      </p>
+    </section>
+
+    <section class="harness-section stack" data-gap="md">
+      <h2>Navigation</h2>
+      <nav aria-label="Harness navigation" data-layout="split" data-mobile="collapse" data-size="compact">
+        <a href="/" data-role="brand">
+          <svg viewBox="0 0 70 70" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M0 48.076C1.561 52.241 3.836 56.049 6.678 59.36C14.91 54.369 20.412 45.332 20.412 35L0 48.076ZM6.678 10.64C3.836 13.944 1.561 17.752 0 21.917L20.412 35C20.412 24.668 14.917 15.624 6.678 10.64ZM59.36 63.322C54.369 55.09 45.332 49.588 35 49.588L48.076 70C52.241 68.439 56.056 66.164 59.36 63.322ZM10.64 63.322C13.951 66.171 17.752 68.446 21.917 70L35 49.588C24.668 49.588 15.624 55.083 10.64 63.322ZM63.322 10.64C55.09 15.631 49.588 24.668 49.588 35L70 21.924C68.439 17.759 66.164 13.944 63.322 10.64ZM63.322 59.36C66.171 56.049 68.446 52.248 70 48.083L49.588 35C49.588 45.332 55.083 54.376 63.322 59.36ZM48.076 0L35 20.412C45.325 20.412 54.369 14.91 59.353 6.678C56.056 3.836 52.241 1.561 48.076 0ZM10.64 6.678C15.631 14.91 24.668 20.412 35 20.412L21.924 0C17.759 1.561 13.944 3.836 10.64 6.678Z" fill="#6447FB"/>
+          </svg>
+          <span>Symphony Anthology</span>
+        </a>
+        <button type="button" data-role="nav-toggle" aria-controls="harness-navigation" aria-expanded="false" aria-label="Open navigation menu">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+            <path d="M4 7H20M4 12H20M4 17H20" stroke="currentColor" stroke-linecap="round" stroke-width="1.8"/>
+          </svg>
+        </button>
+        <ul id="harness-navigation">
+          <li><a href="#buttons" aria-current="page">Buttons</a></li>
+          <li><a href="#forms">Forms</a></li>
+          <li><a href="#dialog">Dialog</a></li>
+          <li><a href="#results">Results</a></li>
+        </ul>
+      </nav>
+      <p class="smoke-note">
+        Check that the brand stays on one line, never receives an active-pill background,
+        and reflows cleanly at narrow widths.
+      </p>
+    </section>
+
+    <section class="harness-section stack" data-gap="md" id="buttons">
+      <h2>Buttons</h2>
+      <div class="cluster" data-gap="sm">
+        <button>Default</button>
+        <button data-variant="primary">Primary</button>
+        <button data-variant="outline">Outline</button>
+        <button data-variant="ghost">Ghost</button>
+        <button data-size="sm" data-variant="primary">Small</button>
+      </div>
+    </section>
+
+    <section class="harness-section stack" data-gap="md">
+      <h2>Layouts</h2>
+      <div class="grid" data-columns="3" data-gap="lg">
+        <article class="card">
+          <div class="stack p-lg" data-gap="sm">
+            <h3>Grid card</h3>
+            <p>Check spacing, borders, shadows, and card padding.</p>
+          </div>
+        </article>
+        <article class="card" data-elevation="raised">
+          <div class="stack p-lg" data-gap="sm">
+            <h3>Raised card</h3>
+            <p>Check shadow and radius consistency.</p>
+          </div>
+        </article>
+        <article class="card">
+          <div class="stack p-lg" data-gap="sm">
+            <h3>Responsive</h3>
+            <p>Resize to confirm intrinsic reflow.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="harness-section stack" data-gap="md" id="forms">
+      <h2>Forms</h2>
+      <form class="stack" data-gap="md">
+        <label class="stack" data-gap="2xs">
+          <span>Email</span>
+          <input type="email" placeholder="you@example.com">
+        </label>
+
+        <label class="stack" data-gap="2xs">
+          <span>Role</span>
+          <select>
+            <option>Designer</option>
+            <option>Developer</option>
+            <option>Product</option>
+          </select>
+        </label>
+
+        <label class="stack" data-gap="2xs">
+          <span>Message</span>
+          <textarea rows="4" placeholder="Tell us what you are validating"></textarea>
+        </label>
+
+        <label class="cluster" data-gap="xs" data-align="center">
+          <input type="checkbox">
+          <span>Receive updates</span>
+        </label>
+
+        <label class="cluster" data-gap="xs" data-align="center">
+          <input type="checkbox" role="switch">
+          <span>Enable switch styling</span>
+        </label>
+      </form>
+    </section>
+
+    <section class="harness-section stack" data-gap="md" id="dialog">
+      <h2>Accordion and dialog</h2>
+      <details>
+        <summary>Open accordion item</summary>
+        <div class="p-md">
+          <p>Check disclosure icon, spacing, and nested content styles.</p>
+        </div>
+      </details>
+
+      <div class="cluster" data-gap="sm">
+        <button type="button" data-variant="primary" onclick="document.getElementById('smoke-dialog').showModal()">Open dialog</button>
+      </div>
+
+      <dialog id="smoke-dialog">
+        <header>
+          <h3>Dialog smoke test</h3>
+        </header>
+        <p>Check backdrop, spacing, and button styles.</p>
+        <footer class="cluster" data-gap="sm">
+          <button type="button" data-variant="ghost" onclick="document.getElementById('smoke-dialog').close()">Close</button>
+          <button type="button" data-variant="primary" onclick="document.getElementById('smoke-dialog').close()">Confirm</button>
+        </footer>
+      </dialog>
+    </section>
+
+    <section class="harness-section stack" data-gap="md">
+      <h2>Table</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Surface</th>
+            <th>Expected</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Buttons</td>
+            <td>Variants render with clear hierarchy</td>
+          </tr>
+          <tr>
+            <td>Forms</td>
+            <td>Focus states are visible and readable</td>
+          </tr>
+          <tr>
+            <td>Layouts</td>
+            <td>Reflow happens without overlap</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="harness-section stack" data-gap="md" id="results">
+      <h2>Results matrix</h2>
+      <p class="smoke-note">
+        Fill this out while testing each browser and viewport combination.
+      </p>
+      <table class="smoke-table">
+        <thead>
+          <tr>
+            <th>Browser</th>
+            <th>Theme switch</th>
+            <th>Navigation</th>
+            <th>Layout reflow</th>
+            <th>Forms focus</th>
+            <th>Accordion and dialog</th>
+            <th>Table rendering</th>
+            <th>Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Chrome</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>Firefox</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>Safari</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </main>
+  <script src="../site-nav.js"></script>
+</body>
+</html>

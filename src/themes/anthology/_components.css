@@ -1,0 +1,142 @@
+/**
+ * Anthology Theme - Component Overrides
+ * Minimalist styling for Symphony components
+ */
+
+@layer symphony.themes {
+    /* ==========================================
+     BUTTONS - Pill-shaped minimalist
+     ========================================== */
+
+    [data-theme="anthology"] :where(button),
+    [data-theme="anthology"] :where(.button) {
+        font-weight: var(--symphony-font-medium);
+        letter-spacing: var(--anthology-tracking-wide, 0.025em);
+        padding: var(--symphony-space-sm) var(--symphony-space-lg);
+        border-radius: var(--symphony-radius-full);
+        transition: all var(--symphony-duration-normal) var(--symphony-ease-out);
+    }
+
+    [data-theme="anthology"] :where(button[data-variant="primary"]),
+    [data-theme="anthology"] :where(.button[data-variant="primary"]) {
+        background: var(--symphony-text);
+        color: var(--symphony-background);
+        border-color: var(--symphony-text);
+    }
+
+    [data-theme="anthology"] :where(button[data-variant="primary"]):hover:not(:disabled) {
+        transform: translateY(-1px);
+        box-shadow: var(--symphony-shadow-md);
+    }
+
+    [data-theme="anthology"] :where(button[data-variant="accent"]),
+    [data-theme="anthology"] :where(.button[data-variant="accent"]) {
+        background: var(--symphony-primary);
+        color: white;
+        border-color: var(--symphony-primary);
+    }
+
+    [data-theme="anthology"] :where(button[data-variant="accent"]):hover:not(:disabled) {
+        background: var(--symphony-primary-hover);
+        border-color: var(--symphony-primary-hover);
+        transform: translateY(-1px);
+        box-shadow: var(--symphony-shadow-lg);
+    }
+
+    /* ==========================================
+     CARDS - Minimal with generous padding
+     ========================================== */
+
+    [data-theme="anthology"] :where(.card) {
+        padding: var(--symphony-space-xl);
+        border-radius: var(--symphony-radius-xl);
+        background: var(--symphony-surface);
+        border: 1px solid var(--symphony-border);
+        box-shadow: var(--symphony-shadow-sm);
+        transition: all var(--symphony-duration-normal) var(--symphony-ease-out);
+    }
+
+    [data-theme="anthology"] :where(.card):hover {
+        border-color: var(--symphony-border-hover);
+        box-shadow: var(--symphony-shadow-md);
+        transform: translateY(-2px);
+    }
+
+    [data-theme="anthology"] :where(.card) header h3,
+    [data-theme="anthology"] :where(.card__header) h3 {
+        font-size: var(--symphony-text-2xl);
+        font-weight: var(--symphony-font-semibold);
+        letter-spacing: var(--anthology-tracking-tight, -0.025em);
+        line-height: var(--symphony-leading-tight);
+    }
+
+    [data-theme="anthology"] :where(.card) p {
+        line-height: var(--symphony-leading-relaxed);
+        color: var(--symphony-text-secondary);
+    }
+
+    /* Card Variants */
+    [data-theme="anthology"] :where(.card--featured) {
+        border-color: var(--symphony-primary);
+        background: linear-gradient(135deg,
+                color-mix(in srgb, var(--symphony-primary) 3%, transparent),
+                transparent);
+    }
+
+    [data-theme="anthology"] :where(.card--minimal) {
+        border: none;
+        box-shadow: none;
+        background: transparent;
+    }
+
+    [data-theme="anthology"] :where(.card--minimal):hover {
+        background: var(--symphony-surface);
+        box-shadow: var(--symphony-shadow-sm);
+    }
+
+    /* ==========================================
+     TYPOGRAPHY - Generous spacing
+     ========================================== */
+
+    [data-theme="anthology"] :where(h1, h2, h3, h4, h5, h6) {
+        letter-spacing: var(--anthology-tracking-tight, -0.025em);
+        line-height: var(--symphony-leading-tight);
+    }
+
+    [data-theme="anthology"] :where(p) {
+        line-height: var(--symphony-leading-relaxed);
+    }
+
+    /* ==========================================
+     FORMS - Rounded inputs
+     ========================================== */
+
+    [data-theme="anthology"] :where(input:not([type="checkbox"]):not([type="radio"])),
+    [data-theme="anthology"] :where(select),
+    [data-theme="anthology"] :where(textarea) {
+        border-radius: var(--symphony-radius-lg);
+        padding: var(--symphony-space-sm) var(--symphony-space-md);
+    }
+
+    /* ==========================================
+     NAVIGATION - Pill links
+     ========================================== */
+
+    [data-theme="anthology"] :where(nav[data-style="pills"]) a {
+        border-radius: var(--symphony-radius-full);
+        padding: var(--symphony-space-xs) var(--symphony-space-md);
+    }
+
+    /* ==========================================
+     LAYOUT - Generous whitespace
+     ========================================== */
+
+    [data-theme="anthology"] :where(.section),
+    [data-theme="anthology"] :where(section) {
+        padding-block: var(--symphony-space-3xl);
+    }
+
+    [data-theme="anthology"] :where(.container) {
+        padding-inline: var(--symphony-space-lg);
+    }
+}

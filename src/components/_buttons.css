@@ -1,0 +1,354 @@
+/**
+ * Symphony Anthology v1.0
+ * Semantic and AI-first CSS framework
+ * Buttons - Semantic Button Styling with Data Attributes
+ * 
+ * Philosophy:
+ * - Semantic <button> elements styled by default
+ * - Variants via data-variant attribute (not class modifiers)
+ * - Sizes via data-size attribute
+ * - Native CSS nesting for cleaner code
+ * - Accessible focus states
+ * 
+ * Usage (Zero Classes Needed):
+ *   <button>Click me</button>
+ *   <button data-variant="primary">Primary</button>
+ *   <button data-variant="secondary" data-size="lg">Large Secondary</button>
+ *   <button data-variant="outline">Outline</button>
+ */
+
+@layer symphony.components {
+  /* =============================================
+     SEMANTIC BUTTON BASE STYLES
+     All <button> elements get sensible defaults
+     ============================================= */
+
+  :where(button),
+  :where(input[type="submit"]),
+  :where(input[type="button"]),
+  :where(input[type="reset"]),
+  :where([role="button"]),
+  :where(.button) {
+    /* Layout */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--symphony-space-xs);
+
+    /* Sizing */
+    padding-block: var(--button-padding-y, var(--symphony-space-sm));
+    padding-inline: var(--button-padding-x, var(--symphony-space-lg));
+    min-height: 2.5rem;
+
+    /* Typography */
+    font-family: var(--symphony-font-sans);
+    font-size: var(--button-font-size, var(--symphony-text-sm));
+    font-weight: var(--symphony-font-medium);
+    line-height: var(--symphony-leading-tight);
+    text-align: center;
+    text-decoration: none;
+    white-space: nowrap;
+
+    /* Appearance */
+    background-color: var(--button-bg, var(--symphony-surface));
+    color: var(--button-text, var(--symphony-text));
+    border: 1px solid var(--button-border, var(--symphony-border));
+    border-radius: var(--button-radius, var(--symphony-radius-md));
+
+    /* Interaction */
+    cursor: pointer;
+    user-select: none;
+    touch-action: manipulation;
+    transition: var(--symphony-transition-colors),
+      var(--symphony-transition-transform),
+      var(--symphony-transition-shadow);
+
+    /* Focus visible for accessibility */
+    &:focus-visible {
+      outline: none;
+      box-shadow: var(--symphony-focus-ring);
+    }
+
+    /* Hover state */
+    &:hover:not(:disabled) {
+      background-color: var(--button-bg-hover, var(--symphony-surface-hover));
+      border-color: var(--button-border-hover, var(--symphony-border-hover));
+    }
+
+    /* Active/pressed state */
+    &:active:not(:disabled) {
+      transform: scale(0.98);
+    }
+
+    /* Disabled state */
+    &:disabled,
+    &[aria-disabled="true"] {
+      opacity: 0.5;
+      cursor: not-allowed;
+      pointer-events: none;
+    }
+  }
+
+  /* =============================================
+     BUTTON VARIANTS (Data Attributes)
+     data-variant="primary|secondary|success|danger|warning|outline|ghost|link"
+     ============================================= */
+
+  /* Primary - Main CTA */
+  :where(button[data-variant="primary"]),
+  :where(.button[data-variant="primary"]) {
+    --button-bg: var(--symphony-primary);
+    --button-bg-hover: var(--symphony-primary-hover);
+    --button-text: var(--symphony-text-inverted);
+    --button-border: transparent;
+    --button-border-hover: transparent;
+  }
+
+  /* Secondary - Supporting actions */
+  :where(button[data-variant="secondary"]),
+  :where(.button[data-variant="secondary"]) {
+    --button-bg: var(--symphony-secondary);
+    --button-bg-hover: var(--symphony-secondary-hover);
+    --button-text: var(--symphony-text-inverted);
+    --button-border: transparent;
+    --button-border-hover: transparent;
+  }
+
+  /* Success - Confirmations, completions */
+  :where(button[data-variant="success"]),
+  :where(.button[data-variant="success"]) {
+    --button-bg: var(--symphony-success);
+    --button-bg-hover: var(--symphony-success-dark);
+    --button-text: var(--symphony-text-inverted);
+    --button-border: transparent;
+    --button-border-hover: transparent;
+  }
+
+  /* Warning - Caution actions */
+  :where(button[data-variant="warning"]),
+  :where(.button[data-variant="warning"]) {
+    --button-bg: var(--symphony-warning);
+    --button-bg-hover: var(--symphony-warning-dark);
+    --button-text: var(--symphony-text-inverted);
+    --button-border: transparent;
+    --button-border-hover: transparent;
+  }
+
+  /* Danger - Destructive actions */
+  :where(button[data-variant="danger"]),
+  :where(.button[data-variant="danger"]) {
+    --button-bg: var(--symphony-danger);
+    --button-bg-hover: var(--symphony-danger-dark);
+    --button-text: var(--symphony-text-inverted);
+    --button-border: transparent;
+    --button-border-hover: transparent;
+  }
+
+  /* Outline - Bordered, transparent background */
+  :where(button[data-variant="outline"]),
+  :where(.button[data-variant="outline"]) {
+    --button-bg: transparent;
+    --button-bg-hover: var(--symphony-primary);
+    --button-text: var(--symphony-primary);
+    --button-border: var(--symphony-primary);
+    --button-border-hover: var(--symphony-primary);
+
+    &:hover:not(:disabled) {
+      --button-text: var(--symphony-text-inverted);
+    }
+  }
+
+  /* Ghost - No border, transparent */
+  :where(button[data-variant="ghost"]),
+  :where(.button[data-variant="ghost"]) {
+    --button-bg: transparent;
+    --button-bg-hover: var(--symphony-surface-hover);
+    --button-text: var(--symphony-text);
+    --button-border: transparent;
+    --button-border-hover: transparent;
+  }
+
+  /* Link - Looks like a link */
+  :where(button[data-variant="link"]),
+  :where(.button[data-variant="link"]) {
+    --button-bg: transparent;
+    --button-bg-hover: transparent;
+    --button-text: var(--symphony-primary);
+    --button-border: transparent;
+    --button-padding-x: 0;
+    --button-padding-y: 0;
+    min-height: auto;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+
+    &:hover:not(:disabled) {
+      --button-text: var(--symphony-primary-hover);
+    }
+  }
+
+  /* =============================================
+     BUTTON SIZES (Data Attributes)
+     data-size="xs|sm|lg|xl"
+     ============================================= */
+
+  :where(button[data-size="xs"]),
+  :where(.button[data-size="xs"]) {
+    --button-padding-y: var(--symphony-space-2xs);
+    --button-padding-x: var(--symphony-space-sm);
+    --button-font-size: var(--symphony-text-xs);
+    min-height: 1.75rem;
+  }
+
+  :where(button[data-size="sm"]),
+  :where(.button[data-size="sm"]) {
+    --button-padding-y: var(--symphony-space-xs);
+    --button-padding-x: var(--symphony-space-md);
+    --button-font-size: var(--symphony-text-sm);
+    min-height: 2rem;
+  }
+
+  :where(button[data-size="lg"]),
+  :where(.button[data-size="lg"]) {
+    --button-padding-y: var(--symphony-space-md);
+    --button-padding-x: var(--symphony-space-xl);
+    --button-font-size: var(--symphony-text-base);
+    min-height: 3rem;
+  }
+
+  :where(button[data-size="xl"]),
+  :where(.button[data-size="xl"]) {
+    --button-padding-y: var(--symphony-space-lg);
+    --button-padding-x: var(--symphony-space-2xl);
+    --button-font-size: var(--symphony-text-lg);
+    min-height: 3.5rem;
+  }
+
+  /* =============================================
+     BUTTON SHAPES (Data Attributes)
+     data-shape="pill|square|circle"
+     ============================================= */
+
+  :where(button[data-shape="pill"]),
+  :where(.button[data-shape="pill"]) {
+    --button-radius: var(--symphony-radius-full);
+  }
+
+  :where(button[data-shape="square"]),
+  :where(.button[data-shape="square"]) {
+    --button-radius: var(--symphony-radius-none);
+  }
+
+  :where(button[data-shape="circle"]),
+  :where(.button[data-shape="circle"]) {
+    --button-radius: var(--symphony-radius-full);
+    aspect-ratio: 1;
+    padding: var(--symphony-space-sm);
+  }
+
+  /* =============================================
+     BUTTON STATES (Data Attributes)
+     ============================================= */
+
+  /* Full width button */
+  :where(button[data-full]),
+  :where(.button[data-full]) {
+    width: 100%;
+  }
+
+  /* Loading state */
+  :where(button[data-loading]),
+  :where(.button[data-loading]) {
+    position: relative;
+    color: transparent !important;
+    pointer-events: none;
+
+    &::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      margin: auto;
+      width: 1.25em;
+      height: 1.25em;
+      border: 2px solid currentColor;
+      border-radius: var(--symphony-radius-full);
+      border-right-color: transparent;
+      animation: symphony-button-spin 0.6s linear infinite;
+    }
+  }
+
+  @keyframes symphony-button-spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  /* =============================================
+     BUTTON GROUP
+     ============================================= */
+
+  .button-group {
+    display: inline-flex;
+
+    &>button,
+    &>.button {
+      border-radius: 0;
+
+      &:first-child {
+        border-start-start-radius: var(--symphony-radius-md);
+        border-end-start-radius: var(--symphony-radius-md);
+      }
+
+      &:last-child {
+        border-start-end-radius: var(--symphony-radius-md);
+        border-end-end-radius: var(--symphony-radius-md);
+      }
+
+      &:not(:last-child) {
+        border-inline-end-width: 0;
+      }
+    }
+  }
+
+  /* Vertical button group */
+  .button-group[data-direction="vertical"] {
+    flex-direction: column;
+
+    &>button,
+    &>.button {
+      &:first-child {
+        border-radius: 0;
+        border-start-start-radius: var(--symphony-radius-md);
+        border-start-end-radius: var(--symphony-radius-md);
+      }
+
+      &:last-child {
+        border-radius: 0;
+        border-end-start-radius: var(--symphony-radius-md);
+        border-end-end-radius: var(--symphony-radius-md);
+      }
+
+      &:not(:last-child) {
+        border-inline-end-width: 1px;
+        border-block-end-width: 0;
+      }
+    }
+  }
+
+  /* =============================================
+     ICON BUTTONS
+     ============================================= */
+
+  :where(button[data-icon-only]),
+  :where(.button[data-icon-only]) {
+    padding: var(--symphony-space-sm);
+    aspect-ratio: 1;
+    min-height: auto;
+
+    &>svg,
+    &>img {
+      width: 1.25em;
+      height: 1.25em;
+    }
+  }
+
+}

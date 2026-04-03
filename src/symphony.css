@@ -1,0 +1,87 @@
+/**
+ * Symphony Anthology v1.0
+ * Semantic and AI-first CSS framework
+ *
+ * Public contract:
+ * - Semantic HTML baseline
+ * - Data-attribute variants
+ * - Layout primitives
+ * - Optional themes
+ * - Optional legacy compatibility layer
+ */
+
+/* ============================================
+   CASCADE LAYER ORDER (Critical for specificity)
+   Lower layers can be easily overridden by higher layers
+   ============================================ */
+@layer symphony.reset, symphony.base, symphony.semantic, symphony.layout, symphony.components, symphony.utilities, symphony.themes, symphony.compat;
+
+/* ============================================
+   CORE - Base styles
+   ============================================ */
+
+/* Fonts - Google Fonts integration (must be first, outside layers) */
+@import './core/_fonts.css';
+
+/* Reset - Modern CSS reset with :where() for low specificity */
+@import './core/_reset.css';
+
+/* Variables - Design tokens with OKLCH colors and @property */
+@import './core/_variables.css';
+
+/* Tokens - Component-specific semantic token mappings */
+@import './core/_tokens.css';
+
+/* Base - Semantic HTML element styles (zero classes needed) */
+@import './core/_base.css';
+
+/* ============================================
+   LAYOUT - Layout primitives
+   ============================================ */
+
+/* Container - Fluid container with data-size variants */
+@import './layout/_container.css';
+
+/* Grid - Intrinsic responsive grid (NO 12-column!) */
+@import './layout/_grid.css';
+
+/* Flexbox - Composition utilities (stack, cluster, sidebar) */
+@import './layout/_flexbox.css';
+
+/* ============================================
+   COMPONENTS - UI components with data-* variants
+   ============================================ */
+
+/* Typography - Text styling and prose */
+@import './components/_typography.css';
+
+/* Buttons - Semantic button with data-variant */
+@import './components/_buttons.css';
+
+/* Forms - Fully styled form elements (minimal classes) */
+@import './components/_forms.css';
+
+/* Cards - Article/section-based cards */
+@import './components/_cards.css';
+
+/* Dialog - Native dialog element support */
+@import './components/_dialog.css';
+
+/* Navigation - Semantic nav with nested lists */
+@import './components/_navigation.css';
+
+/* Accordion - Details/summary native elements */
+@import './components/_accordion.css';
+
+/* Tables - Responsive semantic tables */
+@import './components/_tables.css';
+
+/* ============================================
+   UTILITIES - Short, unprefixed utility classes
+   ============================================ */
+
+/* Spacing - Logical property spacing (margin-inline, padding-block) */
+@import './utilities/_spacing.css';
+
+/* Helpers - Common utility classes */
+@import './utilities/_helpers.css';

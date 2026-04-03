@@ -1,0 +1,69 @@
+[data-testing-page="harness"] .harness {
+  max-width: 72rem;
+  margin: 0 auto;
+  padding: 2rem 1rem 5rem;
+}
+
+[data-testing-page="harness"] .harness-section {
+  margin-block-end: 2rem;
+  padding: 1.5rem;
+  border: 1px solid var(--symphony-border);
+  border-radius: var(--symphony-radius-lg);
+  background: var(--symphony-surface);
+}
+
+[data-testing-page="harness"] .theme-switch {
+  position: sticky;
+  inset-block-start: 1rem;
+  display: flex;
+  gap: 0.5rem;
+  justify-content: end;
+  z-index: 10;
+}
+
+[data-testing-page="harness"] .smoke-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+}
+
+[data-testing-page="harness"] .smoke-note {
+  font-size: var(--symphony-text-sm);
+  color: var(--symphony-text-muted);
+}
+
+[data-testing-page="harness"] .smoke-table td:first-child,
+[data-testing-page="harness"] .smoke-table th:first-child {
+  white-space: nowrap;
+}
+
+[data-testing-page="preview"] {
+  background:
+    radial-gradient(circle at top right, color-mix(in oklch, var(--symphony-primary) 14%, transparent), transparent 22rem),
+    var(--symphony-background);
+}
+
+[data-testing-page="preview"] .preview-shell {
+  padding-block: clamp(4rem, 12vw, 7rem);
+}
+
+[data-testing-page="preview"] .preview-grid {
+  display: grid;
+  gap: var(--symphony-space-lg);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: stretch;
+}
+
+[data-testing-page="preview"] .preview-grid > .card {
+  min-inline-size: 0;
+}
+
+[data-testing-page="preview"] .preview-grid .button {
+  margin-block-start: var(--symphony-space-sm);
+}
+
+@media (max-width: 64rem) {
+  [data-testing-page="preview"] .preview-grid {
+    grid-template-columns: repeat(3, minmax(14rem, 1fr));
+  }
+}

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Symphony Anthology Docs</title>
+  <link rel="stylesheet" href="../dist/symphony.core.css">
+  <link rel="stylesheet" href="./css/symphony-docs.css">
+</head>
+<body>
+  <header class="docs-hero">
+    <div class="container">
+      <div class="stack" data-gap="md">
+        <p class="docs-eyebrow">Symphony Anthology v1</p>
+        <h1>Semantic-first CSS for immediate adoption</h1>
+        <p class="text-lg">
+          Stable primitives, data-attribute variants, optional legacy compatibility,
+          and AI-ready metadata files that stay honest about what ships today.
+        </p>
+        <div class="cluster" data-gap="sm">
+          <a class="button" href="../README.md" data-variant="primary">Read README</a>
+          <a class="button" href="./examples/landing-page.html" data-variant="outline">View Landing Example</a>
+          <a class="button" href="./examples/ai-first-demo.html" data-variant="ghost">View AI-ready Demo</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container docs-shell">
+    <section class="docs-panel stack" data-gap="lg">
+      <header class="stack" data-gap="sm">
+        <p class="docs-section-label">Install</p>
+        <h2>Pick the bundle you need</h2>
+      </header>
+
+      <div class="docs-grid">
+        <article class="card docs-card">
+          <header>
+            <h3>Core</h3>
+            <p>Reduced production bundle.</p>
+          </header>
+          <pre class="docs-code"><code>&lt;link rel="stylesheet" href="https://unpkg.com/@symphonyui/symphonycss/dist/symphony.core.min.css"&gt;</code></pre>
+        </article>
+
+        <article class="card docs-card">
+          <header>
+            <h3>Full</h3>
+            <p>Includes the broader utility surface.</p>
+          </header>
+          <pre class="docs-code"><code>&lt;link rel="stylesheet" href="https://unpkg.com/@symphonyui/symphonycss/dist/symphony.min.css"&gt;</code></pre>
+        </article>
+
+        <article class="card docs-card">
+          <header>
+            <h3>Compat</h3>
+            <p>Opt-in legacy aliases for migration only.</p>
+          </header>
+          <pre class="docs-code"><code>&lt;link rel="stylesheet" href="https://unpkg.com/@symphonyui/symphonycss/dist/symphony.compat.min.css"&gt;</code></pre>
+        </article>
+      </div>
+    </section>
+
+    <section class="docs-panel stack" data-gap="lg">
+      <header class="stack" data-gap="sm">
+        <p class="docs-section-label">Contract</p>
+        <h2>Build with semantic HTML first</h2>
+      </header>
+
+      <div class="grid" data-columns="2" data-gap="lg">
+        <article class="card">
+          <header>
+            <h3>Current primitives</h3>
+          </header>
+          <div class="stack p-lg" data-gap="sm">
+            <p><code>.container</code>, <code>.grid</code>, <code>.stack</code>, <code>.cluster</code></p>
+            <p><code>.sidebar</code>, <code>.switcher</code>, <code>.center</code>, <code>.cover</code></p>
+            <p><code>.card</code>, <code>.button</code>, <code>.prose</code></p>
+            <p><code>data-variant</code>, <code>data-size</code>, <code>data-layout</code>, <code>data-elevation</code></p>
+          </div>
+        </article>
+
+        <article class="card">
+          <header>
+            <h3>Example</h3>
+          </header>
+          <div class="stack p-lg" data-gap="md">
+            <article class="stack" data-gap="sm">
+              <h4>AI-readable product summary</h4>
+              <p class="text-muted">This is just semantic HTML plus a primary action.</p>
+            </article>
+            <div class="cluster" data-gap="sm">
+              <button data-variant="primary">Primary action</button>
+              <button data-variant="outline">Secondary action</button>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="docs-panel stack" data-gap="lg">
+      <header class="stack" data-gap="sm">
+        <p class="docs-section-label">AI-ready Today</p>
+        <h2>Use stable metadata and explicit semantics</h2>
+      </header>
+
+      <div class="docs-grid">
+        <article class="card docs-card">
+          <header>
+            <h3>Metadata files</h3>
+          </header>
+          <div class="stack p-lg" data-gap="sm">
+            <a href="../dist/tokens.json">tokens.json</a>
+            <a href="./symphony-schema.json">symphony-schema.json</a>
+            <a href="./schema-presets.json">schema-presets.json</a>
+            <a href="./METADATA.md">Metadata contract</a>
+            <a href="./AI_INTEGRATION.md">AI integration guide</a>
+          </div>
+        </article>
+
+        <article class="card docs-card">
+          <header>
+            <h3>Conservatory flow</h3>
+          </header>
+          <div class="stack p-lg" data-gap="sm">
+            <p><strong>Finding:</strong> weak heading hierarchy</p>
+            <p><strong>Pattern:</strong> semantic sections + <code>.stack</code></p>
+            <p><strong>Finding:</strong> low CTA clarity</p>
+            <p><strong>Pattern:</strong> <code>button[data-variant="primary"]</code></p>
+            <a href="./RECIPES.md">Open implementation recipes</a>
+          </div>
+        </article>
+
+        <article class="card docs-card">
+          <header>
+            <h3>Roadmap boundary</h3>
+          </header>
+          <div class="stack p-lg" data-gap="sm">
+            <p>Custom elements, CLI, adapters, and auto schema injection are roadmap items.</p>
+            <p>The public docs stay limited to shipped package behavior.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="docs-panel stack" data-gap="lg">
+      <header class="stack" data-gap="sm">
+        <p class="docs-section-label">Resources</p>
+        <h2>Move fast without losing clarity</h2>
+      </header>
+
+      <div class="docs-grid">
+        <article class="card docs-card">
+          <header>
+            <h3>Migration</h3>
+          </header>
+          <div class="p-lg">
+            <p>Coming from older `.symphony-*` aliases? Start here.</p>
+            <a href="./MIGRATION.md">Open migration guide</a>
+          </div>
+        </article>
+
+        <article class="card docs-card">
+          <header>
+            <h3>Recipes</h3>
+          </header>
+          <div class="p-lg">
+            <p>Turn Conservatory findings into repeatable Anthology implementation patterns.</p>
+            <a href="./RECIPES.md">Open recipes</a>
+          </div>
+        </article>
+
+        <article class="card docs-card">
+          <header>
+            <h3>Metadata source</h3>
+          </header>
+          <div class="p-lg">
+            <p>See how `metadata/` feeds the public JSON artifacts in `dist/` and `docs/`.</p>
+            <a href="./METADATA.md">Open metadata contract</a>
+          </div>
+        </article>
+
+        <article class="card docs-card">
+          <header>
+            <h3>Manual browser smoke</h3>
+          </header>
+          <div class="p-lg">
+            <p>Use the test harness for manual browser smoke before releases.</p>
+            <a href="../testing/index.html">Open test harness</a>
+            <a href="./TESTING.md">Open testing guide</a>
+            <a href="../testing/preview.html">Open internal preview</a>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

@@ -1,0 +1,559 @@
+/**
+ * Symphony Anthology v1.0
+ * Semantic and AI-first CSS framework
+ * Base Layer - Semantic HTML Element Styles
+ * 
+ * Philosophy:
+ * - Zero classes needed for beautiful defaults
+ * - Semantic HTML elements styled by default
+ * - Uses updated OKLCH variables from _variables.css
+ * - Native CSS nesting for cleaner code
+ * - Logical properties for i18n support
+ * 
+ * Sections styled:
+ * - Document structure (html, body)
+ * - Sectioning elements (header, main, footer, article, section, aside, nav)
+ * - Typography (headings, paragraphs, text elements)
+ * - Links and interactive elements
+ * - Lists (ul, ol, dl)
+ * - Media (img, figure, video)
+ * - Preformatted (pre, code, kbd)
+ * - Quotes (blockquote, q)
+ * - Forms (fieldset, legend, label)
+ * - Misc (hr, mark, address)
+ */
+
+@layer symphony.base {
+  /* =============================================
+     DOCUMENT ROOT
+     ============================================= */
+
+  :where(html) {
+    font-size: 100%;
+    /* Respect user preferences */
+    scroll-behavior: smooth;
+    text-size-adjust: none;
+    -webkit-text-size-adjust: none;
+
+    @media (prefers-reduced-motion: reduce) {
+      scroll-behavior: auto;
+    }
+  }
+
+  :where(body) {
+    font-family: var(--symphony-font-sans);
+    font-size: var(--symphony-text-base);
+    font-weight: var(--symphony-font-normal);
+    line-height: var(--symphony-leading-normal);
+    color: var(--symphony-text);
+    background-color: var(--symphony-background);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* =============================================
+     SECTIONING ELEMENTS
+     Semantic structure with sensible defaults
+     ============================================= */
+
+  :where(header) {
+    /* Header typically contains nav, logo, actions */
+  }
+
+  :where(main) {
+    /* Main content area - ensure it's the primary landmark */
+    display: block;
+    /* IE11 fallback */
+
+    /* First child direct margin collapse prevention */
+    &> :first-child {
+      margin-block-start: 0;
+    }
+
+    &> :last-child {
+      margin-block-end: 0;
+    }
+  }
+
+  :where(footer) {
+    /* Footer styling */
+    color: var(--symphony-text-muted);
+    font-size: var(--symphony-text-sm);
+  }
+
+  :where(article) {
+
+    /* Standalone content - blog posts, news articles */
+    &>header {
+      margin-block-end: var(--symphony-space-lg);
+    }
+
+    &>footer {
+      margin-block-start: var(--symphony-space-lg);
+      padding-block-start: var(--symphony-space-md);
+      border-block-start: 1px solid var(--symphony-border);
+    }
+  }
+
+  :where(section) {
+    /* Generic section with heading */
+    margin-block: var(--symphony-space-2xl);
+
+    &:first-child {
+      margin-block-start: 0;
+    }
+
+    &:last-child {
+      margin-block-end: 0;
+    }
+  }
+
+  :where(aside) {
+    /* Sidebar or tangentially related content */
+    font-size: var(--symphony-text-sm);
+    color: var(--symphony-text-muted);
+  }
+
+  /* =============================================
+     TYPOGRAPHY - HEADINGS
+     ============================================= */
+
+  :where(h1, h2, h3, h4, h5, h6) {
+    font-family: var(--symphony-font-heading);
+    font-weight: var(--symphony-font-bold);
+    line-height: var(--symphony-leading-tight);
+    color: var(--symphony-text);
+    text-wrap: balance;
+    margin-block: 0 var(--symphony-space-sm);
+
+    /* When following a paragraph, add more space */
+    p+&,
+    ul+&,
+    ol+& {
+      margin-block-start: var(--symphony-space-xl);
+    }
+  }
+
+  :where(h1) {
+    font-size: var(--symphony-text-4xl);
+    letter-spacing: -0.025em;
+  }
+
+  :where(h2) {
+    font-size: var(--symphony-text-3xl);
+    letter-spacing: -0.02em;
+  }
+
+  :where(h3) {
+    font-size: var(--symphony-text-2xl);
+  }
+
+  :where(h4) {
+    font-size: var(--symphony-text-xl);
+  }
+
+  :where(h5) {
+    font-size: var(--symphony-text-lg);
+  }
+
+  :where(h6) {
+    font-size: var(--symphony-text-base);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--symphony-text-muted);
+  }
+
+  /* =============================================
+     TYPOGRAPHY - BODY TEXT
+     ============================================= */
+
+  :where(p) {
+    margin-block: 0 var(--symphony-space-md);
+    line-height: var(--symphony-leading-relaxed);
+    text-wrap: pretty;
+
+    &:last-child {
+      margin-block-end: 0;
+    }
+  }
+
+  :where(strong, b) {
+    font-weight: var(--symphony-font-bold);
+  }
+
+  :where(em, i) {
+    font-style: italic;
+  }
+
+  :where(small) {
+    font-size: var(--symphony-text-sm);
+  }
+
+  :where(mark) {
+    background-color: oklch(from var(--symphony-warning) 0.9 c h);
+    color: var(--symphony-text);
+    padding-inline: 0.25em;
+    border-radius: var(--symphony-radius-sm);
+  }
+
+  :where(del, s) {
+    text-decoration: line-through;
+    color: var(--symphony-text-muted);
+  }
+
+  :where(ins) {
+    text-decoration: underline;
+    text-decoration-color: var(--symphony-success);
+  }
+
+  :where(abbr[title]) {
+    text-decoration: underline dotted;
+    cursor: help;
+  }
+
+  :where(address) {
+    font-style: normal;
+    line-height: var(--symphony-leading-relaxed);
+    margin-block-end: var(--symphony-space-md);
+  }
+
+  /* =============================================
+     LINKS
+     ============================================= */
+
+  :where(a) {
+    color: var(--symphony-primary);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.15em;
+    transition: var(--symphony-transition-colors);
+
+    &:hover {
+      color: var(--symphony-primary-hover);
+      text-decoration-thickness: 2px;
+    }
+
+    &:focus-visible {
+      outline: none;
+      box-shadow: var(--symphony-focus-ring);
+      border-radius: var(--symphony-radius-sm);
+    }
+
+    /* Links without href are not clickable */
+    &:not([href]) {
+      color: inherit;
+      text-decoration: none;
+      cursor: not-allowed;
+    }
+  }
+
+  /* =============================================
+     LISTS
+     ============================================= */
+
+  :where(ul, ol) {
+    margin-block: 0 var(--symphony-space-md);
+    padding-inline-start: var(--symphony-space-lg);
+
+    & li {
+      margin-block-end: var(--symphony-space-xs);
+
+      &:last-child {
+        margin-block-end: 0;
+      }
+    }
+
+    /* Nested lists */
+    & ul,
+    & ol {
+      margin-block: var(--symphony-space-xs) 0;
+    }
+  }
+
+  :where(ul) {
+    list-style-type: disc;
+
+    & ul {
+      list-style-type: circle;
+    }
+
+    & ul ul {
+      list-style-type: square;
+    }
+  }
+
+  :where(ol) {
+    list-style-type: decimal;
+
+    & ol {
+      list-style-type: lower-alpha;
+    }
+
+    & ol ol {
+      list-style-type: lower-roman;
+    }
+  }
+
+  :where(dl) {
+    margin-block: 0 var(--symphony-space-md);
+
+    & dt {
+      font-weight: var(--symphony-font-semibold);
+      margin-block-start: var(--symphony-space-sm);
+
+      &:first-child {
+        margin-block-start: 0;
+      }
+    }
+
+    & dd {
+      margin-inline-start: var(--symphony-space-lg);
+      margin-block-end: var(--symphony-space-sm);
+    }
+  }
+
+  /* =============================================
+     CODE & PREFORMATTED
+     ============================================= */
+
+  :where(code, kbd, samp) {
+    font-family: var(--symphony-font-mono);
+    font-size: 0.875em;
+  }
+
+  :where(code) {
+    background-color: var(--symphony-surface-alt);
+    color: var(--symphony-danger);
+    padding: 0.125em 0.375em;
+    border-radius: var(--symphony-radius-sm);
+  }
+
+  :where(kbd) {
+    display: inline-block;
+    padding: 0.125em 0.5em;
+    background-color: var(--symphony-surface);
+    border: 1px solid var(--symphony-border);
+    border-radius: var(--symphony-radius-sm);
+    box-shadow: 0 2px 0 var(--symphony-border);
+    font-size: 0.75em;
+    font-weight: var(--symphony-font-medium);
+    vertical-align: middle;
+  }
+
+  :where(pre) {
+    font-family: var(--symphony-font-mono);
+    font-size: var(--symphony-text-sm);
+    line-height: var(--symphony-leading-relaxed);
+    background-color: var(--symphony-surface-alt);
+    color: var(--symphony-text);
+    padding: var(--symphony-space-md);
+    border-radius: var(--symphony-radius-md);
+    overflow-x: auto;
+    margin-block: 0 var(--symphony-space-md);
+    tab-size: 2;
+
+    /* Reset nested code styling */
+    & code {
+      background-color: transparent;
+      color: inherit;
+      padding: 0;
+      font-size: inherit;
+    }
+  }
+
+  /* =============================================
+     BLOCKQUOTES
+     ============================================= */
+
+  :where(blockquote) {
+    margin-block: var(--symphony-space-lg) var(--symphony-space-lg);
+    margin-inline: 0;
+    padding-inline-start: var(--symphony-space-md);
+    border-inline-start: 4px solid var(--symphony-primary);
+    font-style: italic;
+    color: var(--symphony-text-muted);
+
+    & p:last-child {
+      margin-block-end: 0;
+    }
+
+    & cite {
+      display: block;
+      margin-block-start: var(--symphony-space-sm);
+      font-size: var(--symphony-text-sm);
+      font-style: normal;
+
+      &::before {
+        content: '— ';
+      }
+    }
+  }
+
+  :where(q) {
+    quotes: '"' '"' '' ' ' '';
+
+    &::before {
+      content: open-quote;
+    }
+
+    &::after {
+      content: close-quote;
+    }
+  }
+
+  /* =============================================
+     MEDIA ELEMENTS
+     ============================================= */
+
+  :where(img, picture, video, canvas, svg) {
+    display: block;
+    max-inline-size: 100%;
+    block-size: auto;
+  }
+
+  :where(img) {
+    object-fit: cover;
+
+    &[width][height] {
+      /* Aspect ratio from width/height attributes */
+    }
+  }
+
+  :where(figure) {
+    margin-block: var(--symphony-space-lg);
+    margin-inline: 0;
+
+    &>img,
+    &>picture,
+    &>video {
+      border-radius: var(--symphony-radius-md);
+    }
+  }
+
+  :where(figcaption) {
+    font-size: var(--symphony-text-sm);
+    color: var(--symphony-text-muted);
+    text-align: center;
+    margin-block-start: var(--symphony-space-sm);
+  }
+
+  :where(iframe) {
+    border: none;
+    max-inline-size: 100%;
+  }
+
+  /* =============================================
+     HORIZONTAL RULE
+     ============================================= */
+
+  :where(hr) {
+    border: none;
+    border-block-start: 1px solid var(--symphony-border);
+    margin-block: var(--symphony-space-xl);
+
+    /* Decorative HR variant */
+    &[data-variant="decorative"] {
+      border: none;
+      block-size: 1px;
+      background: linear-gradient(to right,
+          transparent,
+          var(--symphony-border),
+          transparent);
+    }
+  }
+
+  /* =============================================
+     FORM ELEMENTS (Basic - detailed in _forms.css)
+     ============================================= */
+
+  :where(fieldset) {
+    border: 1px solid var(--symphony-border);
+    border-radius: var(--symphony-radius-md);
+    padding: var(--symphony-space-lg);
+    margin-block-end: var(--symphony-space-md);
+  }
+
+  :where(legend) {
+    font-weight: var(--symphony-font-semibold);
+    padding-inline: var(--symphony-space-sm);
+  }
+
+  :where(label) {
+    display: block;
+    font-weight: var(--symphony-font-medium);
+    margin-block-end: var(--symphony-space-xs);
+  }
+
+  /* =============================================
+     TIME & DATA ELEMENTS
+     ============================================= */
+
+  :where(time) {
+    /* Semantic time element */
+  }
+
+  :where(data) {
+    /* Machine-readable data */
+  }
+
+  /* =============================================
+     SELECTION & FOCUS
+     ============================================= */
+
+  ::selection {
+    background-color: oklch(from var(--symphony-primary) l c h / 0.3);
+    color: var(--symphony-text);
+  }
+
+  /* Focus ring for all interactive elements */
+  :where(:focus-visible) {
+    outline: none;
+    box-shadow: var(--symphony-focus-ring);
+  }
+
+  /* =============================================
+     SCROLLBAR STYLING (WebKit)
+     ============================================= */
+
+  ::-webkit-scrollbar {
+    inline-size: 12px;
+    block-size: 12px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--symphony-surface-alt);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--symphony-border);
+    border-radius: var(--symphony-radius-full);
+    border: 3px solid var(--symphony-surface-alt);
+
+    &:hover {
+      background: var(--symphony-text-muted);
+    }
+  }
+
+  /* Firefox scrollbar */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: var(--symphony-border) var(--symphony-surface-alt);
+  }
+
+  /* =============================================
+     PRINT ADJUSTMENTS
+     ============================================= */
+
+  @media print {
+    :where(a[href^="http"])::after {
+      content: ' (' attr(href) ')';
+      font-size: var(--symphony-text-sm);
+      font-weight: normal;
+    }
+
+    :where(abbr[title])::after {
+      content: ' (' attr(title) ')';
+    }
+  }
+}

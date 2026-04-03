@@ -1,0 +1,583 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Symphony CSS 2.0 Component Schema",
+    "description": "JSON Schema for Symphony CSS components, enabling AI-powered code generation",
+    "version": "2.0.0",
+    "definitions": {
+        "variantButton": {
+            "type": "string",
+            "enum": [
+                "primary",
+                "secondary",
+                "success",
+                "warning",
+                "danger",
+                "outline",
+                "ghost",
+                "link"
+            ],
+            "description": "Button visual variant"
+        },
+        "variantCard": {
+            "type": "string",
+            "enum": [
+                "default",
+                "outlined",
+                "glass"
+            ],
+            "description": "Card visual variant"
+        },
+        "size": {
+            "type": "string",
+            "enum": [
+                "xs",
+                "sm",
+                "md",
+                "lg",
+                "xl"
+            ],
+            "description": "Component size"
+        },
+        "elevation": {
+            "type": "string",
+            "enum": [
+                "flat",
+                "raised",
+                "floating"
+            ],
+            "description": "Shadow/elevation level"
+        },
+        "spacing": {
+            "type": "string",
+            "enum": [
+                "3xs",
+                "2xs",
+                "xs",
+                "sm",
+                "md",
+                "lg",
+                "xl",
+                "2xl",
+                "3xl",
+                "4xl",
+                "5xl"
+            ],
+            "description": "Spacing scale value"
+        }
+    },
+    "components": {
+        "button": {
+            "description": "Interactive button element",
+            "element": "button",
+            "baseClass": null,
+            "attributes": {
+                "data-variant": {
+                    "$ref": "#/definitions/variantButton"
+                },
+                "data-size": {
+                    "$ref": "#/definitions/size"
+                },
+                "data-shape": {
+                    "type": "string",
+                    "enum": [
+                        "default",
+                        "pill",
+                        "square"
+                    ],
+                    "description": "Button shape"
+                }
+            },
+            "states": {
+                "disabled": {
+                    "type": "boolean",
+                    "attribute": "disabled"
+                },
+                "loading": {
+                    "type": "boolean",
+                    "attribute": "aria-busy"
+                }
+            },
+            "examples": [
+                "<button>Default</button>",
+                "<button data-variant=\"primary\">Primary</button>",
+                "<button data-variant=\"danger\" data-size=\"lg\">Delete</button>"
+            ]
+        },
+        "card": {
+            "description": "Content container with optional header/footer",
+            "element": "article",
+            "baseClass": "card",
+            "attributes": {
+                "data-variant": {
+                    "$ref": "#/definitions/variantCard"
+                },
+                "data-elevation": {
+                    "$ref": "#/definitions/elevation"
+                },
+                "data-layout": {
+                    "type": "string",
+                    "enum": [
+                        "vertical",
+                        "horizontal"
+                    ],
+                    "description": "Card content direction"
+                }
+            },
+            "children": {
+                "header": {
+                    "element": "header",
+                    "optional": true
+                },
+                "body": {
+                    "element": "div",
+                    "class": "card-body",
+                    "optional": true
+                },
+                "footer": {
+                    "element": "footer",
+                    "optional": true
+                },
+                "image": {
+                    "element": "img",
+                    "optional": true
+                }
+            },
+            "examples": [
+                "<article class=\"card\"><h3>Title</h3><p>Content</p></article>",
+                "<article class=\"card\" data-elevation=\"floating\"><header>Header</header><p>Body</p></article>"
+            ]
+        },
+        "dialog": {
+            "description": "Modal dialog or drawer",
+            "element": "dialog",
+            "baseClass": null,
+            "attributes": {
+                "data-size": {
+                    "$ref": "#/definitions/size"
+                },
+                "data-drawer": {
+                    "type": "string",
+                    "enum": [
+                        "right",
+                        "left",
+                        "bottom"
+                    ],
+                    "description": "Slide-in drawer position"
+                },
+                "data-type": {
+                    "type": "string",
+                    "enum": [
+                        "default",
+                        "alert",
+                        "confirm"
+                    ],
+                    "description": "Dialog type"
+                }
+            },
+            "methods": {
+                "open": "element.showModal()",
+                "close": "element.close()"
+            },
+            "examples": [
+                "<dialog><p>Content</p></dialog>",
+                "<dialog data-size=\"lg\" data-drawer=\"right\">Drawer content</dialog>"
+            ]
+        },
+        "accordion": {
+            "description": "Expandable content sections",
+            "element": "details",
+            "baseClass": null,
+            "groupClass": "accordion",
+            "attributes": {
+                "data-variant": {
+                    "type": "string",
+                    "enum": [
+                        "default",
+                        "flush",
+                        "card",
+                        "filled"
+                    ]
+                },
+                "data-size": {
+                    "$ref": "#/definitions/size"
+                },
+                "data-indicator": {
+                    "type": "string",
+                    "enum": [
+                        "chevron",
+                        "plus",
+                        "none"
+                    ]
+                }
+            },
+            "children": {
+                "summary": {
+                    "element": "summary",
+                    "required": true
+                },
+                "content": {
+                    "description": "Any content after summary"
+                }
+            },
+            "examples": [
+                "<details><summary>Title</summary><p>Content</p></details>",
+                "<div class=\"accordion\"><details><summary>Q1</summary><p>A1</p></details></div>"
+            ]
+        },
+        "navigation": {
+            "description": "Navigation menu",
+            "element": "nav",
+            "baseClass": null,
+            "attributes": {
+                "data-direction": {
+                    "type": "string",
+                    "enum": [
+                        "horizontal",
+                        "vertical"
+                    ]
+                },
+                "data-style": {
+                    "type": "string",
+                    "enum": [
+                        "default",
+                        "pills",
+                        "underline"
+                    ]
+                },
+                "aria-label": {
+                    "type": "string",
+                    "description": "Accessible label for the navigation"
+                }
+            },
+            "children": {
+                "list": {
+                    "element": "ul",
+                    "required": true
+                },
+                "items": {
+                    "element": "li",
+                    "multiple": true
+                },
+                "links": {
+                    "element": "a",
+                    "multiple": true
+                }
+            },
+            "specialTypes": {
+                "breadcrumb": {
+                    "aria-label": "Breadcrumb"
+                },
+                "pagination": {
+                    "aria-label": "Pagination"
+                }
+            },
+            "examples": [
+                "<nav><ul><li><a href=\"/\">Home</a></li></ul></nav>",
+                "<nav aria-label=\"Breadcrumb\"><ol><li><a href=\"/\">Home</a></li></ol></nav>"
+            ]
+        },
+        "table": {
+            "description": "Data table",
+            "element": "table",
+            "baseClass": null,
+            "wrapperClass": "table-wrapper",
+            "attributes": {
+                "data-striped": {
+                    "type": "boolean"
+                },
+                "data-hoverable": {
+                    "type": "boolean"
+                },
+                "data-bordered": {
+                    "type": "boolean"
+                },
+                "data-size": {
+                    "type": "string",
+                    "enum": [
+                        "compact",
+                        "default",
+                        "comfortable"
+                    ]
+                },
+                "data-responsive": {
+                    "type": "string",
+                    "enum": [
+                        "scroll",
+                        "stack"
+                    ]
+                }
+            },
+            "children": {
+                "thead": {
+                    "element": "thead"
+                },
+                "tbody": {
+                    "element": "tbody",
+                    "required": true
+                },
+                "tfoot": {
+                    "element": "tfoot",
+                    "optional": true
+                }
+            },
+            "examples": [
+                "<table><thead><tr><th>Name</th></tr></thead><tbody><tr><td>John</td></tr></tbody></table>",
+                "<table data-striped data-hoverable>...</table>"
+            ]
+        },
+        "form": {
+            "description": "Form elements",
+            "elements": {
+                "input": {
+                    "element": "input",
+                    "attributes": {
+                        "data-size": {
+                            "$ref": "#/definitions/size"
+                        },
+                        "data-state": {
+                            "type": "string",
+                            "enum": [
+                                "default",
+                                "error",
+                                "success"
+                            ]
+                        }
+                    }
+                },
+                "textarea": {
+                    "element": "textarea",
+                    "attributes": {
+                        "data-resize": {
+                            "type": "string",
+                            "enum": [
+                                "vertical",
+                                "horizontal",
+                                "both",
+                                "none"
+                            ]
+                        }
+                    }
+                },
+                "select": {
+                    "element": "select",
+                    "attributes": {
+                        "data-size": {
+                            "$ref": "#/definitions/size"
+                        }
+                    }
+                },
+                "checkbox": {
+                    "element": "input",
+                    "type": "checkbox",
+                    "attributes": {
+                        "data-custom": {
+                            "type": "boolean"
+                        }
+                    }
+                },
+                "radio": {
+                    "element": "input",
+                    "type": "radio",
+                    "attributes": {
+                        "data-custom": {
+                            "type": "boolean"
+                        }
+                    }
+                },
+                "switch": {
+                    "element": "input",
+                    "type": "checkbox",
+                    "attributes": {
+                        "role": "switch"
+                    }
+                }
+            },
+            "validation": {
+                "nativeStates": [
+                    ":user-valid",
+                    ":user-invalid"
+                ],
+                "ariaAttributes": [
+                    "aria-invalid",
+                    "aria-describedby"
+                ]
+            }
+        },
+        "container": {
+            "description": "Content container with max-width",
+            "element": "div",
+            "baseClass": "container",
+            "attributes": {
+                "data-size": {
+                    "type": "string",
+                    "enum": [
+                        "narrow",
+                        "default",
+                        "wide",
+                        "full",
+                        "prose"
+                    ]
+                }
+            },
+            "examples": [
+                "<div class=\"container\">Content</div>",
+                "<div class=\"container\" data-size=\"narrow\">Narrow content</div>"
+            ]
+        },
+        "grid": {
+            "description": "Responsive grid layout",
+            "element": "div",
+            "baseClass": "grid",
+            "attributes": {
+                "data-columns": {
+                    "type": "string",
+                    "enum": [
+                        "2",
+                        "3",
+                        "4",
+                        "5",
+                        "6"
+                    ]
+                },
+                "data-layout": {
+                    "type": "string",
+                    "enum": [
+                        "sidebar",
+                        "featured",
+                        "masonry"
+                    ]
+                },
+                "data-gap": {
+                    "$ref": "#/definitions/spacing"
+                }
+            },
+            "examples": [
+                "<div class=\"grid\"><div>1</div><div>2</div><div>3</div></div>",
+                "<div class=\"grid\" data-columns=\"3\">...</div>"
+            ]
+        }
+    },
+    "layout": {
+        "stack": {
+            "description": "Vertical stacking with consistent spacing",
+            "class": "stack",
+            "cssProperty": "--stack-gap",
+            "examples": [
+                "<div class=\"stack\"><h1>Title</h1><p>Text</p></div>"
+            ]
+        },
+        "cluster": {
+            "description": "Horizontal grouping that wraps",
+            "class": "cluster",
+            "cssProperty": "--cluster-gap",
+            "examples": [
+                "<div class=\"cluster\"><span>Tag 1</span><span>Tag 2</span></div>"
+            ]
+        },
+        "sidebar": {
+            "description": "Sidebar + main content layout",
+            "class": "sidebar",
+            "cssProperty": "--sidebar-width",
+            "examples": [
+                "<div class=\"sidebar\"><aside>Sidebar</aside><main>Main</main></div>"
+            ]
+        },
+        "switcher": {
+            "description": "Flexbox that switches to column on narrow",
+            "class": "switcher",
+            "cssProperty": "--switcher-threshold",
+            "examples": [
+                "<div class=\"switcher\"><div>A</div><div>B</div></div>"
+            ]
+        },
+        "center": {
+            "description": "Horizontally centered content",
+            "class": "center",
+            "examples": [
+                "<div class=\"center\">Centered</div>"
+            ]
+        },
+        "cover": {
+            "description": "Full-height section with centered content",
+            "class": "cover",
+            "examples": [
+                "<div class=\"cover\"><header></header><main>Hero</main><footer></footer></div>"
+            ]
+        }
+    },
+    "tokens": {
+        "colors": {
+            "primary": "--symphony-primary",
+            "secondary": "--symphony-secondary",
+            "success": "--symphony-success",
+            "warning": "--symphony-warning",
+            "danger": "--symphony-danger",
+            "text": "--symphony-text",
+            "textMuted": "--symphony-text-muted",
+            "background": "--symphony-background",
+            "surface": "--symphony-surface",
+            "border": "--symphony-border"
+        },
+        "spacing": {
+            "3xs": "--symphony-space-3xs",
+            "2xs": "--symphony-space-2xs",
+            "xs": "--symphony-space-xs",
+            "sm": "--symphony-space-sm",
+            "md": "--symphony-space-md",
+            "lg": "--symphony-space-lg",
+            "xl": "--symphony-space-xl",
+            "2xl": "--symphony-space-2xl",
+            "3xl": "--symphony-space-3xl"
+        },
+        "radius": {
+            "sm": "--symphony-radius-sm",
+            "md": "--symphony-radius-md",
+            "lg": "--symphony-radius-lg",
+            "xl": "--symphony-radius-xl",
+            "full": "--symphony-radius-full"
+        },
+        "typography": {
+            "fontSans": "--symphony-font-sans",
+            "fontSerif": "--symphony-font-serif",
+            "fontMono": "--symphony-font-mono",
+            "textXs": "--symphony-text-xs",
+            "textSm": "--symphony-text-sm",
+            "textBase": "--symphony-text-base",
+            "textLg": "--symphony-text-lg",
+            "textXl": "--symphony-text-xl"
+        }
+    },
+    "accessibility": {
+        "ariaAttributes": {
+            "button": [
+                "aria-pressed",
+                "aria-expanded",
+                "aria-busy",
+                "aria-disabled"
+            ],
+            "navigation": [
+                "aria-current",
+                "aria-label"
+            ],
+            "dialog": [
+                "aria-labelledby",
+                "aria-describedby",
+                "aria-modal"
+            ],
+            "form": [
+                "aria-invalid",
+                "aria-describedby",
+                "aria-required"
+            ]
+        },
+        "roles": {
+            "switch": "role=\"switch\"",
+            "tab": "role=\"tab\"",
+            "tabpanel": "role=\"tabpanel\""
+        },
+        "focusManagement": {
+            "focusVisible": ":focus-visible selector for keyboard focus",
+            "skipLink": "Use .sr-only for screen reader only content"
+        }
+    }
+}

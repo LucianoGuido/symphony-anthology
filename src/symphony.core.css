@@ -1,0 +1,32 @@
+/**
+ * Symphony Anthology v1.0
+ * Semantic and AI-first CSS framework
+ * Core entry point for production builds.
+ *
+ * Core includes the semantic baseline, layouts, components, and the
+ * reduced utility surface intended for production use.
+ */
+
+@layer symphony.reset, symphony.base, symphony.semantic, symphony.layout, symphony.components, symphony.utilities, symphony.themes, symphony.compat;
+
+@import './core/_fonts.css';
+@import './core/_reset.css';
+@import './core/_variables.css';
+@import './core/_tokens.css';
+@import './core/_base.css';
+
+@import './layout/_container.css';
+@import './layout/_grid.css';
+@import './layout/_flexbox.css';
+
+@import './components/_typography.css';
+@import './components/_buttons.css';
+@import './components/_forms.css';
+@import './components/_cards.css';
+@import './components/_dialog.css';
+@import './components/_navigation.css';
+@import './components/_accordion.css';
+@import './components/_tables.css';
+
+@import './utilities/_spacing.core.css';
+@import './utilities/_helpers.core.css';

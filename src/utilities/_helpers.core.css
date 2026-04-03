@@ -1,0 +1,422 @@
+/**
+ * Symphony Anthology v1.0
+ * Semantic and AI-first CSS framework
+ * Essential Helper Utilities Only
+ * 
+ * Optimized for minimal bundle size (<15KB gzipped)
+ * Removed: responsive visibility, object-fit, aspect-ratio, 
+ * cursor variants, touch-action, isolation, print utilities
+ */
+
+@layer symphony.utilities {
+    /* =============================================
+     DISPLAY UTILITIES
+     ============================================= */
+
+    .block {
+        display: block;
+    }
+
+    .inline-block {
+        display: inline-block;
+    }
+
+    .inline {
+        display: inline;
+    }
+
+    .flex {
+        display: flex;
+    }
+
+    .inline-flex {
+        display: inline-flex;
+    }
+
+    .grid {
+        display: grid;
+    }
+
+    .inline-grid {
+        display: inline-grid;
+    }
+
+    .hidden {
+        display: none;
+    }
+
+    /* Visibility */
+    .invisible {
+        visibility: hidden;
+    }
+
+    /* =============================================
+     POSITION UTILITIES
+     ============================================= */
+    .static {
+        position: static;
+    }
+
+    .relative {
+        position: relative;
+    }
+
+    .absolute {
+        position: absolute;
+    }
+
+    .fixed {
+        position: fixed;
+    }
+
+    .sticky {
+        position: sticky;
+    }
+
+    /* Inset utilities */
+    .inset-0 {
+        inset: 0;
+    }
+
+    .end-0 {
+        inset-inline-end: 0;
+    }
+
+    /* =============================================
+     Z-INDEX UTILITIES
+     ============================================= */
+    .z-0 {
+        z-index: 0;
+    }
+
+    .z-10 {
+        z-index: 10;
+    }
+
+    .z-20 {
+        z-index: 20;
+    }
+
+    .z-30 {
+        z-index: 30;
+    }
+
+    .z-50 {
+        z-index: 50;
+    }
+
+    .z-auto {
+        z-index: auto;
+    }
+
+    /* Semantic z-index */
+    .z-dropdown {
+        z-index: var(--symphony-z-dropdown);
+    }
+
+    .z-modal {
+        z-index: var(--symphony-z-modal);
+    }
+
+    .z-tooltip {
+        z-index: var(--symphony-z-tooltip);
+    }
+
+    /* =============================================
+     SIZING UTILITIES
+     ============================================= */
+
+    /* Width */
+    .w-full {
+        inline-size: 100%;
+    }
+
+    .w-auto {
+        inline-size: auto;
+    }
+
+    /* Height */
+    .h-full {
+        block-size: 100%;
+    }
+
+    .h-auto {
+        block-size: auto;
+    }
+
+    .h-screen {
+        block-size: 100vh;
+        block-size: 100dvh;
+    }
+
+    /* Min/Max width */
+    .min-w-0 {
+        min-inline-size: 0;
+    }
+
+    .max-w-full {
+        max-inline-size: 100%;
+    }
+
+    .max-w-prose {
+        max-inline-size: 65ch;
+    }
+
+    /* Min/Max height */
+    .min-h-0 {
+        min-block-size: 0;
+    }
+
+    .min-h-full {
+        min-block-size: 100%;
+    }
+
+    .min-h-screen {
+        min-block-size: 100vh;
+        min-block-size: 100dvh;
+    }
+
+    .max-h-full {
+        max-block-size: 100%;
+    }
+
+    .max-h-screen {
+        max-block-size: 100vh;
+        max-block-size: 100dvh;
+    }
+
+    /* Size (both dimensions) */
+    .size-full {
+        inline-size: 100%;
+        block-size: 100%;
+    }
+
+    /* =============================================
+     OVERFLOW UTILITIES
+     ============================================= */
+
+    .overflow-auto {
+        overflow: auto;
+    }
+
+    .overflow-hidden {
+        overflow: hidden;
+    }
+
+    .overflow-visible {
+        overflow: visible;
+    }
+
+    .overflow-y-auto {
+        overflow-y: auto;
+    }
+
+    .overflow-y-hidden {
+        overflow-y: hidden;
+    }
+
+    /* =============================================
+     BORDER RADIUS
+     ============================================= */
+
+    .rounded-none {
+        border-radius: 0;
+    }
+
+    .rounded-sm {
+        border-radius: var(--symphony-radius-sm);
+    }
+
+    .rounded {
+        border-radius: var(--symphony-radius-md);
+    }
+
+    .rounded-lg {
+        border-radius: var(--symphony-radius-lg);
+    }
+
+    .rounded-full {
+        border-radius: var(--symphony-radius-full);
+    }
+
+    /* =============================================
+     BORDER UTILITIES
+     ============================================= */
+
+    .border {
+        border: 1px solid var(--symphony-border);
+    }
+
+    .border-0 {
+        border: 0;
+    }
+
+    /* Border colors */
+    .border-primary {
+        border-color: var(--symphony-primary);
+    }
+
+    .border-success {
+        border-color: var(--symphony-success);
+    }
+
+    .border-danger {
+        border-color: var(--symphony-danger);
+    }
+
+    /* =============================================
+     SHADOW UTILITIES
+     ============================================= */
+
+    .shadow-none {
+        box-shadow: none;
+    }
+
+    .shadow-sm {
+        box-shadow: var(--symphony-shadow-sm);
+    }
+
+    .shadow {
+        box-shadow: var(--symphony-shadow-md);
+    }
+
+    .shadow-lg {
+        box-shadow: var(--symphony-shadow-lg);
+    }
+
+    /* =============================================
+     BACKGROUND UTILITIES
+     ============================================= */
+
+    .bg-transparent {
+        background-color: transparent;
+    }
+
+    .bg-surface {
+        background-color: var(--symphony-surface);
+    }
+
+    .bg-surface-alt {
+        background-color: var(--symphony-surface-alt);
+    }
+
+    .bg-background {
+        background-color: var(--symphony-background);
+    }
+
+    .bg-primary {
+        background-color: var(--symphony-primary);
+    }
+
+    .bg-secondary {
+        background-color: var(--symphony-secondary);
+    }
+
+    .bg-success {
+        background-color: var(--symphony-success);
+    }
+
+    .bg-warning {
+        background-color: var(--symphony-warning);
+    }
+
+    .bg-danger {
+        background-color: var(--symphony-danger);
+    }
+
+    /* =============================================
+     OPACITY UTILITIES
+     ============================================= */
+
+    .opacity-0 {
+        opacity: 0;
+    }
+
+    .opacity-50 {
+        opacity: 0.5;
+    }
+
+    .opacity-100 {
+        opacity: 1;
+    }
+
+    /* =============================================
+     INTERACTIVITY - Essential Only
+     ============================================= */
+
+    /* Cursor */
+    .cursor-pointer {
+        cursor: pointer;
+    }
+
+    .cursor-not-allowed {
+        cursor: not-allowed;
+    }
+
+    /* Pointer events */
+    .pointer-events-none {
+        pointer-events: none;
+    }
+
+    .pointer-events-auto {
+        pointer-events: auto;
+    }
+
+    /* User select */
+    .select-none {
+        user-select: none;
+    }
+
+    .select-text {
+        user-select: text;
+    }
+
+    /* =============================================
+     TRANSITIONS
+     ============================================= */
+
+    .transition {
+        transition: var(--symphony-transition-all);
+    }
+
+    .transition-colors {
+        transition: var(--symphony-transition-colors);
+    }
+
+    .transition-none {
+        transition: none;
+    }
+
+    /* =============================================
+     ACCESSIBILITY
+     ============================================= */
+
+    /* Screen reader only */
+    .sr-only {
+        position: absolute;
+        inline-size: 1px;
+        block-size: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border-width: 0;
+    }
+
+    .not-sr-only {
+        position: static;
+        inline-size: auto;
+        block-size: auto;
+        padding: 0;
+        margin: 0;
+        overflow: visible;
+        clip: auto;
+        white-space: normal;
+    }
+
+    /* Focus visible only */
+    .focus-visible:focus:not(:focus-visible) {
+        outline: none;
+    }
+}

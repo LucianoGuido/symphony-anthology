@@ -1,0 +1,489 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Symphony Schema Presets",
+    "description": "Mapping between Symphony components and Schema.org types for AI-first web development",
+    "version": "1.5.0",
+    "schemaPresets": {
+        "product-card": {
+            "schemaType": "Product",
+            "nlwebCategory": "commerce/product",
+            "properties": {
+                "name": {
+                    "schemaProperty": "name",
+                    "required": true
+                },
+                "price": {
+                    "schemaProperty": "price",
+                    "type": "PriceSpecification"
+                },
+                "image": {
+                    "schemaProperty": "image",
+                    "type": "ImageObject"
+                },
+                "description": {
+                    "schemaProperty": "description"
+                },
+                "sku": {
+                    "schemaProperty": "sku"
+                },
+                "brand": {
+                    "schemaProperty": "brand",
+                    "type": "Brand"
+                },
+                "rating": {
+                    "schemaProperty": "aggregateRating",
+                    "type": "AggregateRating"
+                }
+            },
+            "actions": {
+                "purchase": {
+                    "schemaType": "BuyAction",
+                    "nlwebAction": "purchase"
+                },
+                "add-to-cart": {
+                    "schemaType": "AddAction",
+                    "nlwebAction": "add-to-cart"
+                },
+                "compare": {
+                    "schemaType": "CompareAction",
+                    "nlwebAction": "compare"
+                }
+            },
+            "aiHints": {
+                "context": "e-commerce",
+                "intent": [
+                    "purchase",
+                    "comparison",
+                    "research"
+                ],
+                "queries": [
+                    "buy {name}",
+                    "price of {name}",
+                    "{name} reviews"
+                ]
+            }
+        },
+        "price-display": {
+            "schemaType": "PriceSpecification",
+            "nlwebCategory": "commerce/price",
+            "properties": {
+                "value": {
+                    "schemaProperty": "price",
+                    "required": true
+                },
+                "currency": {
+                    "schemaProperty": "priceCurrency",
+                    "required": true
+                },
+                "validFrom": {
+                    "schemaProperty": "validFrom"
+                },
+                "validThrough": {
+                    "schemaProperty": "validThrough"
+                }
+            },
+            "aiHints": {
+                "context": "pricing",
+                "comparable": true,
+                "queries": [
+                    "how much",
+                    "price",
+                    "cost"
+                ]
+            }
+        },
+        "purchase-action": {
+            "schemaType": "BuyAction",
+            "nlwebCategory": "commerce/action",
+            "properties": {
+                "target": {
+                    "schemaProperty": "target",
+                    "type": "EntryPoint"
+                }
+            },
+            "aiHints": {
+                "intent": "conversion",
+                "action": "purchase",
+                "trackable": true
+            }
+        },
+        "article-card": {
+            "schemaType": "Article",
+            "nlwebCategory": "content/article",
+            "properties": {
+                "headline": {
+                    "schemaProperty": "headline",
+                    "required": true
+                },
+                "author": {
+                    "schemaProperty": "author",
+                    "type": "Person"
+                },
+                "datePublished": {
+                    "schemaProperty": "datePublished"
+                },
+                "dateModified": {
+                    "schemaProperty": "dateModified"
+                },
+                "image": {
+                    "schemaProperty": "image",
+                    "type": "ImageObject"
+                },
+                "description": {
+                    "schemaProperty": "description"
+                }
+            },
+            "aiHints": {
+                "context": "content",
+                "intent": [
+                    "read",
+                    "share",
+                    "save"
+                ],
+                "queries": [
+                    "article about {headline}",
+                    "read {headline}"
+                ]
+            }
+        },
+        "author-bio": {
+            "schemaType": "Person",
+            "nlwebCategory": "content/author",
+            "properties": {
+                "name": {
+                    "schemaProperty": "name",
+                    "required": true
+                },
+                "image": {
+                    "schemaProperty": "image"
+                },
+                "jobTitle": {
+                    "schemaProperty": "jobTitle"
+                },
+                "url": {
+                    "schemaProperty": "url"
+                },
+                "sameAs": {
+                    "schemaProperty": "sameAs",
+                    "array": true
+                }
+            },
+            "aiHints": {
+                "context": "identity",
+                "queries": [
+                    "who is {name}",
+                    "articles by {name}"
+                ]
+            }
+        },
+        "hero-section": {
+            "schemaType": "WPHeader",
+            "nlwebCategory": "layout/hero",
+            "properties": {
+                "headline": {
+                    "schemaProperty": "headline"
+                },
+                "description": {
+                    "schemaProperty": "description"
+                },
+                "image": {
+                    "schemaProperty": "primaryImageOfPage"
+                }
+            },
+            "aiHints": {
+                "context": "marketing",
+                "intent": [
+                    "awareness",
+                    "engagement"
+                ],
+                "position": "above-fold"
+            }
+        },
+        "feature-grid": {
+            "schemaType": "ItemList",
+            "nlwebCategory": "layout/features",
+            "properties": {
+                "items": {
+                    "schemaProperty": "itemListElement",
+                    "type": "ListItem",
+                    "array": true
+                }
+            },
+            "aiHints": {
+                "context": "marketing",
+                "intent": [
+                    "comparison",
+                    "education"
+                ],
+                "queries": [
+                    "features of",
+                    "what does {product} include"
+                ]
+            }
+        },
+        "testimonial-card": {
+            "schemaType": "Review",
+            "nlwebCategory": "social-proof/testimonial",
+            "properties": {
+                "reviewBody": {
+                    "schemaProperty": "reviewBody",
+                    "required": true
+                },
+                "author": {
+                    "schemaProperty": "author",
+                    "type": "Person"
+                },
+                "reviewRating": {
+                    "schemaProperty": "reviewRating",
+                    "type": "Rating"
+                },
+                "datePublished": {
+                    "schemaProperty": "datePublished"
+                }
+            },
+            "aiHints": {
+                "context": "social-proof",
+                "intent": [
+                    "trust",
+                    "validation"
+                ],
+                "queries": [
+                    "reviews",
+                    "what do customers say"
+                ]
+            }
+        },
+        "pricing-table": {
+            "schemaType": "Offer",
+            "nlwebCategory": "commerce/pricing",
+            "properties": {
+                "name": {
+                    "schemaProperty": "name"
+                },
+                "price": {
+                    "schemaProperty": "price"
+                },
+                "priceCurrency": {
+                    "schemaProperty": "priceCurrency"
+                },
+                "description": {
+                    "schemaProperty": "description"
+                },
+                "itemOffered": {
+                    "schemaProperty": "itemOffered",
+                    "type": "Service"
+                }
+            },
+            "aiHints": {
+                "context": "pricing",
+                "intent": [
+                    "comparison",
+                    "purchase"
+                ],
+                "queries": [
+                    "pricing",
+                    "plans",
+                    "how much does {name} cost"
+                ]
+            }
+        },
+        "nav-menu": {
+            "schemaType": "SiteNavigationElement",
+            "nlwebCategory": "navigation/menu",
+            "properties": {
+                "name": {
+                    "schemaProperty": "name"
+                },
+                "url": {
+                    "schemaProperty": "url"
+                }
+            },
+            "aiHints": {
+                "context": "navigation",
+                "queries": [
+                    "go to {name}",
+                    "where is {name}"
+                ]
+            }
+        },
+        "breadcrumb-trail": {
+            "schemaType": "BreadcrumbList",
+            "nlwebCategory": "navigation/breadcrumb",
+            "properties": {
+                "items": {
+                    "schemaProperty": "itemListElement",
+                    "type": "ListItem",
+                    "array": true
+                }
+            },
+            "aiHints": {
+                "context": "navigation",
+                "hierarchical": true
+            }
+        },
+        "search-box": {
+            "schemaType": "SearchAction",
+            "nlwebCategory": "navigation/search",
+            "properties": {
+                "target": {
+                    "schemaProperty": "target",
+                    "type": "EntryPoint"
+                },
+                "queryInput": {
+                    "schemaProperty": "query-input"
+                }
+            },
+            "aiHints": {
+                "context": "search",
+                "intent": [
+                    "find",
+                    "discover"
+                ],
+                "queries": [
+                    "search for",
+                    "find"
+                ]
+            }
+        },
+        "contact-form": {
+            "schemaType": "ContactPoint",
+            "nlwebCategory": "forms/contact",
+            "properties": {
+                "contactType": {
+                    "schemaProperty": "contactType"
+                },
+                "email": {
+                    "schemaProperty": "email"
+                },
+                "telephone": {
+                    "schemaProperty": "telephone"
+                }
+            },
+            "aiHints": {
+                "context": "contact",
+                "intent": [
+                    "contact",
+                    "support"
+                ],
+                "queries": [
+                    "contact",
+                    "get in touch",
+                    "support"
+                ]
+            }
+        },
+        "faq-section": {
+            "schemaType": "FAQPage",
+            "nlwebCategory": "content/faq",
+            "properties": {
+                "questions": {
+                    "schemaProperty": "mainEntity",
+                    "type": "Question",
+                    "array": true
+                }
+            },
+            "aiHints": {
+                "context": "support",
+                "intent": [
+                    "answer",
+                    "help"
+                ],
+                "queries": [
+                    "how do I",
+                    "what is",
+                    "can I"
+                ]
+            }
+        },
+        "event-card": {
+            "schemaType": "Event",
+            "nlwebCategory": "content/event",
+            "properties": {
+                "name": {
+                    "schemaProperty": "name",
+                    "required": true
+                },
+                "startDate": {
+                    "schemaProperty": "startDate",
+                    "required": true
+                },
+                "endDate": {
+                    "schemaProperty": "endDate"
+                },
+                "location": {
+                    "schemaProperty": "location",
+                    "type": "Place"
+                },
+                "description": {
+                    "schemaProperty": "description"
+                },
+                "image": {
+                    "schemaProperty": "image"
+                }
+            },
+            "aiHints": {
+                "context": "events",
+                "intent": [
+                    "attend",
+                    "register",
+                    "learn"
+                ],
+                "queries": [
+                    "events",
+                    "when is {name}",
+                    "register for {name}"
+                ]
+            }
+        },
+        "video-player": {
+            "schemaType": "VideoObject",
+            "nlwebCategory": "media/video",
+            "properties": {
+                "name": {
+                    "schemaProperty": "name"
+                },
+                "description": {
+                    "schemaProperty": "description"
+                },
+                "thumbnailUrl": {
+                    "schemaProperty": "thumbnailUrl"
+                },
+                "uploadDate": {
+                    "schemaProperty": "uploadDate"
+                },
+                "duration": {
+                    "schemaProperty": "duration"
+                },
+                "contentUrl": {
+                    "schemaProperty": "contentUrl"
+                }
+            },
+            "aiHints": {
+                "context": "media",
+                "intent": [
+                    "watch",
+                    "learn"
+                ],
+                "queries": [
+                    "watch {name}",
+                    "video about"
+                ]
+            }
+        }
+    },
+    "nlwebConfig": {
+        "version": "1.0",
+        "indexableAttribute": "nlweb-indexable",
+        "categoryAttribute": "nlweb-category",
+        "queriesAttribute": "nlweb-queries",
+        "actionsAttribute": "nlweb-actions"
+    },
+    "aiConfig": {
+        "contextAttribute": "ai-context",
+        "intentAttribute": "ai-intent",
+        "trackAttribute": "ai-track",
+        "personalizeAttribute": "ai-personalize",
+        "variantAttribute": "ai-variant",
+        "segmentAttribute": "ai-segment"
+    }
+}

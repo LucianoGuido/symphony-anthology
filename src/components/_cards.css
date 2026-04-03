@@ -1,0 +1,301 @@
+/**
+ * Symphony Anthology v1.0
+ * Semantic and AI-first CSS framework
+ * Cards - Semantic Card Component with Container Queries
+ * 
+ * Philosophy:
+ * - Use <article> or <section> as card base (semantic HTML)
+ * - Container queries for component-level responsiveness
+ * - Data attributes for elevation and layout variants
+ * - Native CSS nesting for cleaner code
+ * 
+ * Usage (Semantic HTML):
+ *   <article class="card">
+ *     <header>Card Title</header>
+ *     <p>Card content...</p>
+ *     <footer>Card footer</footer>
+ *   </article>
+ * 
+ *   <article class="card" data-elevation="raised">...</article>
+ *   <article class="card" data-layout="horizontal">...</article>
+ */
+
+@layer symphony.components {
+  /* =============================================
+     SEMANTIC CARD BASE
+     Works with <article>, <section>, or .card
+     ============================================= */
+
+  :where(article.card),
+  :where(section.card),
+  :where(.card) {
+    /* Layout */
+    display: flex;
+    flex-direction: column;
+
+    /* Appearance */
+    background-color: var(--card-bg, var(--symphony-surface));
+    border: 1px solid var(--card-border, var(--symphony-border));
+    border-radius: var(--card-radius, var(--symphony-radius-lg));
+    box-shadow: var(--card-shadow, var(--symphony-shadow-sm));
+    overflow: hidden;
+
+    /* Container query context */
+    container-type: inline-size;
+    container-name: card;
+
+    /* Transition for interactive cards */
+    transition: var(--symphony-transition-shadow),
+      var(--symphony-transition-transform);
+
+    /* =========================================
+       CARD SECTIONS (header, body, footer)
+       ========================================= */
+
+    &>header,
+    &>.card-header {
+      padding: var(--card-padding, var(--symphony-space-lg));
+      border-block-end: 1px solid var(--symphony-border);
+
+      & h1,
+      & h2,
+      & h3,
+      & h4,
+      & h5,
+      & h6 {
+        margin: 0;
+        font-size: var(--symphony-text-lg);
+        font-weight: var(--symphony-font-semibold);
+        line-height: var(--symphony-leading-tight);
+      }
+
+      & p {
+        margin: 0;
+        margin-block-start: var(--symphony-space-2xs);
+        color: var(--symphony-text-muted);
+        font-size: var(--symphony-text-sm);
+      }
+    }
+
+    &>.card-body,
+    &> :not(header):not(footer):not(.card-header):not(.card-footer):not(img):not(picture):not(figure) {
+      padding: var(--card-padding, var(--symphony-space-lg));
+      flex: 1;
+    }
+
+    &>footer,
+    &>.card-footer {
+      padding: var(--card-padding, var(--symphony-space-lg));
+      border-block-start: 1px solid var(--symphony-border);
+      background-color: var(--symphony-surface-hover);
+    }
+
+    /* =========================================
+       CARD MEDIA (images, videos)
+       ========================================= */
+
+    &>img,
+    &>picture,
+    &>figure,
+    &>.card-image {
+      width: 100%;
+      display: block;
+
+      & img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+      }
+    }
+
+    /* Image at top */
+    &>img:first-child,
+    &>picture:first-child,
+    &>figure:first-child {
+      border-start-start-radius: calc(var(--card-radius, var(--symphony-radius-lg)) - 1px);
+      border-start-end-radius: calc(var(--card-radius, var(--symphony-radius-lg)) - 1px);
+    }
+  }
+
+  /* =============================================
+     CONTAINER QUERY RESPONSIVE BEHAVIOR
+     Card adapts to its own width, not viewport
+     ============================================= */
+
+  @container card (min-width: 400px) {
+
+    :where(article.card),
+    :where(section.card),
+    :where(.card) {
+      --card-padding: var(--symphony-space-xl);
+    }
+  }
+
+  @container card (min-width: 600px) {
+    :where(.card[data-layout="horizontal"]) {
+      flex-direction: row;
+
+      &>img:first-child,
+      &>picture:first-child,
+      &>.card-image {
+        width: 40%;
+        max-width: 300px;
+        border-radius: 0;
+        border-start-start-radius: calc(var(--card-radius, var(--symphony-radius-lg)) - 1px);
+        border-end-start-radius: calc(var(--card-radius, var(--symphony-radius-lg)) - 1px);
+      }
+    }
+  }
+
+  /* =============================================
+     ELEVATION VARIANTS (Data Attributes)
+     data-elevation="flat|raised|floating"
+     ============================================= */
+
+  /* Flat - No shadow, just border */
+  :where(.card[data-elevation="flat"]) {
+    --card-shadow: none;
+  }
+
+  /* Raised - Default shadow */
+  :where(.card[data-elevation="raised"]) {
+    --card-shadow: var(--symphony-shadow-md);
+  }
+
+  /* Floating - Prominent shadow */
+  :where(.card[data-elevation="floating"]) {
+    --card-shadow: var(--symphony-shadow-xl);
+    --card-border: transparent;
+  }
+
+  /* =============================================
+     INTERACTIVE CARDS
+     data-interactive for clickable cards
+     ============================================= */
+
+  :where(.card[data-interactive]) {
+    cursor: pointer;
+
+    &:hover {
+      --card-shadow: var(--symphony-shadow-lg);
+      transform: translateY(-2px);
+    }
+
+    &:active {
+      transform: translateY(0);
+    }
+
+    &:focus-visible {
+      outline: none;
+      box-shadow: var(--symphony-focus-ring);
+    }
+  }
+
+  /* Link card - entire card is clickable */
+  :where(.card:has(> a[data-stretch])) {
+    position: relative;
+
+    &>a[data-stretch] {
+      &::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+      }
+
+      text-decoration: none;
+      color: inherit;
+    }
+  }
+
+  /* =============================================
+     LAYOUT VARIANTS (Data Attributes)
+     ============================================= */
+
+  /* Horizontal layout */
+  :where(.card[data-layout="horizontal"]) {
+    /* Container query handles responsive behavior */
+  }
+
+  /* Compact - Less padding */
+  :where(.card[data-size="compact"]) {
+    --card-padding: var(--symphony-space-md);
+    --card-radius: var(--symphony-radius-md);
+  }
+
+  /* Large - More padding */
+  :where(.card[data-size="large"]) {
+    --card-padding: var(--symphony-space-2xl);
+    --card-radius: var(--symphony-radius-xl);
+  }
+
+  /* =============================================
+     CARD OVERLAY (Image with text overlay)
+     ============================================= */
+
+  :where(.card[data-overlay]) {
+    position: relative;
+    color: var(--symphony-text-inverted);
+
+    &>img:first-child,
+    &>picture:first-child {
+      position: absolute;
+      inset: 0;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0;
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top,
+          oklch(0% 0 0 / 0.8) 0%,
+          oklch(0% 0 0 / 0.4) 50%,
+          oklch(0% 0 0 / 0) 100%);
+      z-index: 1;
+    }
+
+    &>*:not(img):not(picture) {
+      position: relative;
+      z-index: 2;
+    }
+
+    &>.card-body,
+    &> :not(header):not(footer):not(img):not(picture) {
+      margin-block-start: auto;
+    }
+  }
+
+  /* =============================================
+     CARD GRID (For card collections)
+     ============================================= */
+
+  .card-grid {
+    display: grid;
+    gap: var(--symphony-space-lg);
+    grid-template-columns: repeat(auto-fit,
+        minmax(min(100%, 280px), 1fr));
+  }
+
+  .card-grid[data-columns="2"] {
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 350px), 1fr));
+  }
+
+  .card-grid[data-columns="4"] {
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
+  }
+
+  /* =============================================
+     FEATURED CARD (Spans multiple columns)
+     ============================================= */
+
+  :where(.card[data-featured]) {
+    grid-column: span 2;
+
+    @container (max-width: 600px) {
+      grid-column: span 1;
+    }
+  }
+
+}

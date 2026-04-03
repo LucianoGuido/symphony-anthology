@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Symphony Anthology</title>
+  <link rel="stylesheet" href="dist/symphony.core.css">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <nav aria-label="Primary" data-layout="split" data-mobile="collapse" data-size="compact">
+        <a href="/" data-role="brand">
+          <svg viewBox="0 0 70 70" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M0 48.076C1.561 52.241 3.836 56.049 6.678 59.36C14.91 54.369 20.412 45.332 20.412 35L0 48.076ZM6.678 10.64C3.836 13.944 1.561 17.752 0 21.917L20.412 35C20.412 24.668 14.917 15.624 6.678 10.64ZM59.36 63.322C54.369 55.09 45.332 49.588 35 49.588L48.076 70C52.241 68.439 56.056 66.164 59.36 63.322ZM10.64 63.322C13.951 66.171 17.752 68.446 21.917 70L35 49.588C24.668 49.588 15.624 55.083 10.64 63.322ZM63.322 10.64C55.09 15.631 49.588 24.668 49.588 35L70 21.924C68.439 17.759 66.164 13.944 63.322 10.64ZM63.322 59.36C66.171 56.049 68.446 52.248 70 48.083L49.588 35C49.588 45.332 55.083 54.376 63.322 59.36ZM48.076 0L35 20.412C45.325 20.412 54.369 14.91 59.353 6.678C56.056 3.836 52.241 1.561 48.076 0ZM10.64 6.678C15.631 14.91 24.668 20.412 35 20.412L21.924 0C17.759 1.561 13.944 3.836 10.64 6.678Z" fill="#6447FB"/>
+          </svg>
+          <span>Symphony Anthology</span>
+        </a>
+        <button type="button" data-role="nav-toggle" aria-controls="primary-navigation" aria-expanded="false" aria-label="Open navigation menu">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+            <path d="M4 7H20M4 12H20M4 17H20" stroke="currentColor" stroke-linecap="round" stroke-width="1.8"/>
+          </svg>
+        </button>
+        <ul id="primary-navigation">
+          <li><a href="#why">Why</a></li>
+          <li><a href="#semantic">Semantic-first</a></li>
+          <li><a href="#ai">AI-first</a></li>
+          <li><a href="docs/index.html">Docs</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section>
+      <div class="container">
+        <header>
+          <p>Semantic-first CSS, classes optional.</p>
+          <h1>Anthology gives semantic HTML a real default shape for the AI era.</h1>
+          <p>
+            Write meaningful HTML first. Use data attributes when you need intent.
+            Reach for layout primitives only when the document actually needs them.
+          </p>
+          <p>
+            <a href="docs/index.html" data-variant="primary">Read the docs</a>
+            <a href="docs/examples/ai-first-demo.html">See the AI-ready demo</a>
+          </p>
+        </header>
+      </div>
+    </section>
+
+    <section id="why">
+      <div class="container">
+        <header>
+          <h2>Why Anthology exists</h2>
+        </header>
+        <article>
+          <p>
+            Utility-heavy HTML is fast to assemble but harder to read, maintain, and
+            understand for both humans and generators. Anthology starts from semantic
+            structure instead.
+          </p>
+          <p>
+            The goal is a semantic default that stays legible for authors, generators, and
+            audits: stable semantics, predictable variants, and machine-readable
+            metadata for generators, audits, and search systems.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section id="semantic">
+      <div class="container">
+        <header>
+          <h2>Three levels, one mental model</h2>
+        </header>
+        <ol>
+          <li>
+            <strong>Semantic HTML by default.</strong>
+            Start with headings, paragraphs, lists, forms, tables, articles, and navigation.
+          </li>
+          <li>
+            <strong>Data attributes for intent.</strong>
+            Use `data-variant`, `data-size`, `data-layout`, and similar attributes only when needed.
+          </li>
+          <li>
+            <strong>Optional primitives.</strong>
+            Container, grid, stack, cluster, and related helpers stay available for more complex compositions.
+          </li>
+        </ol>
+        <article>
+          <header>
+            <h3>Example</h3>
+          </header>
+          <p>
+            A product section can be represented with an article, a heading, supporting text,
+            a price, and a primary action. That structure is readable without framework-specific knowledge.
+          </p>
+          <p>
+            <a href="docs/AI_INTEGRATION.md">Read the AI integration guide</a>
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section id="ai">
+      <div class="container">
+        <header>
+          <h2>AI-first without pretending to be magic</h2>
+        </header>
+        <article>
+          <p>
+            Anthology is AI-first today because the contract is stable: semantic HTML,
+            explicit variants, and metadata exports that tools can consume directly.
+          </p>
+          <ul>
+            <li><a href="dist/tokens.json">Design tokens</a></li>
+            <li><a href="docs/symphony-schema.json">Component schema</a></li>
+            <li><a href="docs/schema-presets.json">Schema presets</a></li>
+          </ul>
+          <p>
+            Custom elements, schema injection, and verification tooling are future add-ons.
+            The current package focuses on a strong semantic baseline.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <header>
+          <h2>Start from the public contract</h2>
+        </header>
+        <p>
+          If you are new to Anthology, begin with the docs and the AI-ready demo.
+          If you are validating the package itself, use the internal preview and the browser harness.
+        </p>
+        <ul>
+          <li><a href="docs/index.html">Documentation</a></li>
+          <li><a href="docs/examples/ai-first-demo.html">AI-ready demo</a></li>
+          <li><a href="testing/preview.html">Internal preview</a></li>
+          <li><a href="testing/index.html">Browser smoke harness</a></li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>Symphony Anthology is the implementation layer in the wider Symphony ecosystem.</p>
+      <p>
+        <a href="README.md">README</a>
+        <a href="CONTRIBUTING.md">Contributing</a>
+      </p>
+    </div>
+  </footer>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Symphony Anthology",
+    "applicationCategory": "DeveloperApplication",
+    "description": "Semantic-first CSS framework with AI-ready metadata and optional layout primitives.",
+    "softwareVersion": "1.0.1"
+  }
+  </script>
+  <script src="site-nav.js"></script>
+</body>
+</html>

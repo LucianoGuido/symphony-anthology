@@ -1,0 +1,488 @@
+/**
+ * Symphony Anthology v1.0
+ * Semantic and AI-first CSS framework
+ * Design Tokens - OKLCH Color System & Modern CSS Properties
+ * 
+ * Color Philosophy:
+ * - OKLCH for perceptually uniform colors
+ * - P3 gamut support with sRGB fallbacks
+ * - Dark mode by default with light mode support
+ * 
+ * Spacing Philosophy:
+ * - 8pt base grid (0.5rem)
+ * - Semantic naming (xs, sm, md, lg, xl)
+ * - Fluid scales with clamp()
+ * 
+ * Typography Philosophy:
+ * - Modular scale (1.25 ratio - Major Third)
+ * - System font stack with custom font override
+ * - Fluid typography with clamp()
+ */
+
+/* ============================================
+   @PROPERTY DEFINITIONS (Typed CSS Properties)
+   Enable smooth animations on custom properties
+   ============================================ */
+
+@property --symphony-hue-primary {
+  syntax: '<number>';
+  inherits: true;
+  initial-value: 264;
+}
+
+@property --symphony-hue-secondary {
+  syntax: '<number>';
+  inherits: true;
+  initial-value: 210;
+}
+
+@property --symphony-hue-accent {
+  syntax: '<number>';
+  inherits: true;
+  initial-value: 30;
+}
+
+@property --symphony-lightness {
+  syntax: '<percentage>';
+  inherits: true;
+  initial-value: 60%;
+}
+
+@property --symphony-chroma {
+  syntax: '<number>';
+  inherits: true;
+  initial-value: 0.15;
+}
+
+/* ============================================
+   BASE LAYER - Core Design Tokens
+   ============================================ */
+
+@layer symphony.base {
+  :root {
+    /* =============================================
+       COLOR SYSTEM - OKLCH (Perceptually Uniform)
+       Format: oklch(Lightness Chroma Hue)
+       L: 0-100% | C: 0-0.4 | H: 0-360 degrees
+       ============================================= */
+
+    /* Hue Palette - Easy to customize */
+    --symphony-hue-primary: 264;
+    /* Purple/Blue */
+    --symphony-hue-secondary: 210;
+    /* Blue */
+    --symphony-hue-accent: 30;
+    /* Orange/Amber */
+    --symphony-hue-success: 142;
+    /* Green */
+    --symphony-hue-warning: 45;
+    /* Yellow/Orange */
+    --symphony-hue-danger: 25;
+    /* Red/Orange */
+    --symphony-hue-neutral: 264;
+    /* Matches primary */
+
+    /* Primary Color Scale */
+    --symphony-primary: oklch(60% 0.15 var(--symphony-hue-primary));
+    --symphony-primary-light: oklch(75% 0.12 var(--symphony-hue-primary));
+    --symphony-primary-dark: oklch(45% 0.18 var(--symphony-hue-primary));
+    --symphony-primary-hover: oklch(55% 0.17 var(--symphony-hue-primary));
+    --symphony-primary-active: oklch(50% 0.19 var(--symphony-hue-primary));
+
+    /* Secondary Color Scale */
+    --symphony-secondary: oklch(65% 0.12 var(--symphony-hue-secondary));
+    --symphony-secondary-light: oklch(80% 0.08 var(--symphony-hue-secondary));
+    --symphony-secondary-dark: oklch(50% 0.15 var(--symphony-hue-secondary));
+    --symphony-secondary-hover: oklch(60% 0.14 var(--symphony-hue-secondary));
+
+    /* Accent Color */
+    --symphony-accent: oklch(70% 0.18 var(--symphony-hue-accent));
+    --symphony-accent-light: oklch(85% 0.12 var(--symphony-hue-accent));
+    --symphony-accent-dark: oklch(55% 0.20 var(--symphony-hue-accent));
+
+    /* Semantic Status Colors */
+    --symphony-success: oklch(55% 0.16 var(--symphony-hue-success));
+    --symphony-success-light: oklch(90% 0.08 var(--symphony-hue-success));
+    --symphony-success-dark: oklch(40% 0.18 var(--symphony-hue-success));
+
+    --symphony-warning: oklch(75% 0.15 var(--symphony-hue-warning));
+    --symphony-warning-light: oklch(92% 0.08 var(--symphony-hue-warning));
+    --symphony-warning-dark: oklch(55% 0.18 var(--symphony-hue-warning));
+
+    --symphony-danger: oklch(55% 0.20 var(--symphony-hue-danger));
+    --symphony-danger-light: oklch(90% 0.08 var(--symphony-hue-danger));
+    --symphony-danger-dark: oklch(40% 0.22 var(--symphony-hue-danger));
+
+    /* =============================================
+       SURFACE & TEXT COLORS (Light Mode Default)
+       ============================================= */
+
+    --symphony-background: oklch(99% 0.005 var(--symphony-hue-neutral));
+    --symphony-surface: oklch(100% 0 0);
+    --symphony-surface-elevated: oklch(100% 0 0);
+    --symphony-surface-hover: oklch(97% 0.01 var(--symphony-hue-neutral));
+    --symphony-surface-alt: oklch(96% 0.01 var(--symphony-hue-neutral));
+
+    --symphony-text: oklch(20% 0.02 var(--symphony-hue-neutral));
+    --symphony-text-secondary: oklch(40% 0.02 var(--symphony-hue-neutral));
+    --symphony-text-muted: oklch(55% 0.02 var(--symphony-hue-neutral));
+    --symphony-text-inverted: oklch(98% 0.005 var(--symphony-hue-neutral));
+
+    --symphony-border: oklch(90% 0.01 var(--symphony-hue-neutral));
+    --symphony-border-hover: oklch(80% 0.02 var(--symphony-hue-neutral));
+    --symphony-border-focus: var(--symphony-primary);
+
+    /* =============================================
+       TYPOGRAPHY SYSTEM (Modular Scale 1.25)
+       Base: 1rem (16px) | Ratio: 1.25 (Major Third)
+       ============================================= */
+
+    /* Font Families */
+    --symphony-font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --symphony-font-serif: 'Georgia', Cambria, 'Times New Roman', serif;
+    --symphony-font-mono: 'JetBrains Mono', 'Fira Code', 'SF Mono', Consolas, monospace;
+    --symphony-font-display: var(--symphony-font-sans);
+    --symphony-font-heading: var(--symphony-font-display);
+    --symphony-font-normal: var(--symphony-font-regular);
+
+    /* Type Scale (1.25 Major Third) */
+    --symphony-text-xs: clamp(0.64rem, 0.6rem + 0.2vw, 0.75rem);
+    /* 10-12px */
+    --symphony-text-sm: clamp(0.8rem, 0.75rem + 0.25vw, 0.875rem);
+    /* 12-14px */
+    --symphony-text-base: clamp(1rem, 0.95rem + 0.25vw, 1rem);
+    /* 16px */
+    --symphony-text-lg: clamp(1.125rem, 1rem + 0.5vw, 1.25rem);
+    /* 18-20px */
+    --symphony-text-xl: clamp(1.25rem, 1.1rem + 0.75vw, 1.563rem);
+    /* 20-25px */
+    --symphony-text-2xl: clamp(1.563rem, 1.3rem + 1vw, 1.953rem);
+    /* 25-31px */
+    --symphony-text-3xl: clamp(1.953rem, 1.6rem + 1.5vw, 2.441rem);
+    /* 31-39px */
+    --symphony-text-4xl: clamp(2.441rem, 2rem + 2vw, 3.052rem);
+    /* 39-49px */
+    --symphony-text-5xl: clamp(3.052rem, 2.5rem + 2.5vw, 3.815rem);
+    /* 49-61px */
+
+    /* Legacy font size mappings for compatibility */
+    --symphony-font-size-sm: var(--symphony-text-sm);
+    --symphony-font-size-base: var(--symphony-text-base);
+    --symphony-font-size-lg: var(--symphony-text-lg);
+    --symphony-font-size-xl: var(--symphony-text-xl);
+    --symphony-font-size-h1: var(--symphony-text-5xl);
+    --symphony-font-size-h2: var(--symphony-text-4xl);
+    --symphony-font-size-h3: var(--symphony-text-3xl);
+    --symphony-font-size-h4: var(--symphony-text-2xl);
+    --symphony-font-size-h5: var(--symphony-text-xl);
+    --symphony-font-size-h6: var(--symphony-text-lg);
+
+    /* Font Weights */
+    --symphony-font-thin: 100;
+    --symphony-font-light: 300;
+    --symphony-font-regular: 400;
+    --symphony-font-medium: 500;
+    --symphony-font-semibold: 600;
+    --symphony-font-bold: 700;
+    --symphony-font-black: 900;
+
+    /* Legacy weight mappings */
+    --symphony-font-weight-light: var(--symphony-font-light);
+    --symphony-font-weight-normal: var(--symphony-font-regular);
+    --symphony-font-weight-medium: var(--symphony-font-medium);
+    --symphony-font-weight-semibold: var(--symphony-font-semibold);
+    --symphony-font-weight-bold: var(--symphony-font-bold);
+
+    /* Line Heights */
+    --symphony-leading-none: 1;
+    --symphony-leading-tight: 1.25;
+    --symphony-leading-snug: 1.375;
+    --symphony-leading-normal: 1.5;
+    --symphony-leading-relaxed: 1.625;
+    --symphony-leading-loose: 2;
+
+    /* Legacy mappings */
+    --symphony-line-height-tight: var(--symphony-leading-tight);
+    --symphony-line-height-normal: var(--symphony-leading-normal);
+    --symphony-line-height-relaxed: var(--symphony-leading-relaxed);
+    --symphony-line-height-loose: var(--symphony-leading-loose);
+
+    /* Letter Spacing */
+    --symphony-tracking-tighter: -0.05em;
+    --symphony-tracking-tight: -0.025em;
+    --symphony-tracking-normal: 0;
+    --symphony-tracking-wide: 0.025em;
+    --symphony-tracking-wider: 0.05em;
+    --symphony-tracking-widest: 0.1em;
+
+    /* =============================================
+       SPACING SYSTEM (8pt Grid Base)
+       Using semantic names for consistency
+       ============================================= */
+
+    --symphony-space-3xs: 0.125rem;
+    /* 2px */
+    --symphony-space-2xs: 0.25rem;
+    /* 4px */
+    --symphony-space-xs: 0.5rem;
+    /* 8px */
+    --symphony-space-sm: 0.75rem;
+    /* 12px */
+    --symphony-space-md: 1rem;
+    /* 16px */
+    --symphony-space-lg: 1.5rem;
+    /* 24px */
+    --symphony-space-xl: 2rem;
+    /* 32px */
+    --symphony-space-2xl: 3rem;
+    /* 48px */
+    --symphony-space-3xl: 4rem;
+    /* 64px */
+    --symphony-space-4xl: 6rem;
+    /* 96px */
+    --symphony-space-5xl: 8rem;
+    /* 128px */
+
+    /* Legacy spacing mappings for compatibility */
+    --symphony-spacing-0: 0;
+    --symphony-spacing-1: var(--symphony-space-2xs);
+    --symphony-spacing-2: var(--symphony-space-xs);
+    --symphony-spacing-3: var(--symphony-space-sm);
+    --symphony-spacing-4: var(--symphony-space-md);
+    --symphony-spacing-5: 1.25rem;
+    --symphony-spacing-6: var(--symphony-space-lg);
+    --symphony-spacing-8: var(--symphony-space-xl);
+    --symphony-spacing-10: 2.5rem;
+    --symphony-spacing-12: var(--symphony-space-2xl);
+    --symphony-spacing-16: var(--symphony-space-3xl);
+    --symphony-spacing-20: 5rem;
+    --symphony-spacing-24: var(--symphony-space-4xl);
+
+    /* Fluid Spacing (responsive) */
+    --symphony-space-fluid-sm: clamp(0.5rem, 0.4rem + 0.5vw, 0.75rem);
+    --symphony-space-fluid-md: clamp(1rem, 0.8rem + 1vw, 1.5rem);
+    --symphony-space-fluid-lg: clamp(1.5rem, 1.2rem + 1.5vw, 2.5rem);
+    --symphony-space-fluid-xl: clamp(2rem, 1.5rem + 2.5vw, 4rem);
+
+    /* =============================================
+       BORDER RADIUS
+       ============================================= */
+
+    --symphony-radius-none: 0;
+    --symphony-radius-sm: 0.25rem;
+    /* 4px */
+    --symphony-radius-md: 0.5rem;
+    /* 8px */
+    --symphony-radius-lg: 0.75rem;
+    /* 12px */
+    --symphony-radius-xl: 1rem;
+    /* 16px */
+    --symphony-radius-2xl: 1.5rem;
+    /* 24px */
+    --symphony-radius-full: 9999px;
+
+    /* Legacy mapping */
+    --symphony-radius-base: var(--symphony-radius-md);
+
+    /* =============================================
+       SHADOWS (Elevation System)
+       Using oklch for color-aware shadows
+       ============================================= */
+
+    --symphony-shadow-color: oklch(20% 0.02 var(--symphony-hue-neutral) / 0.1);
+
+    --symphony-shadow-xs: 0 1px 2px var(--symphony-shadow-color);
+    --symphony-shadow-sm: 0 1px 3px var(--symphony-shadow-color),
+      0 1px 2px -1px var(--symphony-shadow-color);
+    --symphony-shadow-md: 0 4px 6px -1px var(--symphony-shadow-color),
+      0 2px 4px -2px var(--symphony-shadow-color);
+    --symphony-shadow-lg: 0 10px 15px -3px var(--symphony-shadow-color),
+      0 4px 6px -4px var(--symphony-shadow-color);
+    --symphony-shadow-xl: 0 20px 25px -5px var(--symphony-shadow-color),
+      0 8px 10px -6px var(--symphony-shadow-color);
+    --symphony-shadow-2xl: 0 25px 50px -12px oklch(20% 0.02 var(--symphony-hue-neutral) / 0.25);
+    --symphony-shadow-inner: inset 0 2px 4px var(--symphony-shadow-color);
+
+    /* Legacy mapping */
+    --symphony-shadow-base: var(--symphony-shadow-sm);
+
+    /* =============================================
+       TRANSITIONS & ANIMATIONS
+       ============================================= */
+
+    --symphony-duration-instant: 50ms;
+    --symphony-duration-fast: 150ms;
+    --symphony-duration-normal: 250ms;
+    --symphony-duration-slow: 400ms;
+    --symphony-duration-slower: 600ms;
+
+    --symphony-ease-linear: linear;
+    --symphony-ease-in: cubic-bezier(0.4, 0, 1, 1);
+    --symphony-ease-out: cubic-bezier(0, 0, 0.2, 1);
+    --symphony-ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+    --symphony-ease-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    --symphony-ease-spring: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+    --symphony-transition-colors: color var(--symphony-duration-fast) var(--symphony-ease-out),
+      background-color var(--symphony-duration-fast) var(--symphony-ease-out),
+      border-color var(--symphony-duration-fast) var(--symphony-ease-out);
+    --symphony-transition-transform: transform var(--symphony-duration-fast) var(--symphony-ease-out);
+    --symphony-transition-shadow: box-shadow var(--symphony-duration-fast) var(--symphony-ease-out);
+    --symphony-transition-all: all var(--symphony-duration-normal) var(--symphony-ease-out);
+
+    /* Legacy mapping */
+    --symphony-transition-duration: var(--symphony-duration-normal);
+    --symphony-transition-timing: var(--symphony-ease-out);
+    --symphony-transition-base: var(--symphony-transition-all);
+
+    /* =============================================
+       Z-INDEX SCALE
+       ============================================= */
+
+    --symphony-z-behind: -1;
+    --symphony-z-base: 0;
+    --symphony-z-dropdown: 100;
+    --symphony-z-sticky: 200;
+    --symphony-z-fixed: 300;
+    --symphony-z-overlay: 400;
+    --symphony-z-modal: 500;
+    --symphony-z-popover: 600;
+    --symphony-z-tooltip: 700;
+    --symphony-z-max: 9999;
+
+    /* =============================================
+       LAYOUT TOKENS
+       ============================================= */
+
+    /* Content widths (using ch for readable text) */
+    --symphony-width-prose: 65ch;
+    --symphony-width-narrow: 45ch;
+    --symphony-width-wide: 85ch;
+
+    /* Container max-widths */
+    --symphony-container-xs: 20rem;
+    /* 320px */
+    --symphony-container-sm: 24rem;
+    /* 384px */
+    --symphony-container-md: 28rem;
+    /* 448px */
+    --symphony-container-lg: 32rem;
+    /* 512px */
+    --symphony-container-xl: 36rem;
+    /* 576px */
+    --symphony-container-2xl: 42rem;
+    /* 672px */
+    --symphony-container-3xl: 48rem;
+    /* 768px */
+    --symphony-container-4xl: 56rem;
+    /* 896px */
+    --symphony-container-5xl: 64rem;
+    /* 1024px */
+    --symphony-container-6xl: 72rem;
+    /* 1152px */
+    --symphony-container-7xl: 80rem;
+    /* 1280px */
+
+    /* Grid defaults */
+    --symphony-grid-gap: var(--symphony-space-lg);
+    --symphony-grid-min-width: 20rem;
+
+    /* =============================================
+       FOCUS & INTERACTION TOKENS
+       ============================================= */
+
+    --symphony-focus-ring-width: 2px;
+    --symphony-focus-ring-offset: 2px;
+    --symphony-focus-ring-color: var(--symphony-primary);
+    --symphony-focus-ring: 0 0 0 var(--symphony-focus-ring-offset) var(--symphony-surface),
+      0 0 0 calc(var(--symphony-focus-ring-offset) + var(--symphony-focus-ring-width)) var(--symphony-focus-ring-color);
+  }
+
+  /* =============================================
+     DARK MODE (prefers-color-scheme)
+     Automatic dark mode based on system preference
+     ============================================= */
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      /* Surface colors inverted */
+      --symphony-background: oklch(12% 0.015 var(--symphony-hue-neutral));
+      --symphony-surface: oklch(18% 0.02 var(--symphony-hue-neutral));
+      --symphony-surface-elevated: oklch(22% 0.025 var(--symphony-hue-neutral));
+      --symphony-surface-hover: oklch(25% 0.03 var(--symphony-hue-neutral));
+      --symphony-surface-alt: oklch(15% 0.02 var(--symphony-hue-neutral));
+
+      /* Text colors inverted */
+      --symphony-text: oklch(95% 0.01 var(--symphony-hue-neutral));
+      --symphony-text-secondary: oklch(80% 0.015 var(--symphony-hue-neutral));
+      --symphony-text-muted: oklch(60% 0.02 var(--symphony-hue-neutral));
+      --symphony-text-inverted: oklch(15% 0.02 var(--symphony-hue-neutral));
+
+      /* Border colors adjusted */
+      --symphony-border: oklch(30% 0.02 var(--symphony-hue-neutral));
+      --symphony-border-hover: oklch(40% 0.025 var(--symphony-hue-neutral));
+
+      /* Primary colors adjusted for dark mode (slightly brighter) */
+      --symphony-primary: oklch(65% 0.17 var(--symphony-hue-primary));
+      --symphony-primary-light: oklch(75% 0.14 var(--symphony-hue-primary));
+      --symphony-primary-hover: oklch(70% 0.19 var(--symphony-hue-primary));
+
+      /* Shadow color for dark mode */
+      --symphony-shadow-color: oklch(0% 0 0 / 0.3);
+    }
+  }
+
+  /* =============================================
+     MANUAL DARK MODE ([data-theme="dark"])
+     Allows explicit dark mode toggle
+     ============================================= */
+
+  [data-theme="dark"],
+  .dark {
+    --symphony-background: oklch(12% 0.015 var(--symphony-hue-neutral));
+    --symphony-surface: oklch(18% 0.02 var(--symphony-hue-neutral));
+    --symphony-surface-elevated: oklch(22% 0.025 var(--symphony-hue-neutral));
+    --symphony-surface-hover: oklch(25% 0.03 var(--symphony-hue-neutral));
+    --symphony-surface-alt: oklch(15% 0.02 var(--symphony-hue-neutral));
+
+    --symphony-text: oklch(95% 0.01 var(--symphony-hue-neutral));
+    --symphony-text-secondary: oklch(80% 0.015 var(--symphony-hue-neutral));
+    --symphony-text-muted: oklch(60% 0.02 var(--symphony-hue-neutral));
+    --symphony-text-inverted: oklch(15% 0.02 var(--symphony-hue-neutral));
+
+    --symphony-border: oklch(30% 0.02 var(--symphony-hue-neutral));
+    --symphony-border-hover: oklch(40% 0.025 var(--symphony-hue-neutral));
+
+    --symphony-primary: oklch(65% 0.17 var(--symphony-hue-primary));
+    --symphony-primary-light: oklch(75% 0.14 var(--symphony-hue-primary));
+    --symphony-primary-hover: oklch(70% 0.19 var(--symphony-hue-primary));
+
+    --symphony-shadow-color: oklch(0% 0 0 / 0.3);
+
+    color-scheme: dark;
+  }
+
+  /* =============================================
+     LIGHT MODE OVERRIDE ([data-theme="light"])
+     Forces light mode regardless of system preference
+     ============================================= */
+
+  [data-theme="light"],
+  .light {
+    --symphony-background: oklch(99% 0.005 var(--symphony-hue-neutral));
+    --symphony-surface: oklch(100% 0 0);
+    --symphony-surface-elevated: oklch(100% 0 0);
+    --symphony-surface-hover: oklch(97% 0.01 var(--symphony-hue-neutral));
+
+    --symphony-text: oklch(20% 0.02 var(--symphony-hue-neutral));
+    --symphony-text-secondary: oklch(40% 0.02 var(--symphony-hue-neutral));
+    --symphony-text-muted: oklch(55% 0.02 var(--symphony-hue-neutral));
+
+    --symphony-border: oklch(90% 0.01 var(--symphony-hue-neutral));
+    --symphony-border-hover: oklch(80% 0.02 var(--symphony-hue-neutral));
+
+    --symphony-shadow-color: oklch(20% 0.02 var(--symphony-hue-neutral) / 0.1);
+
+    color-scheme: light;
+  }
+}

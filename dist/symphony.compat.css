@@ -1,0 +1,147 @@
+/**
+ * Symphony Compat
+ *
+ * Legacy aliases kept as an opt-in compatibility layer.
+ * Import after the core bundle only when migrating from pre-v1 APIs.
+ */
+
+@layer symphony.compat {
+  .symphony-button {
+    font-family: var(--symphony-font-sans);
+    font-weight: 400;
+  }
+
+  .symphony-button--primary {
+    --button-bg: var(--symphony-primary);
+    --button-text: var(--symphony-text-inverted);
+    --button-border: transparent;
+  }
+
+  .symphony-button--secondary {
+    --button-bg: var(--symphony-secondary);
+    --button-text: var(--symphony-text-inverted);
+    --button-border: transparent;
+  }
+
+  .symphony-button--sm {
+    --button-padding-y: var(--symphony-space-xs);
+    --button-padding-x: var(--symphony-space-md);
+    --button-font-size: var(--symphony-text-sm);
+  }
+
+  .symphony-button--lg {
+    --button-padding-y: var(--symphony-space-md);
+    --button-padding-x: var(--symphony-space-xl);
+    --button-font-size: var(--symphony-text-base);
+  }
+
+  .symphony-container {
+    --_container-max-width: var(--container-max-width, 80ch);
+    --_container-padding: var(--container-padding, var(--symphony-space-lg));
+    width: min(100% - (var(--_container-padding) * 2), var(--_container-max-width));
+    margin-inline: auto;
+    container-type: inline-size;
+  }
+
+  .symphony-container--fluid {
+    --container-max-width: 100%;
+  }
+
+  .symphony-section {
+    padding-block: var(--symphony-space-fluid-xl);
+  }
+
+  .symphony-section--sm {
+    padding-block: var(--symphony-space-lg);
+  }
+
+  .symphony-section--lg {
+    padding-block: var(--symphony-space-4xl);
+  }
+
+  .symphony-grid {
+    display: grid;
+    gap: var(--symphony-space-lg);
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr));
+  }
+
+  .symphony-col-span-full {
+    grid-column: 1 / -1;
+  }
+
+  .symphony-flex {
+    display: flex;
+  }
+
+  .symphony-inline-flex {
+    display: inline-flex;
+  }
+
+  .symphony-flex--row {
+    flex-direction: row;
+  }
+
+  .symphony-flex--col {
+    flex-direction: column;
+  }
+
+  .symphony-flex--wrap {
+    flex-wrap: wrap;
+  }
+
+  .symphony-flex--justify-center {
+    justify-content: center;
+  }
+
+  .symphony-flex--justify-between {
+    justify-content: space-between;
+  }
+
+  .symphony-flex--align-center {
+    align-items: center;
+  }
+
+  .symphony-flex--gap-4 {
+    gap: var(--symphony-space-md);
+  }
+
+  .symphony-card {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--symphony-surface);
+    border: 1px solid var(--symphony-border);
+    border-radius: var(--symphony-radius-lg);
+    box-shadow: var(--symphony-shadow-sm);
+    overflow: hidden;
+    container-type: inline-size;
+  }
+
+  .symphony-card__header {
+    padding: var(--symphony-space-lg);
+    border-bottom: 1px solid var(--symphony-border);
+  }
+
+  .symphony-card__body {
+    padding: var(--symphony-space-lg);
+    flex: 1;
+  }
+
+  .symphony-card__footer {
+    padding: var(--symphony-space-lg);
+    border-top: 1px solid var(--symphony-border);
+  }
+
+  .symphony-card--elevated {
+    box-shadow: var(--symphony-shadow-lg);
+  }
+
+  .symphony-card--interactive {
+    cursor: pointer;
+    transition: var(--symphony-transition-all);
+  }
+
+  .symphony-card--interactive:hover {
+    box-shadow: var(--symphony-shadow-lg);
+    transform: translateY(-2px);
+  }
+}

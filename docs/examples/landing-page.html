@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Symphony Anthology Landing Example</title>
+  <link rel="stylesheet" href="../../dist/symphony.css">
+  <style>
+    body {
+      background:
+        radial-gradient(circle at top right, color-mix(in oklch, var(--symphony-primary) 16%, transparent), transparent 24rem),
+        var(--symphony-background);
+    }
+
+    .hero-surface {
+      padding-block: clamp(4rem, 10vw, 8rem);
+    }
+
+    .landing-panel {
+      background: color-mix(in oklch, var(--symphony-surface) 94%, white);
+      border: 1px solid var(--symphony-border);
+      border-radius: var(--symphony-radius-xl, 1rem);
+      box-shadow: var(--symphony-shadow-sm);
+    }
+  </style>
+</head>
+<body>
+  <header class="container hero-surface">
+    <div class="stack" data-gap="xl">
+      <nav class="cluster" data-justify="between" data-align="center" data-gap="sm">
+        <strong>Symphony Anthology</strong>
+        <div class="cluster" data-gap="sm">
+          <a href="#features">Features</a>
+          <a href="#patterns">Patterns</a>
+          <a href="#adoption">Adoption</a>
+        </div>
+      </nav>
+
+      <section class="grid" data-columns="2" data-gap="xl">
+        <div class="stack" data-gap="lg">
+          <p class="text-sm text-muted">Symphony ecosystem implementation layer</p>
+          <h1>Ship semantic interfaces today and leave room for the wider Symphony stack tomorrow.</h1>
+          <p class="text-lg">
+            Conservatory finds the issues. Unison Metrics scores them. Symphony Anthology
+            gives your team the implementation patterns to fix them fast.
+          </p>
+          <div class="cluster" data-gap="sm">
+            <a class="button" href="../../README.md" data-variant="primary">Read the README</a>
+            <a class="button" href="../AI_INTEGRATION.md" data-variant="outline">AI Integration</a>
+          </div>
+        </div>
+
+        <article class="card landing-panel" data-elevation="raised">
+          <header>
+            <h2>Why teams adopt it quickly</h2>
+          </header>
+          <div class="stack p-lg" data-gap="sm">
+            <p>Semantic defaults reduce setup cost.</p>
+            <p>Data-attribute variants keep generated code legible.</p>
+            <p>Metadata exports help AI tools and docs stay aligned.</p>
+            <p>Legacy aliases are available only when you need a bridge.</p>
+          </div>
+        </article>
+      </section>
+    </div>
+  </header>
+
+  <main class="container stack" data-gap="2xl">
+    <section id="features" class="stack" data-gap="lg">
+      <header class="stack" data-gap="sm">
+        <p class="text-sm text-muted">Current feature set</p>
+        <h2>Patterns that already ship</h2>
+      </header>
+
+      <div class="grid" data-columns="3" data-gap="lg">
+        <article class="card landing-panel">
+          <div class="stack p-lg" data-gap="sm">
+            <h3>Semantic baseline</h3>
+            <p>Typography, forms, tables, navigation, dialog, and content elements are styled by default.</p>
+          </div>
+        </article>
+
+        <article class="card landing-panel">
+          <div class="stack p-lg" data-gap="sm">
+            <h3>Layout primitives</h3>
+            <p>Use container, grid, stack, cluster, sidebar, switcher, center, and cover.</p>
+          </div>
+        </article>
+
+        <article class="card landing-panel">
+          <div class="stack p-lg" data-gap="sm">
+            <h3>AI-ready metadata</h3>
+            <p>Use tokens, schema, and preset files to keep generators and docs grounded in the same contract.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="patterns" class="grid" data-columns="2" data-gap="lg">
+      <article class="card landing-panel">
+        <header>
+          <h2>Conservatory insight</h2>
+          <p>CTA hierarchy is unclear and content density is too high.</p>
+        </header>
+        <div class="stack p-lg" data-gap="sm">
+          <p>Primary conversion intent is lost in a busy layout.</p>
+          <p>Scanability is weak across repeated content blocks.</p>
+        </div>
+      </article>
+
+      <article class="card landing-panel">
+        <header>
+          <h2>Symphony pattern</h2>
+          <p>Use semantic grouping with stronger action affordances.</p>
+        </header>
+        <div class="stack p-lg" data-gap="sm">
+          <div class="cluster" data-gap="sm">
+            <button data-variant="primary">Start with core</button>
+            <button data-variant="outline">Read migration guide</button>
+          </div>
+          <p>Use a `.grid` of `.card` elements and a single primary action.</p>
+        </div>
+      </article>
+    </section>
+
+    <section id="adoption" class="card landing-panel">
+      <header>
+        <h2>Adoption path</h2>
+        <p>Core now, add-ons later.</p>
+      </header>
+      <div class="grid p-lg" data-columns="3" data-gap="lg">
+        <div class="stack" data-gap="sm">
+          <h3>Now</h3>
+          <p>Core bundle, theme bundle, metadata files, docs, migration guides.</p>
+        </div>
+        <div class="stack" data-gap="sm">
+          <h3>Next</h3>
+          <p>Playground, starters, and verification tooling.</p>
+        </div>
+        <div class="stack" data-gap="sm">
+          <h3>Future</h3>
+          <p>Schema add-ons, elements, adapters, and deeper Symphony ecosystem loops.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

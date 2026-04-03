@@ -1,0 +1,326 @@
+/**
+ * Symphony Anthology v1.0
+ * Semantic and AI-first CSS framework
+ * Accordion - Native Details/Summary Styling
+ * 
+ * Philosophy:
+ * - Uses native <details>/<summary> HTML elements
+ * - Zero JavaScript required
+ * - Smooth animations with @starting-style
+ * - Accessible keyboard navigation built-in
+ * - Data attributes for variants
+ * 
+ * Usage:
+ *   <details>
+ *     <summary>Click to expand</summary>
+ *     <p>Expandable content here...</p>
+ *   </details>
+ * 
+ *   <div class="accordion">
+ *     <details>
+ *       <summary>Section 1</summary>
+ *       <p>Content...</p>
+ *     </details>
+ *     <details>
+ *       <summary>Section 2</summary>
+ *       <p>Content...</p>
+ *     </details>
+ *   </div>
+ */
+
+@layer symphony.components {
+    /* =============================================
+     SEMANTIC DETAILS/SUMMARY BASE
+     All <details> elements get sensible defaults
+     ============================================= */
+
+    :where(details) {
+        border: 1px solid var(--symphony-border);
+        border-radius: var(--symphony-radius-md);
+        overflow: hidden;
+
+        /* When open */
+        &[open] {
+            &>summary {
+                border-block-end: 1px solid var(--symphony-border);
+            }
+        }
+    }
+
+    :where(summary) {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: var(--symphony-space-md);
+        padding: var(--symphony-space-md);
+        cursor: pointer;
+        font-weight: var(--symphony-font-medium);
+        transition: var(--symphony-transition-colors);
+        list-style: none;
+
+        &::-webkit-details-marker {
+            display: none;
+        }
+
+        &:hover {
+            background-color: var(--symphony-surface-hover);
+        }
+
+        &:focus-visible {
+            outline: none;
+            box-shadow: var(--symphony-focus-ring-inset);
+        }
+
+        /* Chevron indicator */
+        &::after {
+            content: '';
+            flex-shrink: 0;
+            inline-size: 1.25rem;
+            block-size: 1.25rem;
+            background-color: currentColor;
+            mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+            mask-size: contain;
+            mask-repeat: no-repeat;
+            mask-position: center;
+            transition: transform var(--symphony-duration-fast) var(--symphony-ease-out);
+        }
+
+        details[open]>&::after {
+            transform: rotate(180deg);
+        }
+    }
+
+    /* Details content area */
+    :where(details)> :not(summary) {
+        padding: var(--symphony-space-md);
+        animation: accordion-expand var(--symphony-duration-normal) var(--symphony-ease-out);
+    }
+
+    @keyframes accordion-expand {
+        from {
+            opacity: 0;
+            transform: translateY(-0.5rem);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    /* =============================================
+     ACCORDION GROUP
+     Multiple details elements stacked
+     ============================================= */
+
+    .accordion {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+
+        &>details {
+            border-radius: 0;
+
+            &:first-child {
+                border-start-start-radius: var(--symphony-radius-md);
+                border-start-end-radius: var(--symphony-radius-md);
+            }
+
+            &:last-child {
+                border-end-start-radius: var(--symphony-radius-md);
+                border-end-end-radius: var(--symphony-radius-md);
+            }
+
+            &:not(:last-child) {
+                border-block-end: none;
+            }
+        }
+    }
+
+    /* Separated accordion */
+    .accordion[data-separated] {
+        gap: var(--symphony-space-sm);
+
+        &>details {
+            border-radius: var(--symphony-radius-md);
+            border: 1px solid var(--symphony-border);
+        }
+    }
+
+    /* =============================================
+     ACCORDION VARIANTS
+     ============================================= */
+
+    /* Flush variant (no borders/rounded corners) */
+    :where(details[data-variant="flush"]),
+    :where(.accordion[data-variant="flush"] > details) {
+        border: none;
+        border-radius: 0;
+        border-block-end: 1px solid var(--symphony-border);
+
+        &:last-child {
+            border-block-end: none;
+        }
+
+        &[open]>summary {
+            border: none;
+        }
+    }
+
+    /* Card variant (elevated with shadow) */
+    :where(details[data-variant="card"]),
+    :where(.accordion[data-variant="card"] > details) {
+        background-color: var(--symphony-surface);
+        box-shadow: var(--symphony-shadow-sm);
+
+        &[open] {
+            box-shadow: var(--symphony-shadow-md);
+        }
+    }
+
+    /* Filled variant (colored background) */
+    :where(details[data-variant="filled"]),
+    :where(.accordion[data-variant="filled"] > details) {
+        background-color: var(--symphony-surface-alt);
+        border: none;
+
+        &>summary {
+            background-color: var(--symphony-surface-alt);
+        }
+    }
+
+    /* =============================================
+     ACCORDION SIZES
+     ============================================= */
+
+    :where(details[data-size="sm"]),
+    :where(.accordion[data-size="sm"] > details) {
+        font-size: var(--symphony-text-sm);
+
+        &>summary {
+            padding: var(--symphony-space-sm);
+        }
+
+        &> :not(summary) {
+            padding: var(--symphony-space-sm);
+        }
+    }
+
+    :where(details[data-size="lg"]),
+    :where(.accordion[data-size="lg"] > details) {
+        &>summary {
+            padding: var(--symphony-space-lg);
+        }
+
+        &> :not(summary) {
+            padding: var(--symphony-space-lg);
+        }
+    }
+
+    /* =============================================
+     ACCORDION WITH ICONS
+     Support for left-side icons
+     ============================================= */
+
+    :where(details[data-icon-position="start"])>summary,
+    :where(.accordion[data-icon-position="start"])>details>summary {
+        flex-direction: row-reverse;
+        justify-content: flex-end;
+
+        &::after {
+            margin-inline-end: auto;
+        }
+    }
+
+    /* Hide indicator */
+    :where(details[data-indicator="none"])>summary::after,
+    :where(.accordion[data-indicator="none"])>details>summary::after {
+        display: none;
+    }
+
+    /* Plus/minus indicator */
+    :where(details[data-indicator="plus"])>summary::after,
+    :where(.accordion[data-indicator="plus"])>details>summary::after {
+        mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2'%3E%3Cpath d='M12 5v14M5 12h14'/%3E%3C/svg%3E");
+        transform: none;
+    }
+
+    :where(details[data-indicator="plus"][open])>summary::after,
+    :where(.accordion[data-indicator="plus"])>details[open]>summary::after {
+        mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2'%3E%3Cpath d='M5 12h14'/%3E%3C/svg%3E");
+    }
+
+    /* =============================================
+     COLLAPSIBLE SECTION
+     Single expanding section with title
+     ============================================= */
+
+    .collapsible {
+        &>details {
+            border: none;
+
+            &>summary {
+                padding: var(--symphony-space-sm) 0;
+                font-size: var(--symphony-text-sm);
+                text-transform: uppercase;
+                letter-spacing: 0.05em;
+                color: var(--symphony-text-muted);
+
+                &:hover {
+                    background: transparent;
+                    color: var(--symphony-text);
+                }
+            }
+
+            &> :not(summary) {
+                padding: 0;
+                padding-block-start: var(--symphony-space-md);
+            }
+        }
+    }
+
+    /* =============================================
+     FAQ STYLING
+     Common accordion use case
+     ============================================= */
+
+    .faq {
+        &>details {
+            background-color: var(--symphony-surface);
+
+            &>summary {
+                font-size: var(--symphony-text-lg);
+                padding: var(--symphony-space-lg);
+            }
+
+            &> :not(summary) {
+                padding: 0 var(--symphony-space-lg) var(--symphony-space-lg);
+                color: var(--symphony-text-muted);
+            }
+        }
+    }
+
+    /* =============================================
+     PRINT STYLES
+     ============================================= */
+
+    @media print {
+        :where(details) {
+            border: 1px solid #000;
+
+            &[open]>summary {
+                border-block-end: 1px solid #000;
+            }
+        }
+
+        /* Expand all for print */
+        :where(details):not([open]) {
+            &::after {
+                content: '[Collapsed content]';
+                padding: var(--symphony-space-md);
+                font-style: italic;
+                color: #666;
+            }
+        }
+    }
+}

@@ -1,0 +1,315 @@
+/**
+ * Symphony Anthology v1.0
+ * Semantic and AI-first CSS framework
+ * Essential Spacing Utilities Only
+ * 
+ * Optimized for minimal bundle size
+ * Removed: Individual inline-start/end utilities (mis-, mie-, pis-, pie-)
+ * Kept: All-sides, inline, block, block-start, block-end
+ */
+
+@layer symphony.utilities {
+    /* =============================================
+     MARGIN - ALL SIDES
+     ============================================= */
+
+    .m-0 {
+        margin: 0;
+    }
+
+    .m-xs {
+        margin: var(--symphony-space-xs);
+    }
+
+    .m-sm {
+        margin: var(--symphony-space-sm);
+    }
+
+    .m-md {
+        margin: var(--symphony-space-md);
+    }
+
+    .m-lg {
+        margin: var(--symphony-space-lg);
+    }
+
+    .m-xl {
+        margin: var(--symphony-space-xl);
+    }
+
+    .m-auto {
+        margin: auto;
+    }
+
+    /* =============================================
+     MARGIN - INLINE (horizontal in LTR)
+     ============================================= */
+
+    .mi-0 {
+        margin-inline: 0;
+    }
+
+    .mi-xs {
+        margin-inline: var(--symphony-space-xs);
+    }
+
+    .mi-sm {
+        margin-inline: var(--symphony-space-sm);
+    }
+
+    .mi-md {
+        margin-inline: var(--symphony-space-md);
+    }
+
+    .mi-lg {
+        margin-inline: var(--symphony-space-lg);
+    }
+
+    .mi-auto {
+        margin-inline: auto;
+    }
+
+    /* =============================================
+     MARGIN - BLOCK (vertical in LTR)
+     ============================================= */
+    .mb-0 {
+        margin-block: 0;
+    }
+
+    .mb-xs {
+        margin-block: var(--symphony-space-xs);
+    }
+
+    .mb-sm {
+        margin-block: var(--symphony-space-sm);
+    }
+
+    .mb-md {
+        margin-block: var(--symphony-space-md);
+    }
+
+    .mb-lg {
+        margin-block: var(--symphony-space-lg);
+    }
+
+    .mb-xl {
+        margin-block: var(--symphony-space-xl);
+    }
+
+    .mb-auto {
+        margin-block: auto;
+    }
+
+    /* Individual block sides */
+    .mbs-0 {
+        margin-block-start: 0;
+    }
+
+    .mbs-sm {
+        margin-block-start: var(--symphony-space-sm);
+    }
+
+    .mbs-md {
+        margin-block-start: var(--symphony-space-md);
+    }
+
+    .mbs-lg {
+        margin-block-start: var(--symphony-space-lg);
+    }
+
+    .mbe-0 {
+        margin-block-end: 0;
+    }
+
+    .mbe-sm {
+        margin-block-end: var(--symphony-space-sm);
+    }
+
+    .mbe-md {
+        margin-block-end: var(--symphony-space-md);
+    }
+
+    .mbe-lg {
+        margin-block-end: var(--symphony-space-lg);
+    }
+
+    /* =============================================
+     PADDING - ALL SIDES
+     ============================================= */
+
+    .p-0 {
+        padding: 0;
+    }
+
+    .p-xs {
+        padding: var(--symphony-space-xs);
+    }
+
+    .p-sm {
+        padding: var(--symphony-space-sm);
+    }
+
+    .p-md {
+        padding: var(--symphony-space-md);
+    }
+
+    .p-lg {
+        padding: var(--symphony-space-lg);
+    }
+
+    .p-xl {
+        padding: var(--symphony-space-xl);
+    }
+
+    /* =============================================
+     PADDING - INLINE (horizontal in LTR)
+     ============================================= */
+
+    .pi-0 {
+        padding-inline: 0;
+    }
+
+    .pi-xs {
+        padding-inline: var(--symphony-space-xs);
+    }
+
+    .pi-sm {
+        padding-inline: var(--symphony-space-sm);
+    }
+
+    .pi-md {
+        padding-inline: var(--symphony-space-md);
+    }
+
+    .pi-lg {
+        padding-inline: var(--symphony-space-lg);
+    }
+
+    .pi-xl {
+        padding-inline: var(--symphony-space-xl);
+    }
+
+    /* =============================================
+     PADDING - BLOCK (vertical in LTR)
+     ============================================= */
+
+    .pb-0 {
+        padding-block: 0;
+    }
+
+    .pb-xs {
+        padding-block: var(--symphony-space-xs);
+    }
+
+    .pb-sm {
+        padding-block: var(--symphony-space-sm);
+    }
+
+    .pb-md {
+        padding-block: var(--symphony-space-md);
+    }
+
+    .pb-lg {
+        padding-block: var(--symphony-space-lg);
+    }
+
+    .pb-xl {
+        padding-block: var(--symphony-space-xl);
+    }
+
+    /* Individual block sides */
+    .pbs-0 {
+        padding-block-start: 0;
+    }
+
+    .pbs-sm {
+        padding-block-start: var(--symphony-space-sm);
+    }
+
+    .pbs-md {
+        padding-block-start: var(--symphony-space-md);
+    }
+
+    .pbs-lg {
+        padding-block-start: var(--symphony-space-lg);
+    }
+
+    .pbe-0 {
+        padding-block-end: 0;
+    }
+
+    .pbe-sm {
+        padding-block-end: var(--symphony-space-sm);
+    }
+
+    .pbe-md {
+        padding-block-end: var(--symphony-space-md);
+    }
+
+    .pbe-lg {
+        padding-block-end: var(--symphony-space-lg);
+    }
+
+    /* =============================================
+     GAP UTILITIES
+     For flexbox and grid layouts
+     ============================================= */
+
+    .gap-0 {
+        gap: 0;
+    }
+
+    .gap-xs {
+        gap: var(--symphony-space-xs);
+    }
+
+    .gap-sm {
+        gap: var(--symphony-space-sm);
+    }
+
+    .gap-md {
+        gap: var(--symphony-space-md);
+    }
+
+    .gap-lg {
+        gap: var(--symphony-space-lg);
+    }
+
+    .gap-xl {
+        gap: var(--symphony-space-xl);
+    }
+
+    /* Row gap */
+    .gap-y-0 {
+        row-gap: 0;
+    }
+
+    .gap-y-sm {
+        row-gap: var(--symphony-space-sm);
+    }
+
+    .gap-y-md {
+        row-gap: var(--symphony-space-md);
+    }
+
+    .gap-y-lg {
+        row-gap: var(--symphony-space-lg);
+    }
+
+    /* Column gap */
+    .gap-x-0 {
+        column-gap: 0;
+    }
+
+    .gap-x-sm {
+        column-gap: var(--symphony-space-sm);
+    }
+
+    .gap-x-md {
+        column-gap: var(--symphony-space-md);
+    }
+
+    .gap-x-lg {
+        column-gap: var(--symphony-space-lg);
+    }
+}

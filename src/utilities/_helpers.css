@@ -1,0 +1,881 @@
+/**
+ * Symphony Anthology v1.0
+ * Semantic and AI-first CSS framework
+ * Helper Utilities - Common Utility Classes
+ * 
+ * Philosophy:
+ * - Short, unprefixed class names (no symphony- prefix)
+ * - Logical properties for i18n support
+ * - Uses CSS custom properties from _variables.css
+ * - Minimal footprint - essential utilities only
+ * 
+ * Categories:
+ * - Display & Visibility
+ * - Position & Z-index
+ * - Sizing (width, height, min/max)
+ * - Overflow
+ * - Borders & Radius
+ * - Shadows
+ * - Backgrounds
+ * - Interactivity
+ * - Accessibility
+ */
+
+@layer symphony.utilities {
+  /* =============================================
+     DISPLAY UTILITIES
+     ============================================= */
+
+  .block {
+    display: block;
+  }
+
+  .inline-block {
+    display: inline-block;
+  }
+
+  .inline {
+    display: inline;
+  }
+
+  .flex {
+    display: flex;
+  }
+
+  .inline-flex {
+    display: inline-flex;
+  }
+
+  .grid {
+    display: grid;
+  }
+
+  .inline-grid {
+    display: inline-grid;
+  }
+
+  .contents {
+    display: contents;
+  }
+
+  .hidden {
+    display: none;
+  }
+
+  /* Visibility */
+  .visible {
+    visibility: visible;
+  }
+
+  .invisible {
+    visibility: hidden;
+  }
+
+  .collapse {
+    visibility: collapse;
+  }
+
+  /* =============================================
+     POSITION UTILITIES
+     ============================================= */
+
+  .static {
+    position: static;
+  }
+
+  .relative {
+    position: relative;
+  }
+
+  .absolute {
+    position: absolute;
+  }
+
+  .fixed {
+    position: fixed;
+  }
+
+  .sticky {
+    position: sticky;
+  }
+
+  /* Inset utilities */
+  .inset-0 {
+    inset: 0;
+  }
+
+  .inset-auto {
+    inset: auto;
+  }
+
+  .top-0 {
+    inset-block-start: 0;
+  }
+
+  .bottom-0 {
+    inset-block-end: 0;
+  }
+
+  .start-0 {
+    inset-inline-start: 0;
+  }
+
+  .end-0 {
+    inset-inline-end: 0;
+  }
+
+  /* =============================================
+     Z-INDEX UTILITIES
+     ============================================= */
+
+  .z-0 {
+    z-index: 0;
+  }
+
+  .z-10 {
+    z-index: 10;
+  }
+
+  .z-20 {
+    z-index: 20;
+  }
+
+  .z-30 {
+    z-index: 30;
+  }
+
+  .z-40 {
+    z-index: 40;
+  }
+
+  .z-50 {
+    z-index: 50;
+  }
+
+  .z-auto {
+    z-index: auto;
+  }
+
+  .-z-10 {
+    z-index: -10;
+  }
+
+  /* Semantic z-index */
+  .z-dropdown {
+    z-index: var(--symphony-z-dropdown);
+  }
+
+  .z-sticky {
+    z-index: var(--symphony-z-sticky);
+  }
+
+  .z-fixed {
+    z-index: var(--symphony-z-fixed);
+  }
+
+  .z-modal {
+    z-index: var(--symphony-z-modal);
+  }
+
+  .z-tooltip {
+    z-index: var(--symphony-z-tooltip);
+  }
+
+  /* =============================================
+     SIZING UTILITIES
+     Using logical properties
+     ============================================= */
+
+  /* Width */
+  .w-full {
+    inline-size: 100%;
+  }
+
+  .w-auto {
+    inline-size: auto;
+  }
+
+  .w-screen {
+    inline-size: 100vw;
+  }
+
+  .w-min {
+    inline-size: min-content;
+  }
+
+  .w-max {
+    inline-size: max-content;
+  }
+
+  .w-fit {
+    inline-size: fit-content;
+  }
+
+  /* Height */
+  .h-full {
+    block-size: 100%;
+  }
+
+  .h-auto {
+    block-size: auto;
+  }
+
+  .h-screen {
+    block-size: 100vh;
+    block-size: 100dvh;
+    /* Modern dynamic viewport with fallback */
+  }
+
+  /* Dynamic viewport height */
+  .h-min {
+    block-size: min-content;
+  }
+
+  .h-max {
+    block-size: max-content;
+  }
+
+  .h-fit {
+    block-size: fit-content;
+  }
+
+  /* Min width */
+  .min-w-0 {
+    min-inline-size: 0;
+  }
+
+  .min-w-full {
+    min-inline-size: 100%;
+  }
+
+  /* Max width */
+  .max-w-none {
+    max-inline-size: none;
+  }
+
+  .max-w-full {
+    max-inline-size: 100%;
+  }
+
+  .max-w-prose {
+    max-inline-size: 65ch;
+  }
+
+  .max-w-screen {
+    max-inline-size: 100vw;
+  }
+
+  /* Min height */
+  .min-h-0 {
+    min-block-size: 0;
+  }
+
+  .min-h-full {
+    min-block-size: 100%;
+  }
+
+  .min-h-screen {
+    min-block-size: 100vh;
+    min-block-size: 100dvh;
+    /* Modern dynamic viewport with fallback */
+  }
+
+  /* Max height */
+  .max-h-full {
+    max-block-size: 100%;
+  }
+
+  .max-h-screen {
+    max-block-size: 100vh;
+    max-block-size: 100dvh;
+    /* Modern dynamic viewport with fallback */
+  }
+
+  /* Size (both dimensions) */
+  .size-full {
+    inline-size: 100%;
+    block-size: 100%;
+  }
+
+  /* =============================================
+     OVERFLOW UTILITIES
+     ============================================= */
+
+  .overflow-auto {
+    overflow: auto;
+  }
+
+  .overflow-hidden {
+    overflow: hidden;
+  }
+
+  .overflow-clip {
+    overflow: clip;
+  }
+
+  .overflow-visible {
+    overflow: visible;
+  }
+
+  .overflow-scroll {
+    overflow: scroll;
+  }
+
+  .overflow-x-auto {
+    overflow-x: auto;
+  }
+
+  .overflow-x-hidden {
+    overflow-x: hidden;
+  }
+
+  .overflow-x-scroll {
+    overflow-x: scroll;
+  }
+
+  .overflow-y-auto {
+    overflow-y: auto;
+  }
+
+  .overflow-y-hidden {
+    overflow-y: hidden;
+  }
+
+  .overflow-y-scroll {
+    overflow-y: scroll;
+  }
+
+  /* =============================================
+     BORDER RADIUS
+     ============================================= */
+
+  .rounded-none {
+    border-radius: 0;
+  }
+
+  .rounded-sm {
+    border-radius: var(--symphony-radius-sm);
+  }
+
+  .rounded {
+    border-radius: var(--symphony-radius-md);
+  }
+
+  .rounded-md {
+    border-radius: var(--symphony-radius-md);
+  }
+
+  .rounded-lg {
+    border-radius: var(--symphony-radius-lg);
+  }
+
+  .rounded-xl {
+    border-radius: var(--symphony-radius-xl);
+  }
+
+  .rounded-2xl {
+    border-radius: var(--symphony-radius-2xl);
+  }
+
+  .rounded-full {
+    border-radius: var(--symphony-radius-full);
+  }
+
+  /* Logical radius (for individual corners) */
+  .rounded-ss-md {
+    border-start-start-radius: var(--symphony-radius-md);
+  }
+
+  .rounded-se-md {
+    border-start-end-radius: var(--symphony-radius-md);
+  }
+
+  .rounded-es-md {
+    border-end-start-radius: var(--symphony-radius-md);
+  }
+
+  .rounded-ee-md {
+    border-end-end-radius: var(--symphony-radius-md);
+  }
+
+  /* =============================================
+     BORDER UTILITIES
+     Using logical properties
+     ============================================= */
+
+  .border {
+    border: 1px solid var(--symphony-border);
+  }
+
+  .border-0 {
+    border: 0;
+  }
+
+  .border-2 {
+    border: 2px solid var(--symphony-border);
+  }
+
+  .border-block {
+    border-block: 1px solid var(--symphony-border);
+  }
+
+  .border-block-start {
+    border-block-start: 1px solid var(--symphony-border);
+  }
+
+  .border-block-end {
+    border-block-end: 1px solid var(--symphony-border);
+  }
+
+  .border-inline {
+    border-inline: 1px solid var(--symphony-border);
+  }
+
+  .border-inline-start {
+    border-inline-start: 1px solid var(--symphony-border);
+  }
+
+  .border-inline-end {
+    border-inline-end: 1px solid var(--symphony-border);
+  }
+
+  /* Border colors */
+  .border-transparent {
+    border-color: transparent;
+  }
+
+  .border-primary {
+    border-color: var(--symphony-primary);
+  }
+
+  .border-success {
+    border-color: var(--symphony-success);
+  }
+
+  .border-warning {
+    border-color: var(--symphony-warning);
+  }
+
+  .border-danger {
+    border-color: var(--symphony-danger);
+  }
+
+  /* =============================================
+     SHADOW UTILITIES
+     ============================================= */
+
+  .shadow-none {
+    box-shadow: none;
+  }
+
+  .shadow-sm {
+    box-shadow: var(--symphony-shadow-sm);
+  }
+
+  .shadow {
+    box-shadow: var(--symphony-shadow-md);
+  }
+
+  .shadow-md {
+    box-shadow: var(--symphony-shadow-md);
+  }
+
+  .shadow-lg {
+    box-shadow: var(--symphony-shadow-lg);
+  }
+
+  .shadow-xl {
+    box-shadow: var(--symphony-shadow-xl);
+  }
+
+  .shadow-2xl {
+    box-shadow: var(--symphony-shadow-2xl);
+  }
+
+  .shadow-inner {
+    box-shadow: inset 0 2px 4px 0 rgb(0 0 0 / 0.05);
+  }
+
+  /* =============================================
+     BACKGROUND UTILITIES
+     ============================================= */
+
+  .bg-transparent {
+    background-color: transparent;
+  }
+
+  .bg-surface {
+    background-color: var(--symphony-surface);
+  }
+
+  .bg-surface-alt {
+    background-color: var(--symphony-surface-alt);
+  }
+
+  .bg-background {
+    background-color: var(--symphony-background);
+  }
+
+  .bg-primary {
+    background-color: var(--symphony-primary);
+  }
+
+  .bg-secondary {
+    background-color: var(--symphony-secondary);
+  }
+
+  .bg-success {
+    background-color: var(--symphony-success);
+  }
+
+  .bg-warning {
+    background-color: var(--symphony-warning);
+  }
+
+  .bg-danger {
+    background-color: var(--symphony-danger);
+  }
+
+  /* =============================================
+     OPACITY UTILITIES
+     ============================================= */
+
+  .opacity-0 {
+    opacity: 0;
+  }
+
+  .opacity-25 {
+    opacity: 0.25;
+  }
+
+  .opacity-50 {
+    opacity: 0.5;
+  }
+
+  .opacity-75 {
+    opacity: 0.75;
+  }
+
+  .opacity-100 {
+    opacity: 1;
+  }
+
+  /* =============================================
+     OBJECT FIT & POSITION
+     ============================================= */
+
+  .object-contain {
+    object-fit: contain;
+  }
+
+  .object-cover {
+    object-fit: cover;
+  }
+
+  .object-fill {
+    object-fit: fill;
+  }
+
+  .object-none {
+    object-fit: none;
+  }
+
+  .object-scale-down {
+    object-fit: scale-down;
+  }
+
+  .object-center {
+    object-position: center;
+  }
+
+  .object-top {
+    object-position: top;
+  }
+
+  .object-bottom {
+    object-position: bottom;
+  }
+
+  /* =============================================
+     ASPECT RATIO
+     ============================================= */
+
+  .aspect-auto {
+    aspect-ratio: auto;
+  }
+
+  .aspect-square {
+    aspect-ratio: 1 / 1;
+  }
+
+  .aspect-video {
+    aspect-ratio: 16 / 9;
+  }
+
+  .aspect-photo {
+    aspect-ratio: 4 / 3;
+  }
+
+  .aspect-portrait {
+    aspect-ratio: 3 / 4;
+  }
+
+  /* =============================================
+     INTERACTIVITY
+     ============================================= */
+
+  /* Cursor */
+  .cursor-auto {
+    cursor: auto;
+  }
+
+  .cursor-default {
+    cursor: default;
+  }
+
+  .cursor-pointer {
+    cursor: pointer;
+  }
+
+  .cursor-wait {
+    cursor: wait;
+  }
+
+  .cursor-text {
+    cursor: text;
+  }
+
+  .cursor-move {
+    cursor: move;
+  }
+
+  .cursor-not-allowed {
+    cursor: not-allowed;
+  }
+
+  .cursor-grab {
+    cursor: grab;
+  }
+
+  .cursor-grabbing {
+    cursor: grabbing;
+  }
+
+  /* Pointer events */
+  .pointer-events-none {
+    pointer-events: none;
+  }
+
+  .pointer-events-auto {
+    pointer-events: auto;
+  }
+
+  /* User select */
+  .select-none {
+    user-select: none;
+  }
+
+  .select-text {
+    user-select: text;
+  }
+
+  .select-all {
+    user-select: all;
+  }
+
+  .select-auto {
+    user-select: auto;
+  }
+
+  /* Touch action */
+  .touch-none {
+    touch-action: none;
+  }
+
+  .touch-pan-x {
+    touch-action: pan-x;
+  }
+
+  .touch-pan-y {
+    touch-action: pan-y;
+  }
+
+  .touch-manipulation {
+    touch-action: manipulation;
+  }
+
+  /* =============================================
+     TRANSITIONS
+     ============================================= */
+
+  .transition {
+    transition: var(--symphony-transition-all);
+  }
+
+  .transition-colors {
+    transition: var(--symphony-transition-colors);
+  }
+
+  .transition-opacity {
+    transition: opacity var(--symphony-duration-normal) var(--symphony-ease-out);
+  }
+
+  .transition-transform {
+    transition: transform var(--symphony-duration-normal) var(--symphony-ease-out);
+  }
+
+  .transition-none {
+    transition: none;
+  }
+
+  /* Durations */
+  .duration-fast {
+    transition-duration: var(--symphony-duration-fast);
+  }
+
+  .duration-normal {
+    transition-duration: var(--symphony-duration-normal);
+  }
+
+  .duration-slow {
+    transition-duration: var(--symphony-duration-slow);
+  }
+
+  /* =============================================
+     ACCESSIBILITY
+     ============================================= */
+
+  /* Screen reader only */
+  .sr-only {
+    position: absolute;
+    inline-size: 1px;
+    block-size: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+
+  .not-sr-only {
+    position: static;
+    inline-size: auto;
+    block-size: auto;
+    padding: 0;
+    margin: 0;
+    overflow: visible;
+    clip: auto;
+    white-space: normal;
+  }
+
+  /* Focus visible only */
+  .focus-visible:focus:not(:focus-visible) {
+    outline: none;
+  }
+
+  /* =============================================
+     PRINT UTILITIES
+     ============================================= */
+
+  @media print {
+    .print-hidden {
+      display: none !important;
+    }
+
+    .print-only {
+      display: block !important;
+    }
+  }
+
+  @media not print {
+    .print-only {
+      display: none !important;
+    }
+  }
+
+  /* =============================================
+     RESPONSIVE VISIBILITY
+     Mobile-first breakpoints
+     ============================================= */
+
+  /* Hide on specific breakpoints */
+  @media (max-width: 639px) {
+    .sm\:hidden {
+      display: none;
+    }
+  }
+
+  @media (min-width: 640px) and (max-width: 767px) {
+    .md\:hidden {
+      display: none;
+    }
+  }
+
+  @media (min-width: 768px) and (max-width: 1023px) {
+    .lg\:hidden {
+      display: none;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .xl\:hidden {
+      display: none;
+    }
+  }
+
+  /* Show only on specific breakpoints */
+  @media (min-width: 640px) {
+    .sm\:block {
+      display: block;
+    }
+
+    .sm\:flex {
+      display: flex;
+    }
+
+    .sm\:grid {
+      display: grid;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .md\:block {
+      display: block;
+    }
+
+    .md\:flex {
+      display: flex;
+    }
+
+    .md\:grid {
+      display: grid;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .lg\:block {
+      display: block;
+    }
+
+    .lg\:flex {
+      display: flex;
+    }
+
+    .lg\:grid {
+      display: grid;
+    }
+  }
+
+  /* =============================================
+     ISOLATION
+     ============================================= */
+
+  .isolate {
+    isolation: isolate;
+  }
+
+  .isolation-auto {
+    isolation: auto;
+  }
+}

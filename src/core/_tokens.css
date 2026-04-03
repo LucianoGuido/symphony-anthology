@@ -1,0 +1,140 @@
+/**
+ * Semantic component token mappings.
+ *
+ * These tokens translate the base design system into component-facing
+ * aliases used across the core bundle.
+ */
+
+@layer symphony.base {
+  :root {
+    /* ============================================
+       DARK THEME COLOR SYSTEM
+       Brand colors mapped through OKLCH-compatible tokens
+       ============================================ */
+
+    /* Background & Surfaces */
+    --symphony-background: oklch(from #020410 l c h);
+    /* Main page background */
+    --symphony-surface: oklch(from #0A0F1E l c h);
+    /* Cards, boxes, elevated elements */
+    --symphony-surface-elevated: oklch(from #11172A l c h);
+    /* Elevated surfaces */
+    --symphony-surface-hover: oklch(from #131824 l c h);
+    /* Hover state for interactive surfaces */
+    --symphony-surface-alt: oklch(from #060A16 l c h);
+    /* Alternate sections */
+
+    /* Text Colors - High Contrast */
+    --symphony-text: oklch(from #F6F8FF l c h);
+    /* Main text */
+    --symphony-text-title: var(--symphony-text);
+    /* Headings */
+    --symphony-text-body: oklch(from #CBD2D9 l c h);
+    /* Body text */
+    --symphony-text-secondary: var(--symphony-text-body);
+    /* Secondary body text */
+    --symphony-text-muted: oklch(from #8B92A0 l c h);
+    /* Muted/secondary text */
+    --symphony-text-inverted: oklch(from #020410 l c h);
+    /* Text on bright surfaces */
+
+    /* Primary Brand Color */
+    --symphony-primary: oklch(from #0055FE l c h);
+    /* Primary blue */
+    --symphony-primary-light: oklch(from #7CA6FF l c h);
+    --symphony-primary-dark: oklch(from #003FC4 l c h);
+    --symphony-primary-hover: oklch(from #2A72FF l c h);
+    --symphony-primary-active: oklch(from #0044D0 l c h);
+    --symphony-secondary: oklch(from #0066FF l c h);
+    /* Secondary/gradient blue */
+    --symphony-secondary-light: oklch(from #7CB8FF l c h);
+    --symphony-secondary-dark: oklch(from #004FD1 l c h);
+    --symphony-secondary-hover: oklch(from #2380FF l c h);
+
+    /* Borders & Dividers */
+    --symphony-border: oklch(from #FFFFFF l c h / 0.1);
+    --symphony-border-hover: oklch(from #FFFFFF l c h / 0.18);
+    --symphony-border-focus: oklch(from #0055FE l c h / 0.5);
+
+    /* Neutral Palette for UI Elements */
+    --symphony-neutral-50: oklch(from #FFFFFF l c h / 0.02);
+    --symphony-neutral-100: oklch(from #FFFFFF l c h / 0.05);
+    --symphony-neutral-200: oklch(from #FFFFFF l c h / 0.1);
+    --symphony-neutral-300: oklch(from #FFFFFF l c h / 0.15);
+    --symphony-shadow-color: oklch(from #000000 l c h / 0.35);
+
+    color-scheme: dark;
+
+    /* Button Tokens - EXACT specifications */
+    --symphony-button-padding-y: 0.75rem;
+    /* 12px */
+    --symphony-button-padding-x: 2rem;
+    /* 32px */
+    --symphony-button-font-size: 0.875rem;
+    /* 14px */
+    --symphony-button-font-weight: 400;
+    /* Regular */
+    --symphony-button-letter-spacing: 0;
+    /* 0% */
+    --symphony-button-radius-rounded: 0.625rem;
+    /* 10px */
+    --symphony-button-radius-pill: 3.125rem;
+    /* 50px */
+    --symphony-button-transition: var(--symphony-transition-base);
+
+    --symphony-button-sm-padding-y: var(--symphony-spacing-2);
+    --symphony-button-sm-padding-x: var(--symphony-spacing-4);
+    --symphony-button-sm-font-size: var(--symphony-font-size-sm);
+
+    --symphony-button-lg-padding-y: var(--symphony-spacing-4);
+    --symphony-button-lg-padding-x: var(--symphony-spacing-8);
+    --symphony-button-lg-font-size: var(--symphony-font-size-lg);
+
+    /* Form Tokens */
+    --symphony-input-padding-y: var(--symphony-space-sm);
+    --symphony-input-padding-x: var(--symphony-space-md);
+    --symphony-input-font-size: var(--symphony-text-base);
+    --symphony-input-border-width: 1px;
+    --symphony-input-border-color: var(--symphony-border);
+    --symphony-input-border-radius: var(--symphony-radius-md);
+    --symphony-input-background: var(--symphony-surface);
+    --symphony-input-focus-border: var(--symphony-primary);
+    --symphony-input-focus-ring: 0 0 0 3px oklch(from var(--symphony-primary) l c h / 0.15);
+
+    /* Card Tokens */
+    --symphony-card-padding: var(--symphony-space-lg);
+    --symphony-card-background: var(--symphony-surface);
+    --symphony-card-border: 1px solid var(--symphony-border);
+    --symphony-card-border-radius: var(--symphony-radius-lg);
+    --symphony-card-shadow: var(--symphony-shadow-sm);
+
+    /* Typography Tokens */
+    --symphony-heading-font-weight: var(--symphony-font-bold);
+    --symphony-heading-line-height: var(--symphony-leading-tight);
+    --symphony-heading-margin-bottom: var(--symphony-space-md);
+
+    --symphony-paragraph-margin-bottom: var(--symphony-space-md);
+    --symphony-paragraph-line-height: var(--symphony-leading-normal);
+
+    /* Link Tokens */
+    --symphony-link-color: var(--symphony-primary);
+    --symphony-link-hover-color: var(--symphony-primary-hover);
+    --symphony-link-decoration: underline;
+    --symphony-link-decoration-thickness: 1px;
+    --symphony-link-underline-offset: 2px;
+
+    /* Layout Tokens */
+    --symphony-container-padding: var(--symphony-space-md);
+    --symphony-section-padding-y: var(--symphony-space-3xl);
+    --symphony-section-padding-x: var(--symphony-space-md);
+
+    /* Grid Tokens */
+    --symphony-grid-gap: var(--symphony-space-lg);
+    --symphony-grid-columns: 12;
+
+    /* Focus Tokens */
+    --symphony-focus-ring-width: 3px;
+    --symphony-focus-ring-color: oklch(from var(--symphony-primary) l c h / 0.5);
+    --symphony-focus-ring-offset: 2px;
+  }
+}

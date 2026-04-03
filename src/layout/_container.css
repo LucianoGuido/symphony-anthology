@@ -1,0 +1,110 @@
+/**
+ * Symphony Anthology v1.0
+ * Semantic and AI-first CSS framework
+ * Container - Fluid Container System with Data Attribute Variants
+ * 
+ * Philosophy:
+ * - Content-based widths (ch units for readable text)
+ * - Fluid padding with clamp()
+ * - NO fixed pixel widths
+ * - Container queries enabled by default
+ * - Data attributes for variants (not BEM modifiers)
+ * 
+ * Usage:
+ *   <div class="container">...</div>
+ *   <div class="container" data-size="narrow">...</div>
+ *   <div class="container" data-size="wide">...</div>
+ *   <div class="container" data-size="full">...</div>
+ */
+
+@layer symphony.layout {
+  /* =============================================
+     FLUID CONTAINER
+     Uses min() for responsive behavior without media queries
+     ============================================= */
+
+  .container {
+    /* Private custom properties (underscore prefix = internal) */
+    --_container-max-width: var(--container-max-width, 80ch);
+    --_container-padding: var(--container-padding, var(--symphony-space-lg));
+
+    /* Core layout */
+    width: min(100% - (var(--_container-padding) * 2), var(--_container-max-width));
+    margin-inline: auto;
+
+    /* Enable container queries on all containers */
+    container-type: inline-size;
+    container-name: container;
+  }
+
+  /* =============================================
+     SIZE VARIANTS (Data Attributes)
+     More semantic than BEM: data-size="narrow"
+     ============================================= */
+
+  /* Narrow - Blog posts, articles, reading content */
+  .container[data-size="narrow"] {
+    --container-max-width: 60ch;
+  }
+
+  /* Default (80ch) - Documentation, general content */
+  /* Already set in base .container */
+
+  /* Wide - Dashboards, galleries, data-heavy pages */
+  .container[data-size="wide"] {
+    --container-max-width: 100ch;
+  }
+
+  /* Full - Edge-to-edge with padding */
+  .container[data-size="full"] {
+    --container-max-width: 100%;
+  }
+
+  /* Prose - Optimized for reading (slightly narrower) */
+  .container[data-size="prose"] {
+    --container-max-width: 65ch;
+  }
+
+  /* =============================================
+     PADDING VARIANTS
+     ============================================= */
+
+  .container[data-padding="none"] {
+    --container-padding: 0;
+  }
+
+  .container[data-padding="sm"] {
+    --container-padding: var(--symphony-space-sm);
+  }
+
+  .container[data-padding="lg"] {
+    --container-padding: var(--symphony-space-xl);
+  }
+
+  /* =============================================
+     SECTION WRAPPER
+     Vertical rhythm for page sections
+     ============================================= */
+
+  section,
+  .section {
+    padding-block: var(--section-padding, var(--symphony-space-fluid-xl));
+  }
+
+  /* Section size variants */
+  section[data-spacing="sm"],
+  .section[data-spacing="sm"] {
+    --section-padding: var(--symphony-space-lg);
+  }
+
+  section[data-spacing="lg"],
+  .section[data-spacing="lg"] {
+    --section-padding: var(--symphony-space-4xl);
+  }
+
+  section[data-spacing="none"],
+  .section[data-spacing="none"] {
+    --section-padding: 0;
+  }
+
+}

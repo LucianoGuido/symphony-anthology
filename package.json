@@ -1,0 +1,100 @@
+{
+  "name": "@symphonyui/symphonycss",
+  "version": "1.0.1",
+  "description": "Symphony Anthology v1.0 - semantic-first CSS framework with semantic defaults, data-attribute variants, AI-ready metadata, and opt-in legacy compatibility",
+  "main": "dist/symphony.css",
+  "style": "dist/symphony.css",
+  "exports": {
+    ".": "./dist/symphony.css",
+    "./symphony.css": "./dist/symphony.css",
+    "./symphony.min.css": "./dist/symphony.min.css",
+    "./core": "./dist/symphony.core.css",
+    "./symphony.core.css": "./dist/symphony.core.css",
+    "./symphony.core.min.css": "./dist/symphony.core.min.css",
+    "./compat": "./dist/symphony.compat.css",
+    "./symphony.compat.css": "./dist/symphony.compat.css",
+    "./symphony.compat.min.css": "./dist/symphony.compat.min.css",
+    "./tokens.json": "./dist/tokens.json",
+    "./schema": "./docs/symphony-schema.json",
+    "./schema.json": "./docs/symphony-schema.json",
+    "./schema-presets.json": "./docs/schema-presets.json",
+    "./core/*": "./src/core/*",
+    "./compat/*": "./src/compat/*",
+    "./components/*": "./src/components/*",
+    "./layout/*": "./src/layout/*",
+    "./utilities/*": "./src/utilities/*",
+    "./themes/anthology": "./dist/themes/anthology/anthology.css"
+  },
+  "scripts": {
+    "build": "npm run build:css && npm run build:assets && npm run verify:dist",
+    "build:css": "node scripts/build-css.mjs",
+    "build:assets": "node scripts/build-ai-assets.mjs",
+    "verify": "npm run verify:dist && npm run verify:docs && npm run smoke:package",
+    "verify:dist": "node scripts/verify-dist.mjs",
+    "verify:docs": "node scripts/check-docs.mjs",
+    "smoke:package": "node scripts/pack-smoke.mjs",
+    "size": "node scripts/size-report.mjs",
+    "watch": "npm run build",
+    "dev": "npm run build",
+    "test": "npm run build && npm run verify"
+  },
+  "keywords": [
+    "css",
+    "css-framework",
+    "semantic-html",
+    "semantic-first",
+    "ai-ready",
+    "ai-friendly",
+    "oklch",
+    "container-queries",
+    "cascade-layers",
+    "css-nesting",
+    "custom-properties",
+    "design-system",
+    "lightweight",
+    "responsive",
+    "dark-mode",
+    "wcag",
+    "accessibility",
+    "cube-css",
+    "intrinsic-design",
+    "classless"
+  ],
+  "author": "SymphonyUI",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LucianoGuido/symphony-anthology.git"
+  },
+  "bugs": {
+    "url": "https://github.com/LucianoGuido/symphony-anthology/issues"
+  },
+  "homepage": "https://github.com/LucianoGuido/symphony-anthology#readme",
+  "files": [
+    "dist/",
+    "src/",
+    "docs/schema-presets.json",
+    "docs/AI_INTEGRATION.md",
+    "docs/METADATA.md",
+    "docs/MIGRATION.md",
+    "docs/RECIPES.md",
+    "docs/TESTING.md",
+    "docs/symphony-schema.json",
+    "README.md",
+    "CONTRIBUTING.md",
+    "LICENSE",
+    "CHANGELOG.md"
+  ],
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "sideEffects": [
+    "**/*.css"
+  ],
+  "browserslist": [
+    "> 0.5%",
+    "last 2 versions",
+    "not dead",
+    "not op_mini all"
+  ]
+}

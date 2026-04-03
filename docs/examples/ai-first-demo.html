@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Symphony Anthology AI-ready Demo</title>
+  <link rel="stylesheet" href="../../dist/symphony.core.css">
+  <style>
+    body {
+      background:
+        radial-gradient(circle at top left, color-mix(in oklch, var(--symphony-primary) 12%, transparent), transparent 20rem),
+        var(--symphony-background);
+    }
+
+    .demo-shell {
+      padding-block: var(--symphony-space-3xl);
+    }
+  </style>
+</head>
+<body>
+  <main class="container demo-shell stack" data-gap="2xl">
+    <header class="stack" data-gap="md">
+      <p class="text-sm text-muted">AI-ready patterns that ship today</p>
+      <h1>Symphony Anthology does not need custom elements to be legible to generators, audits, and search systems.</h1>
+      <p class="text-lg">
+        The current contract is semantic HTML, explicit structure, stable `data-*`
+        variants, and metadata exports for tooling.
+      </p>
+    </header>
+
+    <section class="grid" data-columns="2" data-gap="lg">
+      <article class="card" data-elevation="raised">
+        <header>
+          <h2>Conservatory finding</h2>
+          <p>Product cards are visually inconsistent and the CTA hierarchy is weak.</p>
+        </header>
+        <div class="stack p-lg" data-gap="sm">
+          <p>Rendered markup is hard to scan.</p>
+          <p>Primary actions do not stand out.</p>
+          <p>Machine-readable product meaning is missing.</p>
+        </div>
+      </article>
+
+      <article class="card" data-elevation="raised">
+        <header>
+          <h2>Symphony implementation</h2>
+          <p>Use semantic sections, cards, explicit actions, and microdata.</p>
+        </header>
+        <div class="stack p-lg" data-gap="sm">
+          <p>Readable for people.</p>
+          <p>Predictable for generators.</p>
+          <p>Structured for AI systems and search engines.</p>
+        </div>
+      </article>
+    </section>
+
+    <section class="stack" data-gap="lg">
+      <header class="stack" data-gap="sm">
+        <p class="text-sm text-muted">Pattern demo</p>
+        <h2>Semantic commerce cards with explicit structure</h2>
+      </header>
+
+      <div class="grid" data-columns="3" data-gap="lg">
+        <article
+          class="card"
+          data-elevation="raised"
+          itemscope
+          itemtype="https://schema.org/Product">
+          <header>
+            <h3 itemprop="name">Anthology Starter</h3>
+            <p itemprop="description">Semantic-first starter for documentation and product pages.</p>
+          </header>
+          <div class="stack p-lg" data-gap="sm">
+            <p><strong>Includes:</strong> core bundle, docs patterns, migration path.</p>
+            <p><data itemprop="price" value="29">US$29</data></p>
+            <button data-variant="primary">Start now</button>
+          </div>
+        </article>
+
+        <article class="card" itemscope itemtype="https://schema.org/Product">
+          <header>
+            <h3 itemprop="name">Anthology Team Kit</h3>
+            <p itemprop="description">For product teams standardizing semantic UI patterns.</p>
+          </header>
+          <div class="stack p-lg" data-gap="sm">
+            <p><strong>Includes:</strong> shared patterns and compatibility bridge.</p>
+            <p><data itemprop="price" value="89">US$89</data></p>
+            <button data-variant="outline">See details</button>
+          </div>
+        </article>
+
+        <article class="card" itemscope itemtype="https://schema.org/Product">
+          <header>
+            <h3 itemprop="name">Anthology Enterprise Pattern Set</h3>
+            <p itemprop="description">For teams connecting implementation with audit and scoring workflows.</p>
+          </header>
+          <div class="stack p-lg" data-gap="sm">
+            <p><strong>Includes:</strong> rollout guides for Conservatory-driven fixes.</p>
+            <p><data itemprop="price" value="199">US$199</data></p>
+            <button data-variant="ghost">Talk to us</button>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="grid" data-columns="2" data-gap="lg">
+      <article class="card">
+        <header>
+          <h2>Metadata available now</h2>
+        </header>
+        <div class="stack p-lg" data-gap="sm">
+          <a href="../../dist/tokens.json">tokens.json</a>
+          <a href="../symphony-schema.json">symphony-schema.json</a>
+          <a href="../schema-presets.json">schema-presets.json</a>
+          <a href="../AI_INTEGRATION.md">AI integration guide</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <header>
+          <h2>Roadmap boundary</h2>
+        </header>
+        <div class="stack p-lg" data-gap="sm">
+          <p>Custom elements and automatic schema injection are roadmap features, not package features.</p>
+          <p>This demo is intentionally limited to the current shipped contract.</p>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "Symphony Anthology demo products",
+    "itemListElement": [
+      {
+        "@type": "Product",
+        "name": "Anthology Starter",
+        "offers": {
+          "@type": "Offer",
+          "price": "29",
+          "priceCurrency": "USD"
+        }
+      },
+      {
+        "@type": "Product",
+        "name": "Anthology Team Kit",
+        "offers": {
+          "@type": "Offer",
+          "price": "89",
+          "priceCurrency": "USD"
+        }
+      }
+    ]
+  }
+  </script>
+</body>
+</html>

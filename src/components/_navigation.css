@@ -1,0 +1,498 @@
+/**
+ * Symphony Anthology v1.0
+ * Semantic and AI-first CSS framework
+ * Navigation - Semantic Nav Styling
+ * 
+ * Philosophy:
+ * - Semantic <nav> element with nested lists
+ * - Zero JavaScript required for basic navigation
+ * - Data attributes for variants (horizontal, vertical, mega)
+ * - Accessible keyboard navigation
+ * - Mobile-friendly by default
+ * 
+ * Usage:
+ *   <nav>
+ *     <ul>
+ *       <li><a href="/">Home</a></li>
+ *       <li><a href="/about">About</a></li>
+ *       <li>
+ *         <a href="/products">Products</a>
+ *         <ul>
+ *           <li><a href="/products/a">Product A</a></li>
+ *           <li><a href="/products/b">Product B</a></li>
+ *         </ul>
+ *       </li>
+ *     </ul>
+ *   </nav>
+ */
+
+@layer symphony.components {
+    /* =============================================
+     SEMANTIC NAV BASE
+     All <nav> elements get sensible defaults
+     ============================================= */
+
+    :where(nav) {
+
+        /* Primary nav list */
+        &>ul,
+        &>ol {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--nav-gap, var(--symphony-space-xs));
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        /* Nav items */
+        & li {
+            position: relative;
+        }
+
+        /* Nav links */
+        & a {
+            display: flex;
+            align-items: center;
+            gap: var(--symphony-space-xs);
+            padding: var(--nav-link-padding, var(--symphony-space-sm) var(--symphony-space-md));
+            color: var(--nav-link-color, var(--symphony-text));
+            text-decoration: none;
+            border-radius: var(--nav-link-radius, var(--symphony-radius-md));
+            transition: var(--symphony-transition-colors);
+
+            &:hover {
+                background-color: var(--symphony-surface-hover);
+                color: var(--symphony-primary);
+            }
+
+            &:focus-visible {
+                outline: none;
+                box-shadow: var(--symphony-focus-ring);
+            }
+
+            /* Active/current link */
+            &.active {
+                background-color: var(--symphony-primary);
+                color: var(--symphony-text-inverted);
+            }
+        }
+
+        &>ul a[aria-current="page"],
+        &>ol a[aria-current="page"] {
+            background-color: var(--symphony-primary);
+            color: var(--symphony-text-inverted);
+        }
+
+        /* Dropdown menus */
+        & ul ul,
+        & ol ol {
+            position: absolute;
+            inset-block-start: 100%;
+            inset-inline-start: 0;
+            min-inline-size: 12rem;
+            flex-direction: column;
+            gap: 0;
+            padding: var(--symphony-space-xs);
+            background-color: var(--symphony-surface);
+            border: 1px solid var(--symphony-border);
+            border-radius: var(--symphony-radius-md);
+            box-shadow: var(--symphony-shadow-lg);
+            z-index: var(--symphony-z-dropdown);
+
+            /* Hidden by default */
+            visibility: hidden;
+            opacity: 0;
+            transform: translateY(-0.5rem);
+            transition: opacity var(--symphony-duration-fast) var(--symphony-ease-out),
+                transform var(--symphony-duration-fast) var(--symphony-ease-out),
+                visibility var(--symphony-duration-fast);
+        }
+
+        /* Show dropdown on hover/focus */
+        & li:hover>ul,
+        & li:hover>ol,
+        & li:focus-within>ul,
+        & li:focus-within>ol {
+            visibility: visible;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Nested dropdown positioning */
+        & ul ul ul,
+        & ol ol ol {
+            inset-block-start: 0;
+            inset-inline-start: 100%;
+        }
+    }
+
+    /* =============================================
+     NAV VARIANTS (Data Attributes)
+     ============================================= */
+
+    /* Vertical navigation */
+    :where(nav[data-direction="vertical"]) {
+
+        &>ul,
+        &>ol {
+            flex-direction: column;
+            gap: var(--symphony-space-2xs);
+        }
+
+        & ul ul,
+        & ol ol {
+            position: static;
+            visibility: visible;
+            opacity: 1;
+            transform: none;
+            margin-inline-start: var(--symphony-space-md);
+            padding: var(--symphony-space-xs) 0;
+            border: none;
+            box-shadow: none;
+            background: transparent;
+        }
+    }
+
+    /* Pill style navigation */
+    :where(nav[data-style="pills"]) {
+        --nav-link-radius: var(--symphony-radius-full);
+        --nav-gap: var(--symphony-space-2xs);
+
+        & a {
+            padding: var(--symphony-space-xs) var(--symphony-space-md);
+        }
+    }
+
+    /* Underline style navigation */
+    :where(nav[data-style="underline"]) {
+        --nav-link-radius: 0;
+        border-block-end: 1px solid var(--symphony-border);
+
+        & a {
+            position: relative;
+            padding-block-end: var(--symphony-space-sm);
+
+            &::after {
+                content: '';
+                position: absolute;
+                inset-block-end: -1px;
+                inset-inline: 0;
+                block-size: 2px;
+                background-color: var(--symphony-primary);
+                transform: scaleX(0);
+                transition: transform var(--symphony-duration-fast) var(--symphony-ease-out);
+            }
+
+            &:hover::after,
+            &[aria-current="page"]::after {
+                transform: scaleX(1);
+            }
+
+            &:hover {
+                background: transparent;
+            }
+
+            &[aria-current="page"] {
+                background: transparent;
+                color: var(--symphony-primary);
+            }
+        }
+    }
+
+    /* Compact navigation */
+    :where(nav[data-size="compact"]) {
+        --nav-link-padding: var(--symphony-space-xs) var(--symphony-space-sm);
+        font-size: var(--symphony-text-sm);
+    }
+
+    /* Split navigation for homepage and marketing headers */
+    :where(nav[data-layout="split"]) {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: var(--symphony-space-sm) var(--symphony-space-lg);
+        padding-block: var(--symphony-space-md);
+
+        &>a:first-child,
+        &>[data-role="brand"] {
+            display: inline-flex;
+            align-items: center;
+            flex: 0 0 auto;
+            flex-wrap: nowrap;
+            gap: var(--symphony-space-xs);
+            min-inline-size: max-content;
+            padding: 0;
+            font-size: clamp(1rem, 0.96rem + 0.3vw, 1.1rem);
+            font-weight: var(--symphony-font-semibold);
+            letter-spacing: -0.01em;
+            color: var(--symphony-text);
+            text-decoration: none;
+            line-height: 1;
+            background: transparent;
+            border-radius: 0;
+            white-space: nowrap;
+
+            &:hover {
+                background: transparent;
+                color: var(--symphony-text);
+            }
+
+            &[aria-current="page"] {
+                background: transparent;
+                color: var(--symphony-text);
+            }
+        }
+
+        &>a:first-child svg,
+        &>[data-role="brand"] svg {
+            flex: none;
+            inline-size: clamp(1rem, 0.95rem + 0.35vw, 1.25rem);
+            block-size: clamp(1rem, 0.95rem + 0.35vw, 1.25rem);
+        }
+
+        &>a:first-child span,
+        &>[data-role="brand"] span {
+            display: inline-block;
+            white-space: nowrap;
+        }
+
+        &>ul,
+        &>ol {
+            margin-inline-start: auto;
+            justify-content: flex-end;
+        }
+
+        &>[data-role="nav-toggle"] {
+            display: none;
+            margin-inline-start: auto;
+            align-items: center;
+            justify-content: center;
+            inline-size: 2.75rem;
+            block-size: 2.75rem;
+            padding: 0;
+            color: var(--symphony-text);
+            background: transparent;
+            border: 1px solid var(--symphony-border);
+            border-radius: var(--symphony-radius-md);
+            box-shadow: none;
+
+            &:hover {
+                background: var(--symphony-surface-hover);
+                color: var(--symphony-primary);
+                border-color: var(--symphony-border-hover);
+            }
+
+            &:focus-visible {
+                outline: none;
+                box-shadow: var(--symphony-focus-ring);
+            }
+        }
+
+        &>[data-role="nav-toggle"] svg {
+            inline-size: 1.125rem;
+            block-size: 1.125rem;
+        }
+    }
+
+    @media (max-width: 48rem) {
+        :where(nav[data-layout="split"]) {
+            align-items: center;
+
+            &>ul,
+            &>ol {
+                inline-size: 100%;
+                flex-direction: column;
+                gap: var(--symphony-space-2xs);
+            }
+
+            & a {
+                inline-size: 100%;
+            }
+
+            &>a:first-child,
+            &>[data-role="brand"] {
+                inline-size: auto;
+            }
+
+            &>a:first-child svg,
+            &>[data-role="brand"] svg {
+                inline-size: 1rem;
+                block-size: 1rem;
+            }
+        }
+
+        :where(nav[data-layout="split"][data-mobile="collapse"]) {
+            align-items: center;
+
+            &>[data-role="nav-toggle"] {
+                display: inline-flex;
+                align-self: center;
+            }
+
+            &>ul,
+            &>ol {
+                display: none;
+                order: 3;
+                margin-inline-start: 0;
+                padding: var(--symphony-space-sm);
+                border: 1px solid var(--symphony-border);
+                border-radius: var(--symphony-radius-lg);
+                background: var(--symphony-surface);
+                box-shadow: var(--symphony-shadow-md);
+            }
+
+            &[data-expanded]>ul,
+            &[data-expanded]>ol {
+                display: flex;
+            }
+
+            &>ul li,
+            &>ol li {
+                inline-size: 100%;
+            }
+        }
+    }
+
+    /* =============================================
+     BREADCRUMBS
+     Special nav variant for breadcrumb navigation
+     ============================================= */
+
+    :where(nav[aria-label="Breadcrumb"]),
+    :where(nav.breadcrumbs),
+    :where(.breadcrumbs) {
+
+        &>ol,
+        &>ul {
+            gap: 0;
+        }
+
+        & li {
+            display: flex;
+            align-items: center;
+
+            &:not(:last-child)::after {
+                content: '/';
+                margin-inline: var(--symphony-space-xs);
+                color: var(--symphony-text-muted);
+            }
+        }
+
+        & a {
+            padding: var(--symphony-space-2xs) var(--symphony-space-xs);
+            color: var(--symphony-text-muted);
+
+            &:hover {
+                color: var(--symphony-primary);
+                background: transparent;
+            }
+        }
+
+        & [aria-current="page"] {
+            color: var(--symphony-text);
+            background: transparent;
+            font-weight: var(--symphony-font-medium);
+        }
+    }
+
+    /* =============================================
+     NAVBAR COMPONENT
+     Full-width navigation bar
+     ============================================= */
+
+    .navbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: var(--symphony-space-lg);
+        padding: var(--symphony-space-md) var(--symphony-space-lg);
+        background-color: var(--symphony-surface);
+        border-block-end: 1px solid var(--symphony-border);
+
+        /* Logo/Brand */
+        &>a:first-child,
+        & .navbar-brand {
+            font-size: var(--symphony-text-lg);
+            font-weight: var(--symphony-font-bold);
+            text-decoration: none;
+            color: var(--symphony-text);
+        }
+
+        /* Navigation links */
+        &>nav {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+
+        /* Actions (buttons, etc) */
+        & .navbar-actions {
+            display: flex;
+            gap: var(--symphony-space-sm);
+        }
+    }
+
+    /* Sticky navbar */
+    .navbar[data-sticky] {
+        position: sticky;
+        inset-block-start: 0;
+        z-index: var(--symphony-z-sticky);
+    }
+
+    /* Transparent navbar (for hero sections) */
+    .navbar[data-transparent] {
+        background-color: transparent;
+        border: none;
+        position: absolute;
+        inset-inline: 0;
+        z-index: var(--symphony-z-fixed);
+    }
+
+    /* =============================================
+     MOBILE MENU
+     Responsive mobile navigation
+     ============================================= */
+
+    @media (max-width: 48rem) {
+        :where(nav[data-mobile="collapse"]) {
+            position: relative;
+        }
+    }
+
+    /* =============================================
+     PAGINATION (Special nav type)
+     ============================================= */
+
+    :where(nav[aria-label="Pagination"]),
+    :where(.pagination) {
+
+        &>ul,
+        &>ol {
+            gap: var(--symphony-space-2xs);
+        }
+
+        & a,
+        & span {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-inline-size: 2.5rem;
+            min-block-size: 2.5rem;
+            padding: var(--symphony-space-xs);
+            border-radius: var(--symphony-radius-md);
+            font-weight: var(--symphony-font-medium);
+        }
+
+        & [aria-current="page"] {
+            background-color: var(--symphony-primary);
+            color: var(--symphony-text-inverted);
+        }
+
+        & [aria-disabled="true"] {
+            opacity: 0.5;
+            pointer-events: none;
+        }
+    }
+}

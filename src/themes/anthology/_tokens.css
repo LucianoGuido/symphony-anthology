@@ -1,0 +1,148 @@
+/**
+ * @theme Anthology
+ * @description Minimalist design system inspired by Cohere's design language
+ * @author SymphonyUI
+ * @version 1.0.0
+ * 
+ * Features:
+ * - Generous whitespace and breathing room
+ * - Soft geometry (pill-shaped buttons, rounded corners)
+ * - Subtle shadows and borders
+ * - Relaxed typography with excellent readability
+ * - Natural and synthetic color palette
+ */
+
+@layer symphony.themes {
+
+    :root,
+    [data-theme="anthology"] {
+        /* ==========================================
+       ANTHOLOGY THEME TOKENS
+       Override Symphony core variables
+       ========================================== */
+
+        /* Typography - Inter-based system */
+        --symphony-font-sans: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI",
+            system-ui, sans-serif;
+        --symphony-font-mono: ui-monospace, "SF Mono", Monaco, monospace;
+
+        /* Type Scale - Generous */
+        --symphony-text-xs: 0.75rem;
+        --symphony-text-sm: 0.875rem;
+        --symphony-text-base: 1rem;
+        --symphony-text-lg: 1.125rem;
+        --symphony-text-xl: 1.25rem;
+        --symphony-text-2xl: 1.5rem;
+        --symphony-text-3xl: 1.875rem;
+        --symphony-text-4xl: 2.25rem;
+        --symphony-text-5xl: 3rem;
+
+        /* Line Heights - Relaxed */
+        --symphony-leading-tight: 1.25;
+        --symphony-leading-normal: 1.5;
+        --symphony-leading-relaxed: 1.75;
+        --symphony-leading-loose: 2;
+
+        /* Letter Spacing */
+        --anthology-tracking-tight: -0.025em;
+        --anthology-tracking-normal: 0;
+        --anthology-tracking-wide: 0.025em;
+
+        /* Spacing - Generous (8px base) */
+        --symphony-space-xs: 0.5rem;
+        /* 8px */
+        --symphony-space-sm: 0.75rem;
+        /* 12px */
+        --symphony-space-md: 1rem;
+        /* 16px */
+        --symphony-space-lg: 1.5rem;
+        /* 24px */
+        --symphony-space-xl: 2rem;
+        /* 32px */
+        --symphony-space-2xl: 3rem;
+        /* 48px */
+        --symphony-space-3xl: 4rem;
+        /* 64px */
+
+        /* Colors - Anthology Palette */
+        /* Natural Tones */
+        --anthology-coniferous: #1a4d2e;
+        --anthology-mushroom: #a0a0a0;
+        --anthology-volcanic: #1a1a1a;
+
+        /* Synthetic Hues */
+        --anthology-coral: #ff6b6b;
+        --anthology-quartz: #e0b0ff;
+        --anthology-acrylic: #4a9eff;
+
+        /* Semantic Colors - Light Mode */
+        --symphony-background: #fafafa;
+        --symphony-surface: #ffffff;
+        --symphony-surface-hover: #f5f5f5;
+        --symphony-surface-alt: #f0f0f0;
+        --symphony-surface-elevated: #ffffff;
+
+        --symphony-text: #1a1a1a;
+        --symphony-text-secondary: #666666;
+        --symphony-text-muted: #999999;
+        --symphony-text-inverted: #ffffff;
+
+        --symphony-border: #e8e8e8;
+        --symphony-border-hover: #d0d0d0;
+
+        /* Primary using Anthology acrylic blue */
+        --symphony-primary: var(--anthology-acrylic);
+        --symphony-primary-hover: #3a8aef;
+        --symphony-primary-light: #e6f0ff;
+
+        /* Radii - Soft Geometry */
+        --symphony-radius-sm: 0.375rem;
+        /* 6px */
+        --symphony-radius-md: 0.5rem;
+        /* 8px */
+        --symphony-radius-lg: 0.75rem;
+        /* 12px */
+        --symphony-radius-xl: 1rem;
+        /* 16px */
+        --symphony-radius-2xl: 1.5rem;
+        /* 24px */
+        --symphony-radius-full: 9999px;
+        /* Pill shape */
+
+        /* Shadows - Subtle */
+        --symphony-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.04);
+        --symphony-shadow-md: 0 2px 8px rgba(0, 0, 0, 0.06);
+        --symphony-shadow-lg: 0 4px 16px rgba(0, 0, 0, 0.08);
+        --symphony-shadow-xl: 0 8px 32px rgba(0, 0, 0, 0.1);
+
+        /* Transitions - Smooth */
+        --symphony-duration-fast: 150ms;
+        --symphony-duration-normal: 250ms;
+        --symphony-duration-slow: 350ms;
+        --symphony-ease-out: cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    /* Dark Mode for Anthology */
+    [data-theme="anthology-dark"],
+    [data-theme="anthology"][data-mode="dark"] {
+        --symphony-background: #0a0a0a;
+        --symphony-surface: #1a1a1a;
+        --symphony-surface-hover: #262626;
+        --symphony-surface-alt: #141414;
+        --symphony-surface-elevated: #1f1f1f;
+
+        --symphony-text: #fafafa;
+        --symphony-text-secondary: #a0a0a0;
+        --symphony-text-muted: #666666;
+        --symphony-text-inverted: #1a1a1a;
+
+        --symphony-border: #2a2a2a;
+        --symphony-border-hover: #3a3a3a;
+
+        --symphony-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.2);
+        --symphony-shadow-md: 0 2px 8px rgba(0, 0, 0, 0.3);
+        --symphony-shadow-lg: 0 4px 16px rgba(0, 0, 0, 0.4);
+
+        color-scheme: dark;
+    }
+}
