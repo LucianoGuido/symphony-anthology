@@ -4,7 +4,7 @@
  * @theme Anthology
  * @description Minimalist design system with generous whitespace,
  *              soft geometry, and relaxed typography.
- * @version 1.0.0
+ * @version 0.1.0
  * 
  * Import this file to use the full Anthology theme with Symphony.
  * 
@@ -20,7 +20,7 @@
  * @theme Anthology
  * @description Minimalist design system inspired by Cohere's design language
  * @author SymphonyUI
- * @version 1.0.0
+ * @version 0.1.0
  * 
  * Features:
  * - Generous whitespace and breathing room
@@ -164,6 +164,7 @@
         color-scheme: dark;
     }
 }
+
 /* End src/themes/anthology/_tokens.css */
 /* Begin src/themes/anthology/_components.css */
 /**

@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Symphony Anthology Playground</title>
+  <link rel="stylesheet" href="../../dist/symphony.css">
+  <link rel="stylesheet" href="../css/symphony-docs.css">
+  <link rel="stylesheet" href="../css/symphony-playground.css">
+</head>
+<body>
+  <header class="docs-hero">
+    <div class="container">
+      <div class="stack" data-gap="md">
+        <p class="docs-eyebrow">Symphony Anthology Playground</p>
+        <h1>Copy real semantic patterns, not just isolated components.</h1>
+        <p class="text-lg">
+          The playground turns Anthology recipes into live previews with copyable markup,
+          so teams can adopt the framework quickly and keep the public contract legible.
+        </p>
+        <div class="cluster" data-gap="sm">
+          <a class="button" href="../RECIPES.md" data-variant="primary">Open recipe library</a>
+          <a class="button" href="../index.html" data-variant="outline">Back to docs</a>
+          <a class="button" href="../../README.md" data-variant="ghost">Read README</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container docs-shell">
+    <section class="docs-panel stack" data-gap="lg">
+      <header class="stack" data-gap="sm">
+        <p class="docs-section-label">Launch Set</p>
+        <h2>Six patterns ready to copy today</h2>
+        <p>
+          These are the first recipes to prioritize for public launch because they improve
+          onboarding, docs, marketing, and AI-readable demos at the same time.
+        </p>
+      </header>
+
+      <nav class="playground-nav" aria-label="Playground sections">
+        <a href="#hero-cta">Hero + CTA</a>
+        <a href="#signup-form">Signup form</a>
+        <a href="#accordion">Accordion</a>
+        <a href="#card-collection">Card collection</a>
+        <a href="#feature-grid">Feature grid</a>
+        <a href="#conservatory-fix">Conservatory fix</a>
+      </nav>
+    </section>
+
+    <section id="hero-cta" class="docs-panel stack" data-gap="lg">
+      <header class="stack" data-gap="sm">
+        <p class="docs-section-label">Recipe 01</p>
+        <h2>Hero + CTA</h2>
+        <p>Use this for landing pages and first-screen sections that need one clear next action.</p>
+      </header>
+
+      <div class="playground-example">
+        <div class="playground-live">
+          <section class="container" data-size="prose">
+            <header class="stack" data-gap="sm">
+              <p>Semantic and AI-first CSS framework</p>
+              <h3>Give semantic HTML a real default shape for the AI era.</h3>
+              <p>
+                Start with meaningful structure. Add data attributes when intent matters.
+                Reach for layout primitives only when composition gets denser.
+              </p>
+            </header>
+
+            <div class="cluster" data-gap="sm">
+              <a href="../index.html" class="button" data-variant="primary">Read the docs</a>
+              <a href="../../index.html" class="button" data-variant="outline">See the homepage</a>
+            </div>
+          </section>
+        </div>
+
+        <article class="card playground-code-card">
+          <div class="playground-toolbar">
+            <strong>HTML</strong>
+            <button
+              type="button"
+              class="button"
+              data-variant="outline"
+              data-copy-target="hero-cta-code">Copy markup</button>
+          </div>
+          <pre class="docs-code"><code id="hero-cta-code">&lt;section class="container" data-size="prose"&gt;
+  &lt;header class="stack" data-gap="sm"&gt;
+    &lt;p&gt;Semantic and AI-first CSS framework&lt;/p&gt;
+    &lt;h1&gt;Give semantic HTML a real default shape for the AI era.&lt;/h1&gt;
+    &lt;p&gt;
+      Start with meaningful structure. Add data attributes when intent matters.
+      Reach for layout primitives only when composition gets denser.
+    &lt;/p&gt;
+  &lt;/header&gt;
+
+  &lt;div class="cluster" data-gap="sm"&gt;
+    &lt;a href="/docs" class="button" data-variant="primary"&gt;Read the docs&lt;/a&gt;
+    &lt;a href="/demo" class="button" data-variant="outline"&gt;See the demo&lt;/a&gt;
+  &lt;/div&gt;
+&lt;/section&gt;</code></pre>
+        </article>
+      </div>
+
+      <div class="cluster" data-gap="sm">
+        <a class="button" href="../recipes/hero-cta.md" data-variant="ghost">Open full recipe</a>
+      </div>
+    </section>
+
+    <section id="signup-form" class="docs-panel stack" data-gap="lg">
+      <header class="stack" data-gap="sm">
+        <p class="docs-section-label">Recipe 02</p>
+        <h2>Signup / Waitlist Form</h2>
+        <p>Use this for launch pages, newsletters, and early-access forms with one primary action.</p>
+      </header>
+
+      <div class="playground-example">
+        <div class="playground-live">
+          <section class="container" data-size="prose">
+            <header class="stack" data-gap="sm">
+              <h3>Join the waitlist</h3>
+              <p>Get release updates and early access announcements.</p>
+            </header>
+
+            <form class="stack" data-gap="md">
+              <label>
+                Email address
+                <input type="email" name="email" autocomplete="email" placeholder="name@company.com">
+              </label>
+
+              <button type="submit" data-variant="primary">Request early access</button>
+            </form>
+          </section>
+        </div>
+
+        <article class="card playground-code-card">
+          <div class="playground-toolbar">
+            <strong>HTML</strong>
+            <button
+              type="button"
+              class="button"
+              data-variant="outline"
+              data-copy-target="signup-form-code">Copy markup</button>
+          </div>
+          <pre class="docs-code"><code id="signup-form-code">&lt;section class="container" data-size="prose"&gt;
+  &lt;header&gt;
+    &lt;h2&gt;Join the waitlist&lt;/h2&gt;
+    &lt;p&gt;Get release updates and early access announcements.&lt;/p&gt;
+  &lt;/header&gt;
+
+  &lt;form class="stack" data-gap="md"&gt;
+    &lt;label&gt;
+      Email address
+      &lt;input type="email" name="email" autocomplete="email" required&gt;
+    &lt;/label&gt;
+
+    &lt;button type="submit" data-variant="primary"&gt;Request early access&lt;/button&gt;
+  &lt;/form&gt;
+&lt;/section&gt;</code></pre>
+        </article>
+      </div>
+
+      <div class="cluster" data-gap="sm">
+        <a class="button" href="../recipes/signup-waitlist-form.md" data-variant="ghost">Open full recipe</a>
+      </div>
+    </section>
+
+    <section id="accordion" class="docs-panel stack" data-gap="lg">
+      <header class="stack" data-gap="sm">
+        <p class="docs-section-label">Recipe 03</p>
+        <h2>Accordion / Disclosure</h2>
+        <p>Use native disclosure for FAQs and dense secondary content before reaching for custom interaction.</p>
+      </header>
+
+      <div class="playground-example">
+        <div class="playground-live">
+          <section class="container" data-size="prose">
+            <header>
+              <h3>Frequently asked questions</h3>
+            </header>
+
+            <div class="stack" data-gap="sm">
+              <details>
+                <summary>Does Anthology require custom components?</summary>
+                <p>No. Anthology starts with semantic HTML and only adds structure where it helps.</p>
+              </details>
+
+              <details>
+                <summary>Does it ship metadata for AI workflows?</summary>
+                <p>Yes. Tokens, schema, and presets ship as public machine-readable artifacts.</p>
+              </details>
+            </div>
+          </section>
+        </div>
+
+        <article class="card playground-code-card">
+          <div class="playground-toolbar">
+            <strong>HTML</strong>
+            <button
+              type="button"
+              class="button"
+              data-variant="outline"
+              data-copy-target="accordion-code">Copy markup</button>
+          </div>
+          <pre class="docs-code"><code id="accordion-code">&lt;section class="container" data-size="prose"&gt;
+  &lt;header&gt;
+    &lt;h2&gt;Frequently asked questions&lt;/h2&gt;
+  &lt;/header&gt;
+
+  &lt;div class="stack" data-gap="sm"&gt;
+    &lt;details&gt;
+      &lt;summary&gt;Does Anthology require custom components?&lt;/summary&gt;
+      &lt;p&gt;No. Anthology starts with semantic HTML and only adds structure where it helps.&lt;/p&gt;
+    &lt;/details&gt;
+
+    &lt;details&gt;
+      &lt;summary&gt;Does it ship metadata for AI workflows?&lt;/summary&gt;
+      &lt;p&gt;Yes. Tokens, schema, and presets ship as public machine-readable artifacts.&lt;/p&gt;
+    &lt;/details&gt;
+  &lt;/div&gt;
+&lt;/section&gt;</code></pre>
+        </article>
+      </div>
+
+      <div class="cluster" data-gap="sm">
+        <a class="button" href="../recipes/accordion-disclosure.md" data-variant="ghost">Open full recipe</a>
+      </div>
+    </section>
+
+    <section id="card-collection" class="docs-panel stack" data-gap="lg">
+      <header class="stack" data-gap="sm">
+        <p class="docs-section-label">Recipe 04</p>
+        <h2>Card Collection</h2>
+        <p>Use repeated semantic `article` cards for resource lists, directories, and product surfaces.</p>
+      </header>
+
+      <div class="playground-example">
+        <div class="playground-live">
+          <section class="container">
+            <header class="stack" data-gap="sm">
+              <h3>Explore the recipe library</h3>
+              <p>Browse shipped patterns and implementation guidance.</p>
+            </header>
+
+            <div class="grid" data-columns="3" data-gap="lg">
+              <article class="card" data-elevation="raised">
+                <header>
+                  <h4>Hero + CTA</h4>
+                  <p>Landing pattern with clear messaging and action hierarchy.</p>
+                </header>
+                <footer>
+                  <a href="../recipes/hero-cta.md" class="button" data-variant="primary">Open recipe</a>
+                </footer>
+              </article>
+
+              <article class="card" data-elevation="raised">
+                <header>
+                  <h4>Signup form</h4>
+                  <p>Simple conversion pattern with labels and one strong action.</p>
+                </header>
+                <footer>
+                  <a href="../recipes/signup-waitlist-form.md" class="button" data-variant="outline">Open recipe</a>
+                </footer>
+              </article>
+
+              <article class="card" data-elevation="raised">
+                <header>
+                  <h4>Accordion</h4>
+                  <p>Native disclosure for FAQs and dense secondary content.</p>
+                </header>
+                <footer>
+                  <a href="../recipes/accordion-disclosure.md" class="button" data-variant="ghost">Open recipe</a>
+                </footer>
+              </article>
+            </div>
+          </section>
+        </div>
+
+        <article class="card playground-code-card">
+          <div class="playground-toolbar">
+            <strong>HTML</strong>
+            <button
+              type="button"
+              class="button"
+              data-variant="outline"
+              data-copy-target="card-collection-code">Copy markup</button>
+          </div>
+          <pre class="docs-code"><code id="card-collection-code">&lt;section class="container"&gt;
+  &lt;header class="stack" data-gap="sm"&gt;
+    &lt;h2&gt;Explore the recipe library&lt;/h2&gt;
+    &lt;p&gt;Browse shipped patterns and implementation guidance.&lt;/p&gt;
+  &lt;/header&gt;
+
+  &lt;div class="grid" data-columns="3" data-gap="lg"&gt;
+    &lt;article class="card" data-elevation="raised"&gt;
+      &lt;header&gt;
+        &lt;h3&gt;Hero + CTA&lt;/h3&gt;
+        &lt;p&gt;Landing pattern with clear messaging and action hierarchy.&lt;/p&gt;
+      &lt;/header&gt;
+
+      &lt;footer&gt;
+        &lt;a href="/docs/recipes/hero-cta" class="button" data-variant="primary"&gt;Open recipe&lt;/a&gt;
+      &lt;/footer&gt;
+    &lt;/article&gt;
+  &lt;/div&gt;
+&lt;/section&gt;</code></pre>
+        </article>
+      </div>
+
+      <div class="cluster" data-gap="sm">
+        <a class="button" href="../recipes/card-collection.md" data-variant="ghost">Open full recipe</a>
+      </div>
+    </section>
+
+    <section id="feature-grid" class="docs-panel stack" data-gap="lg">
+      <header class="stack" data-gap="sm">
+        <p class="docs-section-label">Recipe 05</p>
+        <h2>Feature Grid</h2>
+        <p>Use this for product benefits, framework feature sets, and capability overviews.</p>
+      </header>
+
+      <div class="playground-example">
+        <div class="playground-live">
+          <section class="container">
+            <header class="stack" data-gap="sm">
+              <h3>What ships today</h3>
+              <p>Anthology ships a semantic baseline, optional primitives, and AI-ready metadata.</p>
+            </header>
+
+            <div class="grid" data-columns="3" data-gap="lg">
+              <article class="card">
+                <h4>Semantic baseline</h4>
+                <p>Headings, forms, tables, dialog, and content elements start with meaningful defaults.</p>
+              </article>
+
+              <article class="card">
+                <h4>Optional primitives</h4>
+                <p>Use container, grid, stack, cluster, and related layout helpers only when structure needs them.</p>
+              </article>
+
+              <article class="card">
+                <h4>AI-ready metadata</h4>
+                <p>Tokens, schema, and presets ship as machine-readable public artifacts.</p>
+              </article>
+            </div>
+          </section>
+        </div>
+
+        <article class="card playground-code-card">
+          <div class="playground-toolbar">
+            <strong>HTML</strong>
+            <button
+              type="button"
+              class="button"
+              data-variant="outline"
+              data-copy-target="feature-grid-code">Copy markup</button>
+          </div>
+          <pre class="docs-code"><code id="feature-grid-code">&lt;section class="container"&gt;
+  &lt;header class="stack" data-gap="sm"&gt;
+    &lt;h2&gt;What ships today&lt;/h2&gt;
+    &lt;p&gt;Anthology ships a semantic baseline, optional primitives, and AI-ready metadata.&lt;/p&gt;
+  &lt;/header&gt;
+
+  &lt;div class="grid" data-columns="3" data-gap="lg"&gt;
+    &lt;article class="card"&gt;
+      &lt;h3&gt;Semantic baseline&lt;/h3&gt;
+      &lt;p&gt;Headings, forms, tables, dialog, and content elements start with meaningful defaults.&lt;/p&gt;
+    &lt;/article&gt;
+
+    &lt;article class="card"&gt;
+      &lt;h3&gt;Optional primitives&lt;/h3&gt;
+      &lt;p&gt;Use container, grid, stack, cluster, and related layout helpers only when structure needs them.&lt;/p&gt;
+    &lt;/article&gt;
+
+    &lt;article class="card"&gt;
+      &lt;h3&gt;AI-ready metadata&lt;/h3&gt;
+      &lt;p&gt;Tokens, schema, and presets ship as machine-readable public artifacts.&lt;/p&gt;
+    &lt;/article&gt;
+  &lt;/div&gt;
+&lt;/section&gt;</code></pre>
+        </article>
+      </div>
+
+      <div class="cluster" data-gap="sm">
+        <a class="button" href="../recipes/feature-grid.md" data-variant="ghost">Open full recipe</a>
+      </div>
+    </section>
+
+    <section id="conservatory-fix" class="docs-panel stack" data-gap="lg">
+      <header class="stack" data-gap="sm">
+        <p class="docs-section-label">Recipe 06</p>
+        <h2>Conservatory finding -> Anthology fix</h2>
+        <p>Use this pattern to turn audit findings into small, documented implementation moves.</p>
+      </header>
+
+      <div class="playground-example">
+        <div class="playground-live">
+          <section class="container">
+            <div class="grid" data-columns="2" data-gap="lg">
+              <article class="card">
+                <header>
+                  <h3>Finding</h3>
+                  <p>Low CTA clarity</p>
+                </header>
+                <div class="stack p-lg" data-gap="sm">
+                  <button>Start free</button>
+                  <button>Talk to sales</button>
+                </div>
+              </article>
+
+              <article class="card" data-elevation="raised">
+                <header>
+                  <h3>Fix</h3>
+                  <p>Use clear action hierarchy</p>
+                </header>
+                <div class="cluster p-lg" data-gap="sm">
+                  <button data-variant="primary">Start free</button>
+                  <button data-variant="outline">Talk to sales</button>
+                </div>
+              </article>
+            </div>
+          </section>
+        </div>
+
+        <article class="card playground-code-card">
+          <div class="playground-toolbar">
+            <strong>HTML</strong>
+            <button
+              type="button"
+              class="button"
+              data-variant="outline"
+              data-copy-target="conservatory-fix-code">Copy markup</button>
+          </div>
+          <pre class="docs-code"><code id="conservatory-fix-code">&lt;div class="cluster" data-gap="sm"&gt;
+  &lt;button data-variant="primary"&gt;Start free&lt;/button&gt;
+  &lt;button data-variant="outline"&gt;Talk to sales&lt;/button&gt;
+&lt;/div&gt;</code></pre>
+        </article>
+      </div>
+
+      <div class="cluster" data-gap="sm">
+        <a class="button" href="../recipes/conservatory-finding-to-fix.md" data-variant="ghost">Open full recipe</a>
+      </div>
+    </section>
+
+    <section class="docs-panel stack" data-gap="lg">
+      <header class="stack" data-gap="sm">
+        <p class="docs-section-label">More Recipes</p>
+        <h2>Keep expanding from this launch set</h2>
+        <p>The rest of the recipe library is already scaffolded so the playground can grow without changing the contract.</p>
+      </header>
+
+      <div class="docs-grid">
+        <article class="card docs-card">
+          <header>
+            <h3>Pricing section</h3>
+          </header>
+          <div class="p-lg">
+            <p>Plan comparison with semantic articles, price grouping, and clear CTAs.</p>
+            <a href="../recipes/pricing-section.md">Open recipe</a>
+          </div>
+        </article>
+
+        <article class="card docs-card">
+          <header>
+            <h3>Contact form</h3>
+          </header>
+          <div class="p-lg">
+            <p>Longer form pattern with grouped actions, labels, and clearer request structure.</p>
+            <a href="../recipes/contact-form.md">Open recipe</a>
+          </div>
+        </article>
+
+        <article class="card docs-card">
+          <header>
+            <h3>Docs sidebar layout</h3>
+          </header>
+          <div class="p-lg">
+            <p>Documentation shell with local navigation and article-first content structure.</p>
+            <a href="../recipes/docs-sidebar-layout.md">Open recipe</a>
+          </div>
+        </article>
+
+        <article class="card docs-card">
+          <header>
+            <h3>Article / prose page</h3>
+          </header>
+          <div class="p-lg">
+            <p>Long-form content pattern for release notes, docs, changelogs, and editorial surfaces.</p>
+            <a href="../recipes/article-prose-page.md">Open recipe</a>
+          </div>
+        </article>
+
+        <article class="card docs-card">
+          <header>
+            <h3>Dashboard summary</h3>
+          </header>
+          <div class="p-lg">
+            <p>Lightweight metrics and grouped panels without a heavy component framework.</p>
+            <a href="../recipes/dashboard-summary.md">Open recipe</a>
+          </div>
+        </article>
+
+        <article class="card docs-card">
+          <header>
+            <h3>Search results / resource list</h3>
+          </header>
+          <div class="p-lg">
+            <p>Result pattern with title, summary, and metadata that stays easy to scan.</p>
+            <a href="../recipes/search-results-resource-list.md">Open recipe</a>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <script src="./playground.js"></script>
+</body>
+</html>

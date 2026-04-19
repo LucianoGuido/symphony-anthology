@@ -4,7 +4,7 @@ This directory contains optional theme packages that extend Symphony's core styl
 
 ## Available Themes
 
-### 🎨 Anthology (v1.0)
+### 🎨 Anthology (0.1.0)
 
 Minimalist design system inspired by modern design languages like Cohere.
 
@@ -55,11 +55,11 @@ Minimalist design system inspired by modern design languages like Cohere.
 
 ## Roadmap
 
-### v1.1 (Q1 2026)
+### Near term
 - [ ] Brutalist Theme (Bold, typography-first)
 - [ ] Glassmorphic Theme (Frosted glass effects)
 
-### v1.2 (Q2 2026)
+### Later
 - [ ] Neubrutalism Theme (Colorful, playful)
 - [ ] Corporate Theme (Professional, enterprise)
 

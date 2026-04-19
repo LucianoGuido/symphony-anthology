@@ -18,7 +18,7 @@ npm test
 ## Pull request checklist
 
 - Update source files instead of editing generated `dist` files manually
-- Update `metadata/` sources instead of editing generated JSON in `dist/` or `docs/`
+- Update the canonical metadata source in `metadata/` instead of editing generated JSON in `dist/` or `docs/`
 - Rebuild artifacts before opening the PR
 - Keep documentation examples aligned with shipped features
 - Add or update migration notes when public behavior changes
@@ -28,7 +28,7 @@ npm test
 
 - `src/` contains the framework sources
 - `src/compat/legacy.css` contains opt-in aliases only
-- `metadata/` contains the current authoritative metadata source set
+- `metadata/` contains the canonical metadata source
 - `scripts/` contains build and verification scripts
 - `docs/` contains public guidance and generated schema outputs
 
@@ -37,4 +37,4 @@ npm test
 - Use the main bundles for shipped features only
 - Put migration helpers in `compat`
 - Put future ecosystem plans in roadmap docs, not product docs
-- Treat `metadata/` as the source of truth until the repo moves to a single canonical metadata generator
+- Treat `metadata/anthology-metadata.json` as the metadata source of truth

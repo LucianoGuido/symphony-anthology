@@ -1,6 +1,6 @@
-# Migration Guide: v0.x to v1
+# Migration Guide: Legacy Snapshots to 0.1.0
 
-Symphony v1 freezes the public contract around semantic HTML, modern primitives, and `data-*` variants.
+Symphony Anthology 0.1.0 freezes the public contract around semantic HTML, modern primitives, and `data-*` variants.
 
 ## Biggest change
 
@@ -9,8 +9,8 @@ The main bundles no longer carry legacy `.symphony-*` aliases by default.
 If you need time to migrate, load the compatibility bundle:
 
 ```css
-@import '@symphonyui/symphonycss/symphony.core.css';
-@import '@symphonyui/symphonycss/compat';
+@import '@symphonyui/symphony-anthology/symphony.core.css';
+@import '@symphonyui/symphony-anthology/compat';
 ```
 
 ## Recommended migration order
@@ -21,7 +21,7 @@ If you need time to migrate, load the compatibility bundle:
 
 ## Mapping examples
 
-| Older usage | v1 usage |
+| Older usage | 0.1.0 usage |
 | --- | --- |
 | `.symphony-container` | `.container` |
 | `.symphony-grid` | `.grid` |
@@ -56,6 +56,6 @@ After:
 
 ## Notes
 
-- The v1 core intentionally favors semantic patterns over large alias surfaces.
+- The 0.1.0 core intentionally favors semantic patterns over large alias surfaces.
 - Use `compat` only as a transition aid.
 - Re-test pages with [testing/index.html](../testing/index.html) before removing `compat`.

@@ -1,196 +1,76 @@
-# Conservatory to Symphony Recipes
+# Symphony Anthology Recipe Library
 
-Conservatory finds structural and UX issues on rendered pages. Symphony Anthology turns those findings into repeatable implementation patterns.
+Symphony Anthology recipes turn real interface problems into repeatable implementation patterns.
 
-These recipes only use features that ship today in Anthology v1.
+They are not just UI components in isolation. Each recipe is a practical pattern with:
 
-## 1. Weak heading hierarchy
+- the problem it solves
+- semantic HTML first
+- `data-*` guidance when variants help
+- accessibility notes
+- AI-readable implementation hints
 
-### Finding
+These recipes only use features that ship today in Anthology 0.1.0.
 
-Sections are visually separated, but the HTML does not communicate a clear outline.
+## Launch set
 
-### Replace this
+### Core sections
 
-```html
-<div>
-  <div>Pricing</div>
-  <div>Choose the plan that fits your team.</div>
-</div>
-```
+- [Hero + CTA](./recipes/hero-cta.md)
+- [Feature grid](./recipes/feature-grid.md)
+- [Pricing section](./recipes/pricing-section.md)
+- [Card collection](./recipes/card-collection.md)
 
-### With this
+### Forms and interaction
 
-```html
-<section>
-  <header class="stack" data-gap="sm">
-    <h2>Pricing</h2>
-    <p>Choose the plan that fits your team.</p>
-  </header>
-</section>
-```
+- [Signup / waitlist form](./recipes/signup-waitlist-form.md)
+- [Contact form](./recipes/contact-form.md)
+- [Accordion / disclosure](./recipes/accordion-disclosure.md)
 
-### Why it works
+### Content and product surfaces
 
-- `section` and `header` create meaningful document structure
-- a real heading improves scanability and accessibility
-- `.stack` keeps spacing predictable without utility soup
+- [Docs sidebar layout](./recipes/docs-sidebar-layout.md)
+- [Article / prose page](./recipes/article-prose-page.md)
+- [Dashboard summary](./recipes/dashboard-summary.md)
+- [Search results / resource list](./recipes/search-results-resource-list.md)
 
-## 2. Low CTA clarity
+### Conservatory mapping
 
-### Finding
+- [Conservatory finding -> Anthology fix](./recipes/conservatory-finding-to-fix.md)
 
-Primary and secondary actions look equally important, so the page has no obvious next step.
+## Recommended implementation order
 
-### Replace this
+1. [Hero + CTA](./recipes/hero-cta.md)
+2. [Signup / waitlist form](./recipes/signup-waitlist-form.md)
+3. [Accordion / disclosure](./recipes/accordion-disclosure.md)
+4. [Card collection](./recipes/card-collection.md)
+5. [Feature grid](./recipes/feature-grid.md)
+6. [Conservatory finding -> Anthology fix](./recipes/conservatory-finding-to-fix.md)
 
-```html
-<div>
-  <button>Start free</button>
-  <button>Talk to sales</button>
-</div>
-```
+## What a recipe is
 
-### With this
+A recipe is broader than a component.
 
-```html
-<div class="cluster" data-gap="sm">
-  <button data-variant="primary">Start free</button>
-  <button data-variant="outline">Talk to sales</button>
-</div>
-```
+- A component is a piece of UI like an accordion or card.
+- A recipe is the implementation pattern around that piece: semantic structure, layout, variants, accessibility, and where it fits in a real page.
 
-### Why it works
+That makes recipes more useful for:
 
-- `data-variant="primary"` creates a clear visual priority
-- `.cluster` keeps actions aligned and wraps cleanly on smaller screens
-- the markup stays simple and legible for generators
+- teams adopting Anthology quickly
+- AI generators that need a predictable contract
+- Conservatory follow-up flows
+- examples, tutorials, demos, and launch content
 
-## 3. Hard-to-scan card layouts
+## How to use this library
 
-### Finding
-
-A list of offers or features is rendered as repeated generic blocks with no semantic framing.
-
-### Replace this
-
-```html
-<div class="grid" data-columns="3">
-  <div>
-    <div>Starter</div>
-    <div>For small teams</div>
-    <div>$19</div>
-  </div>
-</div>
-```
-
-### With this
-
-```html
-<div class="grid" data-columns="3" data-gap="lg">
-  <article class="card" data-elevation="raised">
-    <header>
-      <h3>Starter</h3>
-      <p>For small teams</p>
-    </header>
-
-    <p><strong>$19</strong> per month</p>
-
-    <footer>
-      <button data-variant="primary">Choose Starter</button>
-    </footer>
-  </article>
-</div>
-```
-
-### Why it works
-
-- `.grid` provides a stable responsive layout
-- `.card` gives the content a consistent surface
-- semantic `header` and `footer` make each unit easier to interpret
-
-## 4. Form accessibility friction
-
-### Finding
-
-Inputs rely on placeholders or detached labels, making forms harder to understand and audit.
-
-### Replace this
-
-```html
-<form>
-  <input type="email" placeholder="Email">
-  <textarea placeholder="Message"></textarea>
-  <button>Send</button>
-</form>
-```
-
-### With this
-
-```html
-<form class="stack" data-gap="md">
-  <label>
-    Email address
-    <input type="email" name="email" autocomplete="email">
-  </label>
-
-  <label>
-    Message
-    <textarea name="message"></textarea>
-  </label>
-
-  <div class="cluster" data-gap="sm">
-    <button type="submit" data-variant="primary">Send message</button>
-    <button type="reset" data-variant="ghost">Reset</button>
-  </div>
-</form>
-```
-
-### Why it works
-
-- native labels remove ambiguity
-- form controls use Anthology defaults without extra classes
-- grouped actions stay readable and accessible
-
-## 5. Dense long-form content
-
-### Finding
-
-Pages with editorial or documentation copy become hard to read because line length and spacing are uncontrolled.
-
-### Replace this
-
-```html
-<main>
-  <article>
-    <h1>Release notes</h1>
-    <p>Long block of content...</p>
-  </article>
-</main>
-```
-
-### With this
-
-```html
-<main class="container" data-size="prose">
-  <article class="prose">
-    <h1>Release notes</h1>
-    <p>Long block of content...</p>
-  </article>
-</main>
-```
-
-### Why it works
-
-- `data-size="prose"` narrows the reading measure
-- `.prose` improves long-form readability
-- the pattern works well for docs, changelogs, and AI-generated editorial content
-
-## How to use these recipes
-
-1. Start from the Conservatory finding.
-2. Pick the smallest Anthology pattern that solves the issue.
+1. Start from the page or product problem you need to solve.
+2. Pick the smallest recipe that fits.
 3. Keep semantic HTML as the baseline.
-4. Add `data-*` or primitives only where intent or structure truly needs them.
+4. Add `data-*` or primitives only where intent or layout truly needs them.
+5. Reuse the same recipe in docs, demos, and product implementations so the public contract stays stable.
 
-For the higher-level AI workflow, see [AI_INTEGRATION.md](./AI_INTEGRATION.md).
+## Related docs
+
+- [AI integration guide](./AI_INTEGRATION.md)
+- [Metadata contract](./METADATA.md)
+- [Documentation index](./index.html)

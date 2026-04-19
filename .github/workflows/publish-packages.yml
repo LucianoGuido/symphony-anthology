@@ -1,0 +1,142 @@
+name: Publish Packages
+
+on:
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: Run npm publish in dry-run mode
+        required: true
+        default: true
+        type: boolean
+      publish_symphony_anthology:
+        description: Publish @symphonyui/symphony-anthology
+        required: true
+        default: false
+        type: boolean
+      publish_create_symphony_anthology:
+        description: Publish @symphonyui/create-symphony-anthology
+        required: true
+        default: false
+        type: boolean
+      publish_anthology_schema:
+        description: Publish @symphonyui/anthology-schema
+        required: true
+        default: false
+        type: boolean
+      publish_anthology_verify:
+        description: Publish @symphonyui/anthology-verify
+        required: true
+        default: false
+        type: boolean
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          registry-url: https://registry.npmjs.org
+
+      - name: Verify Repo
+        run: npm test
+
+  publish-symphony-anthology:
+    needs: verify
+    if: ${{ inputs.publish_symphony_anthology }}
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          registry-url: https://registry.npmjs.org
+
+      - name: Build Repo
+        run: npm run build
+
+      - name: Publish @symphonyui/symphony-anthology
+        run: npm publish ${{ inputs.dry_run && '--dry-run' || '' }}
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+  publish-create-symphony-anthology:
+    needs: verify
+    if: ${{ inputs.publish_create_symphony_anthology }}
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          registry-url: https://registry.npmjs.org
+
+      - name: Build Repo
+        run: npm run build
+
+      - name: Publish @symphonyui/create-symphony-anthology
+        working-directory: packages/create-symphony-anthology
+        run: npm publish ${{ inputs.dry_run && '--dry-run' || '' }}
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+  publish-anthology-schema:
+    needs: verify
+    if: ${{ inputs.publish_anthology_schema }}
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          registry-url: https://registry.npmjs.org
+
+      - name: Build Repo
+        run: npm run build
+
+      - name: Publish @symphonyui/anthology-schema
+        working-directory: packages/anthology-schema
+        run: npm publish ${{ inputs.dry_run && '--dry-run' || '' }}
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+  publish-anthology-verify:
+    needs: verify
+    if: ${{ inputs.publish_anthology_verify }}
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          registry-url: https://registry.npmjs.org
+
+      - name: Build Repo
+        run: npm run build
+
+      - name: Publish @symphonyui/anthology-verify
+        working-directory: packages/anthology-verify
+        run: npm publish ${{ inputs.dry_run && '--dry-run' || '' }}
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

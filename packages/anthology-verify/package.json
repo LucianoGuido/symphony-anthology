@@ -1,0 +1,39 @@
+{
+  "name": "@symphonyui/anthology-verify",
+  "version": "0.1.0",
+  "description": "Semantic and AI-first HTML verification for Symphony Anthology",
+  "bin": {
+    "anthology-verify": "./bin/anthology-verify.mjs"
+  },
+  "type": "module",
+  "files": [
+    "bin/",
+    "lib/",
+    "README.md"
+  ],
+  "keywords": [
+    "symphony",
+    "verify",
+    "semantic-html",
+    "ai-first",
+    "accessibility",
+    "html-lint"
+  ],
+  "author": "SymphonyUI",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LucianoGuido/symphony-anthology.git",
+    "directory": "packages/anthology-verify"
+  },
+  "bugs": {
+    "url": "https://github.com/LucianoGuido/symphony-anthology/issues"
+  },
+  "homepage": "https://github.com/LucianoGuido/symphony-anthology/tree/main/packages/anthology-verify",
+  "publishConfig": {
+    "access": "public"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

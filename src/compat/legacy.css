@@ -2,7 +2,7 @@
  * Symphony Compat
  *
  * Legacy aliases kept as an opt-in compatibility layer.
- * Import after the core bundle only when migrating from pre-v1 APIs.
+ * Import after the core bundle only when migrating from legacy APIs.
  */
 
 @layer symphony.compat {

@@ -1,0 +1,104 @@
+@layer symphony.playground {
+  .playground-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--symphony-space-sm);
+  }
+
+  .playground-nav a {
+    display: inline-flex;
+    align-items: center;
+    min-block-size: 2.5rem;
+    padding-inline: var(--symphony-space-md);
+    border: 1px solid var(--symphony-border);
+    border-radius: 999px;
+    background: color-mix(in oklch, var(--symphony-surface) 94%, white 2%);
+    text-decoration: none;
+  }
+
+  .playground-nav a:hover {
+    background: color-mix(in oklch, var(--symphony-surface-hover) 92%, black 2%);
+  }
+
+  .playground-example {
+    display: grid;
+    gap: var(--symphony-space-lg);
+    grid-template-columns: minmax(0, 1.25fr) minmax(20rem, 1fr);
+    align-items: start;
+  }
+
+  .playground-live {
+    padding: var(--symphony-space-lg);
+    border: 1px solid var(--symphony-border);
+    border-radius: var(--symphony-radius-xl, 1rem);
+    background:
+      radial-gradient(circle at top left, color-mix(in oklch, var(--symphony-primary) 8%, transparent), transparent 20rem),
+      color-mix(in oklch, var(--symphony-surface) 96%, white 2%);
+    box-shadow: var(--symphony-shadow-sm);
+  }
+
+  .playground-live .container {
+    inline-size: 100%;
+    margin-inline: 0;
+    padding-inline: 0;
+  }
+
+  .playground-live .card {
+    block-size: 100%;
+  }
+
+  .playground-live footer {
+    margin-block-start: var(--symphony-space-md);
+  }
+
+  .playground-code-card {
+    block-size: 100%;
+  }
+
+  .playground-toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--symphony-space-sm);
+    padding: var(--symphony-space-lg) var(--symphony-space-lg) 0;
+  }
+
+  .playground-toolbar strong {
+    font-size: var(--symphony-text-sm);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  .playground-code-card .docs-code {
+    margin: var(--symphony-space-lg);
+    block-size: calc(100% - (2 * var(--symphony-space-lg)));
+    min-block-size: 18rem;
+  }
+
+  .playground-code-card .button[data-copy-state="done"] {
+    border-color: var(--symphony-primary);
+    color: var(--symphony-primary);
+  }
+
+  @media (max-width: 72rem) {
+    .playground-example {
+      grid-template-columns: 1fr;
+    }
+
+    .playground-code-card .docs-code {
+      min-block-size: 0;
+    }
+  }
+
+  @media (max-width: 48rem) {
+    .playground-live,
+    .playground-toolbar {
+      padding: var(--symphony-space-md);
+    }
+
+    .playground-code-card .docs-code {
+      margin: var(--symphony-space-md);
+      max-inline-size: 100%;
+    }
+  }
+}

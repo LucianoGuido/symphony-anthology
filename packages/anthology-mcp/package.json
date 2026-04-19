@@ -1,0 +1,44 @@
+{
+  "name": "@symphonyui/anthology-mcp",
+  "version": "0.1.0",
+  "description": "MCP server for Symphony Anthology tokens, recipes, schema, and verification workflows",
+  "type": "module",
+  "bin": {
+    "anthology-mcp": "./bin/anthology-mcp.mjs"
+  },
+  "files": [
+    "bin/",
+    "lib/",
+    "dist/",
+    "recipes/",
+    "README.md"
+  ],
+  "keywords": [
+    "symphony",
+    "anthology",
+    "mcp",
+    "claude-code",
+    "ai-first",
+    "design-system"
+  ],
+  "author": "SymphonyUI",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LucianoGuido/symphony-anthology.git",
+    "directory": "packages/anthology-mcp"
+  },
+  "bugs": {
+    "url": "https://github.com/LucianoGuido/symphony-anthology/issues"
+  },
+  "homepage": "https://github.com/LucianoGuido/symphony-anthology/tree/main/packages/anthology-mcp",
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "@symphonyui/anthology-verify": "^0.1.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

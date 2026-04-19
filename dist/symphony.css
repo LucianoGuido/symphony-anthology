@@ -1,5 +1,5 @@
 /**
- * Symphony Anthology v1.0
+ * Symphony Anthology 0.1.0
  * Semantic and AI-first CSS framework
  *
  * Public contract:
@@ -52,7 +52,7 @@
 /* Reset - Modern CSS reset with :where() for low specificity */
 /* Begin src/core/_reset.css */
 /**
- * Symphony Anthology v1.0
+ * Symphony Anthology 0.1.0
  * Semantic and AI-first CSS framework
  * Reset Layer - Modern CSS Reset with :where() for Low Specificity
  * 
@@ -400,7 +400,7 @@
 /* Variables - Design tokens with OKLCH colors and @property */
 /* Begin src/core/_variables.css */
 /**
- * Symphony Anthology v1.0
+ * Symphony Anthology 0.1.0
  * Semantic and AI-first CSS framework
  * Design Tokens - OKLCH Color System & Modern CSS Properties
  * 
@@ -1038,7 +1038,7 @@
 /* Base - Semantic HTML element styles (zero classes needed) */
 /* Begin src/core/_base.css */
 /**
- * Symphony Anthology v1.0
+ * Symphony Anthology 0.1.0
  * Semantic and AI-first CSS framework
  * Base Layer - Semantic HTML Element Styles
  * 
@@ -1606,7 +1606,7 @@
 /* Container - Fluid container with data-size variants */
 /* Begin src/layout/_container.css */
 /**
- * Symphony Anthology v1.0
+ * Symphony Anthology 0.1.0
  * Semantic and AI-first CSS framework
  * Container - Fluid Container System with Data Attribute Variants
  * 
@@ -1721,7 +1721,7 @@
 /* Grid - Intrinsic responsive grid (NO 12-column!) */
 /* Begin src/layout/_grid.css */
 /**
- * Symphony Anthology v1.0
+ * Symphony Anthology 0.1.0
  * Semantic and AI-first CSS framework
  * Grid System - Intrinsically Responsive CSS Grid
  * 
@@ -1938,7 +1938,7 @@
 /* Flexbox - Composition utilities (stack, cluster, sidebar) */
 /* Begin src/layout/_flexbox.css */
 /**
- * Symphony Anthology v1.0
+ * Symphony Anthology 0.1.0
  * Semantic and AI-first CSS framework
  * Flexbox Compositions - CUBE CSS Layout Primitives
  * 
@@ -2379,7 +2379,7 @@
 /* Typography - Text styling and prose */
 /* Begin src/components/_typography.css */
 /**
- * Symphony Anthology v1.0
+ * Symphony Anthology 0.1.0
  * Semantic and AI-first CSS framework
  * Typography - Text Styling & Prose
  * 
@@ -2833,7 +2833,7 @@
 /* Buttons - Semantic button with data-variant */
 /* Begin src/components/_buttons.css */
 /**
- * Symphony Anthology v1.0
+ * Symphony Anthology 0.1.0
  * Semantic and AI-first CSS framework
  * Buttons - Semantic Button Styling with Data Attributes
  * 
@@ -3192,7 +3192,7 @@
 /* Forms - Fully styled form elements (minimal classes) */
 /* Begin src/components/_forms.css */
 /**
- * Symphony Anthology v1.0
+ * Symphony Anthology 0.1.0
  * Semantic and AI-first CSS framework
  * Forms - Semantic Form Element Styling
  * 
@@ -3838,7 +3838,7 @@
 /* Cards - Article/section-based cards */
 /* Begin src/components/_cards.css */
 /**
- * Symphony Anthology v1.0
+ * Symphony Anthology 0.1.0
  * Semantic and AI-first CSS framework
  * Cards - Semantic Card Component with Container Queries
  * 
@@ -4144,7 +4144,7 @@
 /* Dialog - Native dialog element support */
 /* Begin src/components/_dialog.css */
 /**
- * Symphony Anthology v1.0
+ * Symphony Anthology 0.1.0
  * Semantic and AI-first CSS framework
  * Dialog - Native Dialog Element Styling
  * 
@@ -4437,7 +4437,7 @@
 /* Navigation - Semantic nav with nested lists */
 /* Begin src/components/_navigation.css */
 /**
- * Symphony Anthology v1.0
+ * Symphony Anthology 0.1.0
  * Semantic and AI-first CSS framework
  * Navigation - Semantic Nav Styling
  * 
@@ -4940,7 +4940,7 @@
 /* Accordion - Details/summary native elements */
 /* Begin src/components/_accordion.css */
 /**
- * Symphony Anthology v1.0
+ * Symphony Anthology 0.1.0
  * Semantic and AI-first CSS framework
  * Accordion - Native Details/Summary Styling
  * 
@@ -5271,7 +5271,7 @@
 /* Tables - Responsive semantic tables */
 /* Begin src/components/_tables.css */
 /**
- * Symphony Anthology v1.0
+ * Symphony Anthology 0.1.0
  * Semantic and AI-first CSS framework
  * Tables - Semantic Table Styling
  * 
@@ -5673,7 +5673,7 @@
 /* Spacing - Logical property spacing (margin-inline, padding-block) */
 /* Begin src/utilities/_spacing.css */
 /**
- * Symphony Anthology v1.0
+ * Symphony Anthology 0.1.0
  * Semantic and AI-first CSS framework
  * Spacing Utilities - Margin, Padding, Gap
  * 
@@ -6289,7 +6289,7 @@
 /* Helpers - Common utility classes */
 /* Begin src/utilities/_helpers.css */
 /**
- * Symphony Anthology v1.0
+ * Symphony Anthology 0.1.0
  * Semantic and AI-first CSS framework
  * Helper Utilities - Common Utility Classes
  * 

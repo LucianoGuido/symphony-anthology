@@ -2,7 +2,22 @@
 
 All notable changes to this project will be documented in this file.
 
-## [1.0.1] - 2026-04-03
+## [0.1.0] - 2026-04-04
+
+### Added
+- `@symphonyui/create-symphony-anthology` local starter package for HTML, Astro, and Next
+- `@symphonyui/anthology-schema` local package generated from canonical Anthology metadata
+- `@symphonyui/anthology-verify` local package for semantic and AI-first HTML verification
+- docs playground with live, copyable launch recipes
+- release workflow and dry-run publication checks for subpackages
+
+### Changed
+- metadata generation now uses a single canonical source file
+- package release documentation now covers the Anthology subpackages
+
+## Internal Milestones Before Public Release
+
+### 2026-04-03 build stabilization snapshot
 
 ### Fixed
 - Replaced the `cat`-based build with a real source-entry pipeline that resolves relative CSS imports
@@ -10,7 +25,7 @@ All notable changes to this project will be documented in this file.
 - Added dist verification and tarball smoke checks so broken exports fail early
 
 ### Changed
-- Froze the main v1 contract around semantic HTML, current primitives, and `data-*` variants
+- Froze the current public contract around semantic HTML, current primitives, and `data-*` variants
 - Moved legacy `.symphony-*` aliases into an explicit compatibility bundle
 - Rewrote the README, docs, examples, and manual smoke harness to reflect shipped functionality only
 - Added canonical metadata sources under `metadata/` for generated JSON artifacts
@@ -24,7 +39,7 @@ All notable changes to this project will be documented in this file.
 - `testing/preview.html`
 - GitHub Actions CI workflow
 
-## [0.2.1] - 2025-11-28
+### 2025-11-28 architecture snapshot
 
 ### 🎉 Major Update
 
@@ -74,7 +89,7 @@ For users upgrading from v0.1.x:
 
 ---
 
-## [0.1.0] - Initial Release
+### Initial local prototype
 
 - Basic component library
 - 12-column grid system

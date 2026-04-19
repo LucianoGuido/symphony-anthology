@@ -1,0 +1,40 @@
+{
+  "name": "@symphonyui/create-symphony-anthology",
+  "version": "0.1.0",
+  "description": "Starter scaffolder for Symphony Anthology",
+  "bin": {
+    "create-symphony-anthology": "./bin/create-symphony-anthology.mjs"
+  },
+  "type": "module",
+  "files": [
+    "bin/",
+    "lib/",
+    "templates/",
+    "README.md"
+  ],
+  "keywords": [
+    "symphony",
+    "anthology",
+    "starter",
+    "scaffolder",
+    "semantic-html",
+    "ai-first"
+  ],
+  "author": "SymphonyUI",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LucianoGuido/symphony-anthology.git",
+    "directory": "packages/create-symphony-anthology"
+  },
+  "bugs": {
+    "url": "https://github.com/LucianoGuido/symphony-anthology/issues"
+  },
+  "homepage": "https://github.com/LucianoGuido/symphony-anthology/tree/main/packages/create-symphony-anthology",
+  "publishConfig": {
+    "access": "public"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

@@ -20,30 +20,84 @@ Symphony Anthology ships a semantic baseline, optional layout primitives, data-a
 ## Install
 
 ```bash
-npm install @symphonyui/symphonycss
+npm install @symphonyui/symphony-anthology
 ```
+
+## Starter CLI
+
+`@symphonyui/create-symphony-anthology` already exists in this repo as a local, publish-ready CLI for scaffolding Anthology starters before the standalone package is published.
+
+Use it when you want to start a new project from scratch. If you already have a project and only want Anthology inside it, use the normal package install instead.
+
+```bash
+node packages/create-symphony-anthology/bin/create-symphony-anthology.mjs my-anthology-app --template html
+```
+
+Once published, the intended commands are:
+
+```bash
+npm create @symphonyui/symphony-anthology@latest my-anthology-app
+```
+
+or:
+
+```bash
+npx @symphonyui/create-symphony-anthology my-anthology-app
+```
+
+See [docs/CREATE_SYMPHONY_ANTHOLOGY.md](./docs/CREATE_SYMPHONY_ANTHOLOGY.md) for the current templates and local workflow.
+
+## Verification CLI
+
+`@symphonyui/anthology-verify` now exists in the repo as a local, publish-ready package for semantic and AI-first HTML checks.
+
+```bash
+node packages/anthology-verify/bin/anthology-verify.mjs ./index.html
+```
+
+See [docs/ANTHOLOGY_VERIFY.md](./docs/ANTHOLOGY_VERIFY.md) for the current checks and local workflow.
+
+## MCP server
+
+`@symphonyui/anthology-mcp` now exists in the repo as a local, publish-ready MCP server for Claude Code and other MCP clients.
+
+It exposes Anthology tokens, schema, schema presets, recipes, and verify workflows as structured resources and tools instead of relying on prompt memory alone.
+
+This repo also ships shared Claude Code project config:
+
+- `.mcp.json` registers the local `anthology` MCP server
+- `.claude/settings.json` auto-approves that server and allows only the shipped Anthology MCP tools
+- `.claude/settings.local.json` remains available for personal overrides and is gitignored
+
+```bash
+node packages/anthology-mcp/bin/anthology-mcp.mjs
+```
+
+See [docs/ANTHOLOGY_MCP.md](./docs/ANTHOLOGY_MCP.md) for the current resources, tools, and local setup flow.
+
+Anthology MCP is not the same layer as Duet MCP. Anthology MCP is the Anthology-specific contract surface for agents and developer tooling. Duet MCP is the higher-level Symphony orchestration layer in development for coordinating design context, model workflows, Anthology implementation contracts, Conservatory findings, and controlled shipping actions.
 
 ### CSS entry points
 
 ```html
 <!-- Full bundle -->
-<link rel="stylesheet" href="https://unpkg.com/@symphonyui/symphonycss/dist/symphony.min.css">
+<link rel="stylesheet" href="https://unpkg.com/@symphonyui/symphony-anthology/dist/symphony.min.css">
 
 <!-- Reduced production bundle -->
-<link rel="stylesheet" href="https://unpkg.com/@symphonyui/symphonycss/dist/symphony.core.min.css">
+<link rel="stylesheet" href="https://unpkg.com/@symphonyui/symphony-anthology/dist/symphony.core.min.css">
 
 <!-- Optional theme -->
-<link rel="stylesheet" href="https://unpkg.com/@symphonyui/symphonycss/dist/themes/anthology/anthology.min.css">
+<link rel="stylesheet" href="https://unpkg.com/@symphonyui/symphony-anthology/dist/themes/anthology/anthology.min.css">
 
 <!-- Optional legacy aliases -->
-<link rel="stylesheet" href="https://unpkg.com/@symphonyui/symphonycss/dist/symphony.compat.min.css">
+<link rel="stylesheet" href="https://unpkg.com/@symphonyui/symphony-anthology/dist/symphony.compat.min.css">
 ```
 
 ### NPM imports
 
 ```js
-import '@symphonyui/symphonycss/symphony.core.css';
-import '@symphonyui/symphonycss/themes/anthology';
+import '@symphonyui/symphony-anthology/symphony.core.css';
+import '@symphonyui/symphony-anthology/themes/anthology';
 ```
 
 ## Quick start
@@ -144,9 +198,9 @@ That means Anthology can feel classless for simple pages, but still scale into a
 
 ### AI-ready metadata
 
-- `@symphonyui/symphonycss/tokens.json`
-- `@symphonyui/symphonycss/schema`
-- `@symphonyui/symphonycss/schema-presets.json`
+- `@symphonyui/symphony-anthology/tokens.json`
+- `@symphonyui/symphony-anthology/schema`
+- `@symphonyui/symphony-anthology/schema-presets.json`
 - [Metadata contract](./docs/METADATA.md)
 
 ## Color system and tokens
@@ -172,14 +226,14 @@ The current Anthology core is dark-first and maps its visual theme from brand-dr
 
 ## Public contract
 
-The v1 contract is:
+The current public contract is:
 
 - semantic HTML
 - modern layout primitives
 - `data-*` variants
 - machine-readable metadata
 
-Older `.symphony-*` aliases are not bundled into the main outputs anymore. If you are migrating an older implementation, load `@symphonyui/symphonycss/compat` explicitly and follow [docs/MIGRATION.md](./docs/MIGRATION.md).
+Older `.symphony-*` aliases are not bundled into the main outputs anymore. If you are migrating an older implementation, load `@symphonyui/symphony-anthology/compat` explicitly and follow [docs/MIGRATION.md](./docs/MIGRATION.md).
 
 ## AI-ready today
 
@@ -195,6 +249,7 @@ Use these files in generators, audits, prompts, or validation workflows:
 - [dist/tokens.json](./dist/tokens.json)
 - [docs/symphony-schema.json](./docs/symphony-schema.json)
 - [docs/schema-presets.json](./docs/schema-presets.json)
+- [docs/ANTHOLOGY_MCP.md](./docs/ANTHOLOGY_MCP.md)
 - [docs/RECIPES.md](./docs/RECIPES.md)
 - [docs/METADATA.md](./docs/METADATA.md)
 - [docs/AI_INTEGRATION.md](./docs/AI_INTEGRATION.md)
@@ -253,9 +308,13 @@ npm run size
 ## Docs and examples
 
 - [Documentation](./docs/index.html)
+- [create-symphony-anthology guide](./docs/CREATE_SYMPHONY_ANTHOLOGY.md)
+- [anthology-verify guide](./docs/ANTHOLOGY_VERIFY.md)
+- [anthology-mcp guide](./docs/ANTHOLOGY_MCP.md)
+- [Playground](./docs/playground/index.html)
 - [Landing page example](./docs/examples/landing-page.html)
 - [AI-ready patterns demo](./docs/examples/ai-first-demo.html)
-- [Conservatory to Symphony recipes](./docs/RECIPES.md)
+- [Recipe library](./docs/RECIPES.md)
 - [Metadata contract](./docs/METADATA.md)
 - [Browser smoke guide](./docs/TESTING.md)
 - [Migration guide](./docs/MIGRATION.md)
@@ -264,11 +323,13 @@ npm run size
 
 ## What does not ship yet
 
-These are roadmap items, not current package features:
+These are roadmap items, not current published package features:
 
 - Custom elements / `@symphony/elements`
-- `create-symphony`
-- `symphony verify`
+- published npm release of `@symphonyui/anthology-schema`
+- published npm release of `@symphonyui/create-symphony-anthology`
+- published npm release of `@symphonyui/anthology-verify`
+- published npm release of `@symphonyui/anthology-mcp`
 - Automated schema injection
 - Framework adapters package family
 
@@ -279,7 +340,8 @@ Symphony Anthology is the implementation layer in the wider Symphony ecosystem:
 - Conservatory: detects issues and opportunities
 - Unison Metrics: scores quality across dimensions
 - Symphony Anthology: provides reusable implementation patterns
-- Future add-ons: schema, elements, adapters, CLI, verification
+- Anthology packages: schema, starter CLI, verification, MCP
+- Future add-ons: elements and adapters
 
 ## Contributing
 

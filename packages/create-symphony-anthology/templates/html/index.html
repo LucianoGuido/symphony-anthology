@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{PROJECT_NAME}}</title>
+  <link rel="stylesheet" href="./styles/symphony.core.css">
+  <link rel="stylesheet" href="./styles/site.css">
+</head>
+<body>
+  <header class="container starter-shell">
+    <nav>
+      <a href="/">Symphony Anthology</a>
+      <ul>
+        <li><a href="#why">Why</a></li>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#join">Join</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="container starter-shell">
+    <article class="stack" data-gap="xl">
+      <header class="stack" data-gap="sm">
+        <p>Semantic and AI-first CSS framework</p>
+        <h1>{{PROJECT_NAME}}</h1>
+        <p>
+          Start with semantic HTML. Add data attributes when intent matters.
+          Reach for layout primitives only when the page needs more structure.
+        </p>
+      </header>
+
+      <div class="cluster" data-gap="sm">
+        <a href="#features" class="button" data-variant="primary">Explore the starter</a>
+        <a href="#join" class="button" data-variant="outline">Join the waitlist</a>
+      </div>
+
+      <section id="why" class="stack" data-gap="sm">
+        <h2>Why this starter exists</h2>
+        <p>It gives you a semantic baseline, readable structure, and a real Anthology CSS file copied from the repo build.</p>
+      </section>
+
+      <section id="features" class="grid" data-columns="3" data-gap="lg">
+        <article class="card">
+          <h3>Semantic HTML</h3>
+          <p>Headings, forms, tables, and content elements start with meaningful defaults.</p>
+        </article>
+
+        <article class="card">
+          <h3>Optional primitives</h3>
+          <p>Use container, grid, stack, and cluster only where composition truly needs them.</p>
+        </article>
+
+        <article class="card">
+          <h3>AI-readable structure</h3>
+          <p>Stable semantics and data attributes keep generated output easier to inspect and maintain.</p>
+        </article>
+      </section>
+
+      <section id="join" class="stack" data-gap="md">
+        <header class="stack" data-gap="sm">
+          <h2>Join the waitlist</h2>
+          <p>Use Anthology defaults to create a simple, accessible signup flow.</p>
+        </header>
+
+        <form class="stack" data-gap="md">
+          <label>
+            Email address
+            <input type="email" name="email" autocomplete="email" required>
+          </label>
+
+          <button type="submit" data-variant="primary">Request early access</button>
+        </form>
+      </section>
+    </article>
+  </main>
+</body>
+</html>

@@ -4,21 +4,23 @@ Symphony Anthology ships AI-ready metadata, but those public JSON files are gene
 
 ## Source of truth today
 
-The current authoritative metadata sources live in [`metadata/`](../metadata):
+The current authoritative metadata source lives in [`metadata/`](../metadata):
 
-- [`metadata/tokens.json`](../metadata/tokens.json)
-- [`metadata/symphony-schema.json`](../metadata/symphony-schema.json)
-- [`metadata/schema-presets.json`](../metadata/schema-presets.json)
+- [`metadata/anthology-metadata.json`](../metadata/anthology-metadata.json)
 
-These three files are the current source of truth for package metadata.
+This single canonical file contains the source data for:
+
+- design tokens
+- component schema
+- schema presets
 
 ## Generated outputs
 
-Running `npm run build` copies metadata from `metadata/` into the public package surfaces:
+Running `npm run build` generates metadata from the canonical file into the public package surfaces:
 
-- `metadata/tokens.json` -> [`dist/tokens.json`](../dist/tokens.json)
-- `metadata/symphony-schema.json` -> [`docs/symphony-schema.json`](./symphony-schema.json)
-- `metadata/schema-presets.json` -> [`docs/schema-presets.json`](./schema-presets.json)
+- `metadata/anthology-metadata.json` -> [`dist/tokens.json`](../dist/tokens.json)
+- `metadata/anthology-metadata.json` -> [`docs/symphony-schema.json`](./symphony-schema.json)
+- `metadata/anthology-metadata.json` -> [`docs/schema-presets.json`](./schema-presets.json)
 
 That generation step is implemented in [`scripts/build-ai-assets.mjs`](../scripts/build-ai-assets.mjs).
 
@@ -38,8 +40,12 @@ Anthology’s AI-first contract depends on these files staying predictable:
 - docs can point to the same exported structures
 - package consumers can trust that shipped JSON matches the repo sources
 
-## Current limitation
+## Current state
 
-`metadata/` is the authoritative metadata directory today, but it is not yet a single-file canonical schema system.
+Anthology now uses a single canonical metadata source file.
 
-Right now we maintain three coordinated JSON sources. A future step is to generate tokens, schema, and presets from one canonical model instead of maintaining them in parallel.
+The next improvement area is not consolidation anymore, but richer generation:
+
+- deriving more metadata directly from the CSS/token system
+- expanding presets and schema coverage
+- eventually exposing stronger verification around metadata drift

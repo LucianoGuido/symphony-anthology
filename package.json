@@ -1,7 +1,10 @@
 {
-  "name": "@symphonyui/symphonycss",
-  "version": "1.0.1",
-  "description": "Symphony Anthology v1.0 - semantic-first CSS framework with semantic defaults, data-attribute variants, AI-ready metadata, and opt-in legacy compatibility",
+  "name": "@symphonyui/symphony-anthology",
+  "version": "0.1.0",
+  "description": "Symphony Anthology - semantic and AI-first CSS framework with semantic defaults, data-attribute variants, AI-ready metadata, and opt-in legacy compatibility",
+  "workspaces": [
+    "packages/*"
+  ],
   "main": "dist/symphony.css",
   "style": "dist/symphony.css",
   "exports": {
@@ -29,10 +32,15 @@
     "build": "npm run build:css && npm run build:assets && npm run verify:dist",
     "build:css": "node scripts/build-css.mjs",
     "build:assets": "node scripts/build-ai-assets.mjs",
-    "verify": "npm run verify:dist && npm run verify:docs && npm run smoke:package",
+    "verify": "npm run verify:dist && npm run verify:docs && npm run smoke:package && npm run smoke:create-symphony-anthology && npm run smoke:anthology-verify && npm run smoke:anthology-mcp && npm run smoke:publishable-packages && npm run smoke:release-dry-run",
     "verify:dist": "node scripts/verify-dist.mjs",
     "verify:docs": "node scripts/check-docs.mjs",
     "smoke:package": "node scripts/pack-smoke.mjs",
+    "smoke:create-symphony-anthology": "node scripts/smoke-create-symphony-anthology.mjs",
+    "smoke:anthology-verify": "node scripts/smoke-anthology-verify.mjs",
+    "smoke:anthology-mcp": "node scripts/smoke-anthology-mcp.mjs",
+    "smoke:publishable-packages": "node scripts/smoke-publishable-packages.mjs",
+    "smoke:release-dry-run": "node scripts/smoke-release-dry-run.mjs",
     "size": "node scripts/size-report.mjs",
     "watch": "npm run build",
     "dev": "npm run build",
@@ -70,14 +78,20 @@
     "url": "https://github.com/LucianoGuido/symphony-anthology/issues"
   },
   "homepage": "https://github.com/LucianoGuido/symphony-anthology#readme",
+  "publishConfig": {
+    "access": "public"
+  },
   "files": [
     "dist/",
     "src/",
     "docs/schema-presets.json",
     "docs/AI_INTEGRATION.md",
+    "docs/CREATE_SYMPHONY_ANTHOLOGY.md",
     "docs/METADATA.md",
     "docs/MIGRATION.md",
     "docs/RECIPES.md",
+    "docs/recipes/",
+    "docs/ANTHOLOGY_VERIFY.md",
     "docs/TESTING.md",
     "docs/symphony-schema.json",
     "README.md",

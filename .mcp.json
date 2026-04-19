@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "anthology": {
+      "command": "${NODE_BINARY:-node}",
+      "args": [
+        "./packages/anthology-mcp/bin/anthology-mcp.mjs"
+      ],
+      "env": {}
+    }
+  }
+}

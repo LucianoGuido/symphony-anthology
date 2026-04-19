@@ -1,0 +1,9 @@
+body {
+  background:
+    radial-gradient(circle at top, color-mix(in oklch, var(--symphony-primary) 12%, transparent), transparent 24rem),
+    var(--symphony-background);
+}
+
+.starter-shell {
+  padding-block: var(--symphony-space-3xl);
+}

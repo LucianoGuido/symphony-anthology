@@ -1,5 +1,5 @@
 /**
- * Symphony Anthology v1.0
+ * Symphony Anthology 0.1.0
  * Semantic and AI-first CSS framework
  * Core entry point for production builds.
  *
@@ -38,7 +38,7 @@
 /* End src/core/_fonts.css */
 /* Begin src/core/_reset.css */
 /**
- * Symphony Anthology v1.0
+ * Symphony Anthology 0.1.0
  * Semantic and AI-first CSS framework
  * Reset Layer - Modern CSS Reset with :where() for Low Specificity
  * 
@@ -384,7 +384,7 @@
 /* End src/core/_reset.css */
 /* Begin src/core/_variables.css */
 /**
- * Symphony Anthology v1.0
+ * Symphony Anthology 0.1.0
  * Semantic and AI-first CSS framework
  * Design Tokens - OKLCH Color System & Modern CSS Properties
  * 
@@ -1018,7 +1018,7 @@
 /* End src/core/_tokens.css */
 /* Begin src/core/_base.css */
 /**
- * Symphony Anthology v1.0
+ * Symphony Anthology 0.1.0
  * Semantic and AI-first CSS framework
  * Base Layer - Semantic HTML Element Styles
  * 
@@ -1581,7 +1581,7 @@
 
 /* Begin src/layout/_container.css */
 /**
- * Symphony Anthology v1.0
+ * Symphony Anthology 0.1.0
  * Semantic and AI-first CSS framework
  * Container - Fluid Container System with Data Attribute Variants
  * 
@@ -1694,7 +1694,7 @@
 /* End src/layout/_container.css */
 /* Begin src/layout/_grid.css */
 /**
- * Symphony Anthology v1.0
+ * Symphony Anthology 0.1.0
  * Semantic and AI-first CSS framework
  * Grid System - Intrinsically Responsive CSS Grid
  * 
@@ -1909,7 +1909,7 @@
 /* End src/layout/_grid.css */
 /* Begin src/layout/_flexbox.css */
 /**
- * Symphony Anthology v1.0
+ * Symphony Anthology 0.1.0
  * Semantic and AI-first CSS framework
  * Flexbox Compositions - CUBE CSS Layout Primitives
  * 
@@ -2345,7 +2345,7 @@
 
 /* Begin src/components/_typography.css */
 /**
- * Symphony Anthology v1.0
+ * Symphony Anthology 0.1.0
  * Semantic and AI-first CSS framework
  * Typography - Text Styling & Prose
  * 
@@ -2797,7 +2797,7 @@
 /* End src/components/_typography.css */
 /* Begin src/components/_buttons.css */
 /**
- * Symphony Anthology v1.0
+ * Symphony Anthology 0.1.0
  * Semantic and AI-first CSS framework
  * Buttons - Semantic Button Styling with Data Attributes
  * 
@@ -3154,7 +3154,7 @@
 /* End src/components/_buttons.css */
 /* Begin src/components/_forms.css */
 /**
- * Symphony Anthology v1.0
+ * Symphony Anthology 0.1.0
  * Semantic and AI-first CSS framework
  * Forms - Semantic Form Element Styling
  * 
@@ -3798,7 +3798,7 @@
 /* End src/components/_forms.css */
 /* Begin src/components/_cards.css */
 /**
- * Symphony Anthology v1.0
+ * Symphony Anthology 0.1.0
  * Semantic and AI-first CSS framework
  * Cards - Semantic Card Component with Container Queries
  * 
@@ -4102,7 +4102,7 @@
 /* End src/components/_cards.css */
 /* Begin src/components/_dialog.css */
 /**
- * Symphony Anthology v1.0
+ * Symphony Anthology 0.1.0
  * Semantic and AI-first CSS framework
  * Dialog - Native Dialog Element Styling
  * 
@@ -4393,7 +4393,7 @@
 /* End src/components/_dialog.css */
 /* Begin src/components/_navigation.css */
 /**
- * Symphony Anthology v1.0
+ * Symphony Anthology 0.1.0
  * Semantic and AI-first CSS framework
  * Navigation - Semantic Nav Styling
  * 
@@ -4894,7 +4894,7 @@
 /* End src/components/_navigation.css */
 /* Begin src/components/_accordion.css */
 /**
- * Symphony Anthology v1.0
+ * Symphony Anthology 0.1.0
  * Semantic and AI-first CSS framework
  * Accordion - Native Details/Summary Styling
  * 
@@ -5223,7 +5223,7 @@
 /* End src/components/_accordion.css */
 /* Begin src/components/_tables.css */
 /**
- * Symphony Anthology v1.0
+ * Symphony Anthology 0.1.0
  * Semantic and AI-first CSS framework
  * Tables - Semantic Table Styling
  * 
@@ -5620,7 +5620,7 @@
 
 /* Begin src/utilities/_spacing.core.css */
 /**
- * Symphony Anthology v1.0
+ * Symphony Anthology 0.1.0
  * Semantic and AI-first CSS framework
  * Essential Spacing Utilities Only
  * 
@@ -5938,7 +5938,7 @@
 /* End src/utilities/_spacing.core.css */
 /* Begin src/utilities/_helpers.core.css */
 /**
- * Symphony Anthology v1.0
+ * Symphony Anthology 0.1.0
  * Semantic and AI-first CSS framework
  * Essential Helper Utilities Only
  * 

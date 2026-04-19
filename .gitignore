@@ -4,7 +4,8 @@ package-lock.json
 yarn.lock
 
 # Editor directories and files
-.vscode/
+.vscode/*
+!.vscode/settings.json
 .idea/
 *.swp
 *.swo
@@ -28,6 +29,8 @@ yarn-error.log*
 .env
 .env.local
 .env.*.local
+CLAUDE.local.md
+.claude/settings.local.json
 
 # Temporary files
 *.tmp

@@ -53,16 +53,33 @@ Symphony Anthology is AI-ready today because its output contract is stable, sema
 
 ## Files generators should know
 
-- `@symphonyui/symphonycss/tokens.json`
-- `@symphonyui/symphonycss/schema`
-- `@symphonyui/symphonycss/schema-presets.json`
+- `@symphonyui/symphony-anthology/tokens.json`
+- `@symphonyui/symphony-anthology/schema`
+- `@symphonyui/symphony-anthology/schema-presets.json`
+
+The dedicated schema package is now also scaffolded locally as a publish-ready package under `packages/anthology-schema`.
+
+The verification companion also exists locally as a publish-ready package under `packages/anthology-verify`.
+
+The MCP companion also exists locally as a publish-ready package under `packages/anthology-mcp`.
+
+It exposes Anthology to Claude Code and other MCP clients with:
+
+- resources for `tokens`, `schema`, `schema-presets`, recipe index, recipe markdown, and verify finding guides
+- tools for reading tokens/schema, listing recipes, reading recipes, running verify, and suggesting Anthology-native fixes
+
+Local server:
+
+```bash
+node packages/anthology-mcp/bin/anthology-mcp.mjs
+```
 
 These files describe the design system and component contract without requiring the generator to inspect CSS selectors directly.
 
 ## Recommended prompt frame
 
 ```text
-Generate HTML for Symphony Anthology v1.
+Generate HTML for Symphony Anthology 0.1.0.
 Use semantic HTML first.
 Use these primitives when needed: container, grid, stack, cluster, sidebar, switcher, center, cover, card, prose.
 Use data attributes for variants instead of extra classes.
@@ -79,7 +96,7 @@ Preserve accessible landmarks, labels, headings, and native controls.
 | Form accessibility issues | native `label`, `input`, `select`, `textarea` |
 | Dense content blocks | `.container[data-size="prose"]` + `.prose` |
 
-See [RECIPES.md](./RECIPES.md) for concrete before/after implementations.
+See [RECIPES.md](./RECIPES.md) for the recipe library, and [playground/index.html](./playground/index.html) for copyable live examples.
 
 ## Manual structured data
 
@@ -105,6 +122,4 @@ Not shipped yet:
 
 - custom elements
 - schema auto-injection
-- `create-symphony`
-- `symphony verify`
 - framework adapters package family

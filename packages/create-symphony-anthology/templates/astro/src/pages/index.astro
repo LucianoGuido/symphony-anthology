@@ -1,0 +1,60 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="{{PROJECT_NAME}}">
+  <main class="container starter-shell">
+    <article class="stack" data-gap="xl">
+      <header class="stack" data-gap="sm">
+        <p>Semantic and AI-first CSS framework</p>
+        <h1>{{PROJECT_NAME}}</h1>
+        <p>
+          This Astro starter begins from semantic HTML and the current Anthology core CSS artifact.
+        </p>
+      </header>
+
+      <div class="cluster" data-gap="sm">
+        <a href="#patterns" class="button" data-variant="primary">Explore patterns</a>
+        <a href="#contact" class="button" data-variant="outline">Contact the team</a>
+      </div>
+
+      <section id="patterns" class="grid" data-columns="3" data-gap="lg">
+        <article class="card">
+          <h2>Semantic baseline</h2>
+          <p>Use headings, forms, lists, and native controls as the foundation.</p>
+        </article>
+
+        <article class="card">
+          <h2>Optional primitives</h2>
+          <p>Reach for grid, stack, cluster, and container when layout actually needs them.</p>
+        </article>
+
+        <article class="card">
+          <h2>Readable output</h2>
+          <p>Keep the markup understandable for both humans and AI tooling.</p>
+        </article>
+      </section>
+
+      <section id="contact" class="stack" data-gap="md">
+        <header class="stack" data-gap="sm">
+          <h2>Contact the team</h2>
+          <p>Ask for a demo or share what you are building.</p>
+        </header>
+
+        <form class="stack" data-gap="md">
+          <label>
+            Email address
+            <input type="email" name="email" autocomplete="email">
+          </label>
+
+          <label>
+            Message
+            <textarea name="message"></textarea>
+          </label>
+
+          <button type="submit" data-variant="primary">Send message</button>
+        </form>
+      </section>
+    </article>
+  </main>
+</BaseLayout>

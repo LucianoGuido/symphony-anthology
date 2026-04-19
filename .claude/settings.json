@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-settings.json",
+  "enabledMcpjsonServers": [
+    "anthology"
+  ],
+  "permissions": {
+    "allow": [
+      "mcp__anthology__anthology_get_tokens",
+      "mcp__anthology__anthology_get_schema",
+      "mcp__anthology__anthology_list_recipes",
+      "mcp__anthology__anthology_get_recipe",
+      "mcp__anthology__anthology_verify_path",
+      "mcp__anthology__anthology_suggest_fix"
+    ],
+    "deny": [
+      "Read(./.env)",
+      "Read(./.env.*)",
+      "Read(./secrets/**)",
+      "Read(./CLAUDE.local.md)",
+      "Read(./.claude/settings.local.json)"
+    ]
+  }
+}

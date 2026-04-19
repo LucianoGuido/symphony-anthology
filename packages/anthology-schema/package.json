@@ -1,0 +1,40 @@
+{
+  "name": "@symphonyui/anthology-schema",
+  "version": "0.1.0",
+  "description": "Schema package for Symphony Anthology metadata, presets, and tokens",
+  "files": [
+    "dist/",
+    "README.md"
+  ],
+  "exports": {
+    ".": "./dist/schema.json",
+    "./schema.json": "./dist/schema.json",
+    "./schema-presets.json": "./dist/schema-presets.json",
+    "./tokens.json": "./dist/tokens.json"
+  },
+  "keywords": [
+    "symphony",
+    "schema",
+    "ai-first",
+    "metadata",
+    "tokens",
+    "design-system"
+  ],
+  "author": "SymphonyUI",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LucianoGuido/symphony-anthology.git",
+    "directory": "packages/anthology-schema"
+  },
+  "bugs": {
+    "url": "https://github.com/LucianoGuido/symphony-anthology/issues"
+  },
+  "homepage": "https://github.com/LucianoGuido/symphony-anthology/tree/main/packages/anthology-schema",
+  "publishConfig": {
+    "access": "public"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

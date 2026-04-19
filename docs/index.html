@@ -11,7 +11,7 @@
   <header class="docs-hero">
     <div class="container">
       <div class="stack" data-gap="md">
-        <p class="docs-eyebrow">Symphony Anthology v1</p>
+        <p class="docs-eyebrow">Symphony Anthology 0.1.0</p>
         <h1>Semantic-first CSS for immediate adoption</h1>
         <p class="text-lg">
           Stable primitives, data-attribute variants, optional legacy compatibility,
@@ -19,6 +19,10 @@
         </p>
         <div class="cluster" data-gap="sm">
           <a class="button" href="../README.md" data-variant="primary">Read README</a>
+          <a class="button" href="./playground/index.html" data-variant="outline">Open Playground</a>
+          <a class="button" href="./CREATE_SYMPHONY_ANTHOLOGY.md" data-variant="outline">Starter CLI</a>
+          <a class="button" href="./ANTHOLOGY_VERIFY.md" data-variant="outline">Verify CLI</a>
+          <a class="button" href="./ANTHOLOGY_MCP.md" data-variant="outline">Anthology MCP</a>
           <a class="button" href="./examples/landing-page.html" data-variant="outline">View Landing Example</a>
           <a class="button" href="./examples/ai-first-demo.html" data-variant="ghost">View AI-ready Demo</a>
         </div>
@@ -39,7 +43,7 @@
             <h3>Core</h3>
             <p>Reduced production bundle.</p>
           </header>
-          <pre class="docs-code"><code>&lt;link rel="stylesheet" href="https://unpkg.com/@symphonyui/symphonycss/dist/symphony.core.min.css"&gt;</code></pre>
+          <pre class="docs-code"><code>&lt;link rel="stylesheet" href="https://unpkg.com/@symphonyui/symphony-anthology/dist/symphony.core.min.css"&gt;</code></pre>
         </article>
 
         <article class="card docs-card">
@@ -47,7 +51,7 @@
             <h3>Full</h3>
             <p>Includes the broader utility surface.</p>
           </header>
-          <pre class="docs-code"><code>&lt;link rel="stylesheet" href="https://unpkg.com/@symphonyui/symphonycss/dist/symphony.min.css"&gt;</code></pre>
+          <pre class="docs-code"><code>&lt;link rel="stylesheet" href="https://unpkg.com/@symphonyui/symphony-anthology/dist/symphony.min.css"&gt;</code></pre>
         </article>
 
         <article class="card docs-card">
@@ -55,7 +59,7 @@
             <h3>Compat</h3>
             <p>Opt-in legacy aliases for migration only.</p>
           </header>
-          <pre class="docs-code"><code>&lt;link rel="stylesheet" href="https://unpkg.com/@symphonyui/symphonycss/dist/symphony.compat.min.css"&gt;</code></pre>
+          <pre class="docs-code"><code>&lt;link rel="stylesheet" href="https://unpkg.com/@symphonyui/symphony-anthology/dist/symphony.compat.min.css"&gt;</code></pre>
         </article>
       </div>
     </section>
@@ -114,6 +118,7 @@
             <a href="./schema-presets.json">schema-presets.json</a>
             <a href="./METADATA.md">Metadata contract</a>
             <a href="./AI_INTEGRATION.md">AI integration guide</a>
+            <a href="./ANTHOLOGY_MCP.md">Anthology MCP guide</a>
           </div>
         </article>
 
@@ -135,7 +140,8 @@
             <h3>Roadmap boundary</h3>
           </header>
           <div class="stack p-lg" data-gap="sm">
-            <p>Custom elements, CLI, adapters, and auto schema injection are roadmap items.</p>
+            <p>Published helper packages, custom elements, adapters, and auto schema injection are roadmap items.</p>
+            <p>The MCP server now exists locally in the repo, but the npm release is still a separate step.</p>
             <p>The public docs stay limited to shipped package behavior.</p>
           </div>
         </article>
@@ -161,11 +167,42 @@
 
         <article class="card docs-card">
           <header>
-            <h3>Recipes</h3>
+            <h3>Starter CLI</h3>
           </header>
           <div class="p-lg">
-            <p>Turn Conservatory findings into repeatable Anthology implementation patterns.</p>
-            <a href="./RECIPES.md">Open recipes</a>
+            <p>Scaffold HTML, Astro, and Next starters locally from the current Anthology build.</p>
+            <a href="./CREATE_SYMPHONY_ANTHOLOGY.md">Open starter CLI guide</a>
+          </div>
+        </article>
+
+        <article class="card docs-card">
+          <header>
+            <h3>Verify CLI</h3>
+          </header>
+          <div class="p-lg">
+            <p>Run semantic and AI-first HTML checks locally before shipping Anthology pages.</p>
+            <a href="./ANTHOLOGY_VERIFY.md">Open verify guide</a>
+          </div>
+        </article>
+
+        <article class="card docs-card">
+          <header>
+            <h3>Anthology MCP</h3>
+          </header>
+          <div class="p-lg">
+            <p>Expose Anthology tokens, recipes, and verify workflows directly to Claude Code through MCP.</p>
+            <a href="./ANTHOLOGY_MCP.md">Open MCP guide</a>
+          </div>
+        </article>
+
+        <article class="card docs-card">
+          <header>
+            <h3>Recipe library</h3>
+          </header>
+          <div class="p-lg">
+            <p>Browse launch-ready patterns for heroes, forms, pricing, docs, cards, and Conservatory follow-up fixes.</p>
+            <a href="./RECIPES.md">Open recipe library</a>
+            <a href="./playground/index.html">Open playground</a>
           </div>
         </article>
 

@@ -1,0 +1,1760 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "name": "Symphony Anthology Canonical Metadata Source",
+  "version": "0.1.0",
+  "description": "Single canonical metadata source for generated Anthology tokens, schema, and schema presets",
+  "outputs": {
+    "tokens": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "name": "Symphony Anthology Design Tokens",
+      "version": "0.1.0",
+      "description": "Machine-readable design tokens for AI integration and design tools",
+      "tokens": {
+        "color": {
+          "primary": {
+            "value": "oklch(from #0055FE l c h)",
+            "type": "color",
+            "description": "Primary brand color"
+          },
+          "primary-hover": {
+            "value": "oklch(from #2A72FF l c h)",
+            "type": "color"
+          },
+          "primary-light": {
+            "value": "oklch(from #7CA6FF l c h)",
+            "type": "color"
+          },
+          "secondary": {
+            "value": "oklch(from #0066FF l c h)",
+            "type": "color"
+          },
+          "accent": {
+            "value": "oklch(70% 0.18 30)",
+            "type": "color"
+          },
+          "success": {
+            "value": "oklch(55% 0.16 142)",
+            "type": "color"
+          },
+          "warning": {
+            "value": "oklch(75% 0.15 45)",
+            "type": "color"
+          },
+          "danger": {
+            "value": "oklch(55% 0.20 25)",
+            "type": "color"
+          },
+          "background": {
+            "value": "oklch(from #020410 l c h)",
+            "type": "color",
+            "description": "Default dark-first page background"
+          },
+          "surface": {
+            "value": "oklch(from #0A0F1E l c h)",
+            "type": "color",
+            "description": "Card/panel background"
+          },
+          "surface-elevated": {
+            "value": "oklch(from #11172A l c h)",
+            "type": "color"
+          },
+          "surface-hover": {
+            "value": "oklch(from #131824 l c h)",
+            "type": "color"
+          },
+          "surface-alt": {
+            "value": "oklch(from #060A16 l c h)",
+            "type": "color"
+          },
+          "text": {
+            "value": "oklch(from #F6F8FF l c h)",
+            "type": "color"
+          },
+          "text-secondary": {
+            "value": "oklch(from #CBD2D9 l c h)",
+            "type": "color"
+          },
+          "text-muted": {
+            "value": "oklch(from #8B92A0 l c h)",
+            "type": "color"
+          },
+          "text-inverted": {
+            "value": "oklch(from #020410 l c h)",
+            "type": "color"
+          },
+          "border": {
+            "value": "oklch(from #FFFFFF l c h / 0.1)",
+            "type": "color"
+          },
+          "border-hover": {
+            "value": "oklch(from #FFFFFF l c h / 0.18)",
+            "type": "color"
+          }
+        },
+        "spacing": {
+          "3xs": {
+            "value": "0.125rem",
+            "type": "dimension",
+            "pixels": 2
+          },
+          "2xs": {
+            "value": "0.25rem",
+            "type": "dimension",
+            "pixels": 4
+          },
+          "xs": {
+            "value": "0.5rem",
+            "type": "dimension",
+            "pixels": 8
+          },
+          "sm": {
+            "value": "0.75rem",
+            "type": "dimension",
+            "pixels": 12
+          },
+          "md": {
+            "value": "1rem",
+            "type": "dimension",
+            "pixels": 16
+          },
+          "lg": {
+            "value": "1.5rem",
+            "type": "dimension",
+            "pixels": 24
+          },
+          "xl": {
+            "value": "2rem",
+            "type": "dimension",
+            "pixels": 32
+          },
+          "2xl": {
+            "value": "3rem",
+            "type": "dimension",
+            "pixels": 48
+          },
+          "3xl": {
+            "value": "4rem",
+            "type": "dimension",
+            "pixels": 64
+          },
+          "4xl": {
+            "value": "6rem",
+            "type": "dimension",
+            "pixels": 96
+          },
+          "5xl": {
+            "value": "8rem",
+            "type": "dimension",
+            "pixels": 128
+          }
+        },
+        "typography": {
+          "font-family": {
+            "sans": {
+              "value": "'Mona Sans', system-ui, -apple-system, sans-serif",
+              "type": "fontFamily"
+            },
+            "display": {
+              "value": "'Inter Tight', system-ui, -apple-system, sans-serif",
+              "type": "fontFamily"
+            },
+            "serif": {
+              "value": "'Georgia', Cambria, 'Times New Roman', serif",
+              "type": "fontFamily"
+            },
+            "mono": {
+              "value": "'JetBrains Mono', 'Fira Code', 'SF Mono', Consolas, monospace",
+              "type": "fontFamily"
+            }
+          },
+          "font-size": {
+            "xs": {
+              "value": "clamp(0.64rem, 0.6rem + 0.2vw, 0.75rem)",
+              "type": "dimension",
+              "pixels": 12,
+              "nominal": "0.75rem",
+              "min": "0.64rem",
+              "preferred": "0.6rem + 0.2vw",
+              "max": "0.75rem"
+            },
+            "sm": {
+              "value": "clamp(0.8rem, 0.75rem + 0.25vw, 0.875rem)",
+              "type": "dimension",
+              "pixels": 14,
+              "nominal": "0.875rem",
+              "min": "0.8rem",
+              "preferred": "0.75rem + 0.25vw",
+              "max": "0.875rem"
+            },
+            "base": {
+              "value": "clamp(1rem, 0.95rem + 0.25vw, 1rem)",
+              "type": "dimension",
+              "pixels": 16,
+              "nominal": "1rem",
+              "min": "1rem",
+              "preferred": "0.95rem + 0.25vw",
+              "max": "1rem"
+            },
+            "lg": {
+              "value": "clamp(1.125rem, 1rem + 0.5vw, 1.25rem)",
+              "type": "dimension",
+              "pixels": 18,
+              "nominal": "1.125rem",
+              "min": "1.125rem",
+              "preferred": "1rem + 0.5vw",
+              "max": "1.25rem"
+            },
+            "xl": {
+              "value": "clamp(1.25rem, 1.1rem + 0.75vw, 1.563rem)",
+              "type": "dimension",
+              "pixels": 20,
+              "nominal": "1.25rem",
+              "min": "1.25rem",
+              "preferred": "1.1rem + 0.75vw",
+              "max": "1.563rem"
+            },
+            "2xl": {
+              "value": "clamp(1.563rem, 1.3rem + 1vw, 1.953rem)",
+              "type": "dimension",
+              "pixels": 24,
+              "nominal": "1.5rem",
+              "min": "1.563rem",
+              "preferred": "1.3rem + 1vw",
+              "max": "1.953rem"
+            },
+            "3xl": {
+              "value": "clamp(1.953rem, 1.6rem + 1.5vw, 2.441rem)",
+              "type": "dimension",
+              "pixels": 30,
+              "nominal": "1.875rem",
+              "min": "1.953rem",
+              "preferred": "1.6rem + 1.5vw",
+              "max": "2.441rem"
+            },
+            "4xl": {
+              "value": "clamp(2.441rem, 2rem + 2vw, 3.052rem)",
+              "type": "dimension",
+              "pixels": 36,
+              "nominal": "2.25rem",
+              "min": "2.441rem",
+              "preferred": "2rem + 2vw",
+              "max": "3.052rem"
+            },
+            "5xl": {
+              "value": "clamp(3.052rem, 2.5rem + 2.5vw, 3.815rem)",
+              "type": "dimension",
+              "pixels": 48,
+              "nominal": "3rem",
+              "min": "3.052rem",
+              "preferred": "2.5rem + 2.5vw",
+              "max": "3.815rem"
+            }
+          },
+          "font-weight": {
+            "thin": {
+              "value": 100,
+              "type": "fontWeight"
+            },
+            "light": {
+              "value": 300,
+              "type": "fontWeight"
+            },
+            "regular": {
+              "value": 400,
+              "type": "fontWeight"
+            },
+            "medium": {
+              "value": 500,
+              "type": "fontWeight"
+            },
+            "semibold": {
+              "value": 600,
+              "type": "fontWeight"
+            },
+            "bold": {
+              "value": 700,
+              "type": "fontWeight"
+            },
+            "black": {
+              "value": 900,
+              "type": "fontWeight"
+            }
+          },
+          "line-height": {
+            "none": {
+              "value": 1,
+              "type": "number"
+            },
+            "tight": {
+              "value": 1.25,
+              "type": "number"
+            },
+            "snug": {
+              "value": 1.375,
+              "type": "number"
+            },
+            "normal": {
+              "value": 1.5,
+              "type": "number"
+            },
+            "relaxed": {
+              "value": 1.625,
+              "type": "number"
+            },
+            "loose": {
+              "value": 2,
+              "type": "number"
+            }
+          },
+          "roles": {
+            "body": {
+              "font-family": "sans",
+              "font-size": "base",
+              "line-height": "normal",
+              "usage": [
+                "body",
+                "ui",
+                "forms",
+                "navigation"
+              ]
+            },
+            "heading": {
+              "font-family": "display",
+              "font-weight": "bold",
+              "line-height": "tight",
+              "usage": [
+                "h1",
+                "h2",
+                "h3",
+                "h4",
+                "h5",
+                "h6",
+                "display"
+              ]
+            },
+            "code": {
+              "font-family": "mono",
+              "font-size": "sm",
+              "usage": [
+                "code",
+                "pre",
+                "kbd",
+                "samp"
+              ]
+            }
+          }
+        },
+        "border-radius": {
+          "none": {
+            "value": "0",
+            "type": "dimension"
+          },
+          "sm": {
+            "value": "0.25rem",
+            "type": "dimension",
+            "pixels": 4
+          },
+          "md": {
+            "value": "0.5rem",
+            "type": "dimension",
+            "pixels": 8
+          },
+          "lg": {
+            "value": "0.75rem",
+            "type": "dimension",
+            "pixels": 12
+          },
+          "xl": {
+            "value": "1rem",
+            "type": "dimension",
+            "pixels": 16
+          },
+          "2xl": {
+            "value": "1.5rem",
+            "type": "dimension",
+            "pixels": 24
+          },
+          "full": {
+            "value": "9999px",
+            "type": "dimension"
+          }
+        },
+        "shadow": {
+          "xs": {
+            "value": "0 1px 2px oklch(20% 0.02 264 / 0.1)",
+            "type": "shadow"
+          },
+          "sm": {
+            "value": "0 1px 3px oklch(20% 0.02 264 / 0.1), 0 1px 2px -1px oklch(20% 0.02 264 / 0.1)",
+            "type": "shadow"
+          },
+          "md": {
+            "value": "0 4px 6px -1px oklch(20% 0.02 264 / 0.1), 0 2px 4px -2px oklch(20% 0.02 264 / 0.1)",
+            "type": "shadow"
+          },
+          "lg": {
+            "value": "0 10px 15px -3px oklch(20% 0.02 264 / 0.1), 0 4px 6px -4px oklch(20% 0.02 264 / 0.1)",
+            "type": "shadow"
+          },
+          "xl": {
+            "value": "0 20px 25px -5px oklch(20% 0.02 264 / 0.1), 0 8px 10px -6px oklch(20% 0.02 264 / 0.1)",
+            "type": "shadow"
+          }
+        },
+        "transition": {
+          "duration": {
+            "instant": {
+              "value": "50ms",
+              "type": "duration"
+            },
+            "fast": {
+              "value": "150ms",
+              "type": "duration"
+            },
+            "normal": {
+              "value": "250ms",
+              "type": "duration"
+            },
+            "slow": {
+              "value": "400ms",
+              "type": "duration"
+            }
+          },
+          "timing": {
+            "linear": {
+              "value": "linear",
+              "type": "cubicBezier"
+            },
+            "ease-in": {
+              "value": "cubic-bezier(0.4, 0, 1, 1)",
+              "type": "cubicBezier"
+            },
+            "ease-out": {
+              "value": "cubic-bezier(0, 0, 0.2, 1)",
+              "type": "cubicBezier"
+            },
+            "ease-in-out": {
+              "value": "cubic-bezier(0.4, 0, 0.2, 1)",
+              "type": "cubicBezier"
+            }
+          }
+        },
+        "z-index": {
+          "behind": {
+            "value": -1,
+            "type": "number"
+          },
+          "base": {
+            "value": 0,
+            "type": "number"
+          },
+          "dropdown": {
+            "value": 100,
+            "type": "number"
+          },
+          "sticky": {
+            "value": 200,
+            "type": "number"
+          },
+          "fixed": {
+            "value": 300,
+            "type": "number"
+          },
+          "overlay": {
+            "value": 400,
+            "type": "number"
+          },
+          "modal": {
+            "value": 500,
+            "type": "number"
+          },
+          "popover": {
+            "value": 600,
+            "type": "number"
+          },
+          "tooltip": {
+            "value": 700,
+            "type": "number"
+          },
+          "max": {
+            "value": 9999,
+            "type": "number"
+          }
+        },
+        "breakpoints": {
+          "xs": {
+            "value": "360px",
+            "type": "dimension"
+          },
+          "sm": {
+            "value": "640px",
+            "type": "dimension"
+          },
+          "md": {
+            "value": "768px",
+            "type": "dimension"
+          },
+          "lg": {
+            "value": "1024px",
+            "type": "dimension"
+          },
+          "xl": {
+            "value": "1280px",
+            "type": "dimension"
+          },
+          "2xl": {
+            "value": "1536px",
+            "type": "dimension"
+          }
+        }
+      },
+      "components": {
+        "button": {
+          "variants": [
+            "primary",
+            "secondary",
+            "success",
+            "warning",
+            "danger",
+            "outline",
+            "ghost",
+            "link"
+          ],
+          "sizes": [
+            "xs",
+            "sm",
+            "default",
+            "lg",
+            "xl"
+          ],
+          "attributes": {
+            "data-variant": "string",
+            "data-size": "string"
+          }
+        },
+        "card": {
+          "variants": [
+            "default",
+            "raised",
+            "floating",
+            "flat"
+          ],
+          "attributes": {
+            "data-elevation": "string",
+            "data-layout": "string",
+            "data-interactive": "boolean"
+          }
+        },
+        "input": {
+          "sizes": [
+            "sm",
+            "default",
+            "lg"
+          ],
+          "states": [
+            "default",
+            "error",
+            "success"
+          ],
+          "attributes": {
+            "data-size": "string",
+            "data-state": "string"
+          }
+        },
+        "navigation": {
+          "styles": [
+            "default",
+            "pills",
+            "underline"
+          ],
+          "directions": [
+            "horizontal",
+            "vertical"
+          ],
+          "attributes": {
+            "data-style": "string",
+            "data-direction": "string"
+          }
+        },
+        "grid": {
+          "columns": [
+            "2",
+            "3",
+            "4",
+            "5",
+            "6"
+          ],
+          "gaps": [
+            "none",
+            "sm",
+            "lg",
+            "xl"
+          ],
+          "layouts": [
+            "sidebar",
+            "sidebar-right",
+            "holy-grail",
+            "featured",
+            "masonry"
+          ],
+          "attributes": {
+            "data-columns": "string",
+            "data-gap": "string",
+            "data-layout": "string",
+            "data-fixed": "string"
+          }
+        },
+        "container": {
+          "sizes": [
+            "narrow",
+            "default",
+            "wide",
+            "full",
+            "prose"
+          ],
+          "attributes": {
+            "data-size": "string",
+            "data-padding": "string"
+          }
+        }
+      },
+      "cssVariables": {
+        "prefix": "--symphony-",
+        "categories": {
+          "color": [
+            "primary",
+            "secondary",
+            "accent",
+            "success",
+            "warning",
+            "danger",
+            "background",
+            "surface",
+            "text",
+            "border"
+          ],
+          "spacing": [
+            "space-3xs",
+            "space-2xs",
+            "space-xs",
+            "space-sm",
+            "space-md",
+            "space-lg",
+            "space-xl",
+            "space-2xl",
+            "space-3xl"
+          ],
+          "typography": [
+            "font-sans",
+            "font-display",
+            "font-heading",
+            "font-serif",
+            "font-mono",
+            "text-xs",
+            "text-sm",
+            "text-base",
+            "text-lg",
+            "text-xl",
+            "text-2xl",
+            "text-3xl",
+            "text-4xl",
+            "text-5xl"
+          ],
+          "radius": [
+            "radius-sm",
+            "radius-md",
+            "radius-lg",
+            "radius-xl",
+            "radius-2xl",
+            "radius-full"
+          ],
+          "shadow": [
+            "shadow-xs",
+            "shadow-sm",
+            "shadow-md",
+            "shadow-lg",
+            "shadow-xl"
+          ]
+        }
+      }
+    },
+    "schema": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "Symphony Anthology Component Schema",
+      "description": "JSON Schema for Symphony Anthology components, enabling AI-powered code generation",
+      "version": "0.1.0",
+      "definitions": {
+        "variantButton": {
+          "type": "string",
+          "enum": [
+            "primary",
+            "secondary",
+            "success",
+            "warning",
+            "danger",
+            "outline",
+            "ghost",
+            "link"
+          ],
+          "description": "Button visual variant"
+        },
+        "variantCard": {
+          "type": "string",
+          "enum": [
+            "default",
+            "outlined",
+            "glass"
+          ],
+          "description": "Card visual variant"
+        },
+        "size": {
+          "type": "string",
+          "enum": [
+            "xs",
+            "sm",
+            "md",
+            "lg",
+            "xl"
+          ],
+          "description": "Component size"
+        },
+        "elevation": {
+          "type": "string",
+          "enum": [
+            "flat",
+            "raised",
+            "floating"
+          ],
+          "description": "Shadow/elevation level"
+        },
+        "spacing": {
+          "type": "string",
+          "enum": [
+            "3xs",
+            "2xs",
+            "xs",
+            "sm",
+            "md",
+            "lg",
+            "xl",
+            "2xl",
+            "3xl",
+            "4xl",
+            "5xl"
+          ],
+          "description": "Spacing scale value"
+        }
+      },
+      "components": {
+        "button": {
+          "description": "Interactive button element",
+          "element": "button",
+          "baseClass": null,
+          "attributes": {
+            "data-variant": {
+              "$ref": "#/definitions/variantButton"
+            },
+            "data-size": {
+              "$ref": "#/definitions/size"
+            },
+            "data-shape": {
+              "type": "string",
+              "enum": [
+                "default",
+                "pill",
+                "square"
+              ],
+              "description": "Button shape"
+            }
+          },
+          "states": {
+            "disabled": {
+              "type": "boolean",
+              "attribute": "disabled"
+            },
+            "loading": {
+              "type": "boolean",
+              "attribute": "aria-busy"
+            }
+          },
+          "examples": [
+            "<button>Default</button>",
+            "<button data-variant=\"primary\">Primary</button>",
+            "<button data-variant=\"danger\" data-size=\"lg\">Delete</button>"
+          ]
+        },
+        "card": {
+          "description": "Content container with optional header/footer",
+          "element": "article",
+          "baseClass": "card",
+          "attributes": {
+            "data-variant": {
+              "$ref": "#/definitions/variantCard"
+            },
+            "data-elevation": {
+              "$ref": "#/definitions/elevation"
+            },
+            "data-layout": {
+              "type": "string",
+              "enum": [
+                "vertical",
+                "horizontal"
+              ],
+              "description": "Card content direction"
+            }
+          },
+          "children": {
+            "header": {
+              "element": "header",
+              "optional": true
+            },
+            "body": {
+              "element": "div",
+              "class": "card-body",
+              "optional": true
+            },
+            "footer": {
+              "element": "footer",
+              "optional": true
+            },
+            "image": {
+              "element": "img",
+              "optional": true
+            }
+          },
+          "examples": [
+            "<article class=\"card\"><h3>Title</h3><p>Content</p></article>",
+            "<article class=\"card\" data-elevation=\"floating\"><header>Header</header><p>Body</p></article>"
+          ]
+        },
+        "dialog": {
+          "description": "Modal dialog or drawer",
+          "element": "dialog",
+          "baseClass": null,
+          "attributes": {
+            "data-size": {
+              "$ref": "#/definitions/size"
+            },
+            "data-drawer": {
+              "type": "string",
+              "enum": [
+                "right",
+                "left",
+                "bottom"
+              ],
+              "description": "Slide-in drawer position"
+            },
+            "data-type": {
+              "type": "string",
+              "enum": [
+                "default",
+                "alert",
+                "confirm"
+              ],
+              "description": "Dialog type"
+            }
+          },
+          "methods": {
+            "open": "element.showModal()",
+            "close": "element.close()"
+          },
+          "examples": [
+            "<dialog><p>Content</p></dialog>",
+            "<dialog data-size=\"lg\" data-drawer=\"right\">Drawer content</dialog>"
+          ]
+        },
+        "accordion": {
+          "description": "Expandable content sections",
+          "element": "details",
+          "baseClass": null,
+          "groupClass": "accordion",
+          "attributes": {
+            "data-variant": {
+              "type": "string",
+              "enum": [
+                "default",
+                "flush",
+                "card",
+                "filled"
+              ]
+            },
+            "data-size": {
+              "$ref": "#/definitions/size"
+            },
+            "data-indicator": {
+              "type": "string",
+              "enum": [
+                "chevron",
+                "plus",
+                "none"
+              ]
+            }
+          },
+          "children": {
+            "summary": {
+              "element": "summary",
+              "required": true
+            },
+            "content": {
+              "description": "Any content after summary"
+            }
+          },
+          "examples": [
+            "<details><summary>Title</summary><p>Content</p></details>",
+            "<div class=\"accordion\"><details><summary>Q1</summary><p>A1</p></details></div>"
+          ]
+        },
+        "navigation": {
+          "description": "Navigation menu",
+          "element": "nav",
+          "baseClass": null,
+          "attributes": {
+            "data-direction": {
+              "type": "string",
+              "enum": [
+                "horizontal",
+                "vertical"
+              ]
+            },
+            "data-style": {
+              "type": "string",
+              "enum": [
+                "default",
+                "pills",
+                "underline"
+              ]
+            },
+            "aria-label": {
+              "type": "string",
+              "description": "Accessible label for the navigation"
+            }
+          },
+          "children": {
+            "list": {
+              "element": "ul",
+              "required": true
+            },
+            "items": {
+              "element": "li",
+              "multiple": true
+            },
+            "links": {
+              "element": "a",
+              "multiple": true
+            }
+          },
+          "specialTypes": {
+            "breadcrumb": {
+              "aria-label": "Breadcrumb"
+            },
+            "pagination": {
+              "aria-label": "Pagination"
+            }
+          },
+          "examples": [
+            "<nav><ul><li><a href=\"/\">Home</a></li></ul></nav>",
+            "<nav aria-label=\"Breadcrumb\"><ol><li><a href=\"/\">Home</a></li></ol></nav>"
+          ]
+        },
+        "table": {
+          "description": "Data table",
+          "element": "table",
+          "baseClass": null,
+          "wrapperClass": "table-wrapper",
+          "attributes": {
+            "data-striped": {
+              "type": "boolean"
+            },
+            "data-hoverable": {
+              "type": "boolean"
+            },
+            "data-bordered": {
+              "type": "boolean"
+            },
+            "data-size": {
+              "type": "string",
+              "enum": [
+                "compact",
+                "default",
+                "comfortable"
+              ]
+            },
+            "data-responsive": {
+              "type": "string",
+              "enum": [
+                "scroll",
+                "stack"
+              ]
+            }
+          },
+          "children": {
+            "thead": {
+              "element": "thead"
+            },
+            "tbody": {
+              "element": "tbody",
+              "required": true
+            },
+            "tfoot": {
+              "element": "tfoot",
+              "optional": true
+            }
+          },
+          "examples": [
+            "<table><thead><tr><th>Name</th></tr></thead><tbody><tr><td>John</td></tr></tbody></table>",
+            "<table data-striped data-hoverable>...</table>"
+          ]
+        },
+        "form": {
+          "description": "Form elements",
+          "elements": {
+            "input": {
+              "element": "input",
+              "attributes": {
+                "data-size": {
+                  "$ref": "#/definitions/size"
+                },
+                "data-state": {
+                  "type": "string",
+                  "enum": [
+                    "default",
+                    "error",
+                    "success"
+                  ]
+                }
+              }
+            },
+            "textarea": {
+              "element": "textarea",
+              "attributes": {
+                "data-resize": {
+                  "type": "string",
+                  "enum": [
+                    "vertical",
+                    "horizontal",
+                    "both",
+                    "none"
+                  ]
+                }
+              }
+            },
+            "select": {
+              "element": "select",
+              "attributes": {
+                "data-size": {
+                  "$ref": "#/definitions/size"
+                }
+              }
+            },
+            "checkbox": {
+              "element": "input",
+              "type": "checkbox",
+              "attributes": {
+                "data-custom": {
+                  "type": "boolean"
+                }
+              }
+            },
+            "radio": {
+              "element": "input",
+              "type": "radio",
+              "attributes": {
+                "data-custom": {
+                  "type": "boolean"
+                }
+              }
+            },
+            "switch": {
+              "element": "input",
+              "type": "checkbox",
+              "attributes": {
+                "role": "switch"
+              }
+            }
+          },
+          "validation": {
+            "nativeStates": [
+              ":user-valid",
+              ":user-invalid"
+            ],
+            "ariaAttributes": [
+              "aria-invalid",
+              "aria-describedby"
+            ]
+          }
+        },
+        "container": {
+          "description": "Content container with max-width",
+          "element": "div",
+          "baseClass": "container",
+          "attributes": {
+            "data-size": {
+              "type": "string",
+              "enum": [
+                "narrow",
+                "default",
+                "wide",
+                "full",
+                "prose"
+              ]
+            }
+          },
+          "examples": [
+            "<div class=\"container\">Content</div>",
+            "<div class=\"container\" data-size=\"narrow\">Narrow content</div>"
+          ]
+        },
+        "grid": {
+          "description": "Responsive grid layout",
+          "element": "div",
+          "baseClass": "grid",
+          "attributes": {
+            "data-columns": {
+              "type": "string",
+              "enum": [
+                "2",
+                "3",
+                "4",
+                "5",
+                "6"
+              ]
+            },
+            "data-layout": {
+              "type": "string",
+              "enum": [
+                "sidebar",
+                "featured",
+                "masonry"
+              ]
+            },
+            "data-gap": {
+              "$ref": "#/definitions/spacing"
+            }
+          },
+          "examples": [
+            "<div class=\"grid\"><div>1</div><div>2</div><div>3</div></div>",
+            "<div class=\"grid\" data-columns=\"3\">...</div>"
+          ]
+        }
+      },
+      "layout": {
+        "stack": {
+          "description": "Vertical stacking with consistent spacing",
+          "class": "stack",
+          "cssProperty": "--stack-gap",
+          "examples": [
+            "<div class=\"stack\"><h1>Title</h1><p>Text</p></div>"
+          ]
+        },
+        "cluster": {
+          "description": "Horizontal grouping that wraps",
+          "class": "cluster",
+          "cssProperty": "--cluster-gap",
+          "examples": [
+            "<div class=\"cluster\"><span>Tag 1</span><span>Tag 2</span></div>"
+          ]
+        },
+        "sidebar": {
+          "description": "Sidebar + main content layout",
+          "class": "sidebar",
+          "cssProperty": "--sidebar-width",
+          "examples": [
+            "<div class=\"sidebar\"><aside>Sidebar</aside><main>Main</main></div>"
+          ]
+        },
+        "switcher": {
+          "description": "Flexbox that switches to column on narrow",
+          "class": "switcher",
+          "cssProperty": "--switcher-threshold",
+          "examples": [
+            "<div class=\"switcher\"><div>A</div><div>B</div></div>"
+          ]
+        },
+        "center": {
+          "description": "Horizontally centered content",
+          "class": "center",
+          "examples": [
+            "<div class=\"center\">Centered</div>"
+          ]
+        },
+        "cover": {
+          "description": "Full-height section with centered content",
+          "class": "cover",
+          "examples": [
+            "<div class=\"cover\"><header></header><main>Hero</main><footer></footer></div>"
+          ]
+        }
+      },
+      "tokens": {
+        "colors": {
+          "primary": "--symphony-primary",
+          "secondary": "--symphony-secondary",
+          "success": "--symphony-success",
+          "warning": "--symphony-warning",
+          "danger": "--symphony-danger",
+          "text": "--symphony-text",
+          "textMuted": "--symphony-text-muted",
+          "background": "--symphony-background",
+          "surface": "--symphony-surface",
+          "border": "--symphony-border"
+        },
+        "spacing": {
+          "3xs": "--symphony-space-3xs",
+          "2xs": "--symphony-space-2xs",
+          "xs": "--symphony-space-xs",
+          "sm": "--symphony-space-sm",
+          "md": "--symphony-space-md",
+          "lg": "--symphony-space-lg",
+          "xl": "--symphony-space-xl",
+          "2xl": "--symphony-space-2xl",
+          "3xl": "--symphony-space-3xl"
+        },
+        "radius": {
+          "sm": "--symphony-radius-sm",
+          "md": "--symphony-radius-md",
+          "lg": "--symphony-radius-lg",
+          "xl": "--symphony-radius-xl",
+          "full": "--symphony-radius-full"
+        },
+        "typography": {
+          "fontSans": "--symphony-font-sans",
+          "fontDisplay": "--symphony-font-display",
+          "fontHeading": "--symphony-font-heading",
+          "fontSerif": "--symphony-font-serif",
+          "fontMono": "--symphony-font-mono",
+          "textXs": "--symphony-text-xs",
+          "textSm": "--symphony-text-sm",
+          "textBase": "--symphony-text-base",
+          "textLg": "--symphony-text-lg",
+          "textXl": "--symphony-text-xl",
+          "text2xl": "--symphony-text-2xl",
+          "text3xl": "--symphony-text-3xl",
+          "text4xl": "--symphony-text-4xl",
+          "text5xl": "--symphony-text-5xl"
+        }
+      },
+      "accessibility": {
+        "ariaAttributes": {
+          "button": [
+            "aria-pressed",
+            "aria-expanded",
+            "aria-busy",
+            "aria-disabled"
+          ],
+          "navigation": [
+            "aria-current",
+            "aria-label"
+          ],
+          "dialog": [
+            "aria-labelledby",
+            "aria-describedby",
+            "aria-modal"
+          ],
+          "form": [
+            "aria-invalid",
+            "aria-describedby",
+            "aria-required"
+          ]
+        },
+        "roles": {
+          "switch": "role=\"switch\"",
+          "tab": "role=\"tab\"",
+          "tabpanel": "role=\"tabpanel\""
+        },
+        "focusManagement": {
+          "focusVisible": ":focus-visible selector for keyboard focus",
+          "skipLink": "Use .sr-only for screen reader only content"
+        }
+      }
+    },
+    "schemaPresets": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "Symphony Anthology Schema Presets",
+      "description": "Mapping between Symphony components and Schema.org types for AI-first web development",
+      "version": "0.1.0",
+      "schemaPresets": {
+        "product-card": {
+          "schemaType": "Product",
+          "nlwebCategory": "commerce/product",
+          "properties": {
+            "name": {
+              "schemaProperty": "name",
+              "required": true
+            },
+            "price": {
+              "schemaProperty": "price",
+              "type": "PriceSpecification"
+            },
+            "image": {
+              "schemaProperty": "image",
+              "type": "ImageObject"
+            },
+            "description": {
+              "schemaProperty": "description"
+            },
+            "sku": {
+              "schemaProperty": "sku"
+            },
+            "brand": {
+              "schemaProperty": "brand",
+              "type": "Brand"
+            },
+            "rating": {
+              "schemaProperty": "aggregateRating",
+              "type": "AggregateRating"
+            }
+          },
+          "actions": {
+            "purchase": {
+              "schemaType": "BuyAction",
+              "nlwebAction": "purchase"
+            },
+            "add-to-cart": {
+              "schemaType": "AddAction",
+              "nlwebAction": "add-to-cart"
+            },
+            "compare": {
+              "schemaType": "CompareAction",
+              "nlwebAction": "compare"
+            }
+          },
+          "aiHints": {
+            "context": "e-commerce",
+            "intent": [
+              "purchase",
+              "comparison",
+              "research"
+            ],
+            "queries": [
+              "buy {name}",
+              "price of {name}",
+              "{name} reviews"
+            ]
+          }
+        },
+        "price-display": {
+          "schemaType": "PriceSpecification",
+          "nlwebCategory": "commerce/price",
+          "properties": {
+            "value": {
+              "schemaProperty": "price",
+              "required": true
+            },
+            "currency": {
+              "schemaProperty": "priceCurrency",
+              "required": true
+            },
+            "validFrom": {
+              "schemaProperty": "validFrom"
+            },
+            "validThrough": {
+              "schemaProperty": "validThrough"
+            }
+          },
+          "aiHints": {
+            "context": "pricing",
+            "comparable": true,
+            "queries": [
+              "how much",
+              "price",
+              "cost"
+            ]
+          }
+        },
+        "purchase-action": {
+          "schemaType": "BuyAction",
+          "nlwebCategory": "commerce/action",
+          "properties": {
+            "target": {
+              "schemaProperty": "target",
+              "type": "EntryPoint"
+            }
+          },
+          "aiHints": {
+            "intent": "conversion",
+            "action": "purchase",
+            "trackable": true
+          }
+        },
+        "article-card": {
+          "schemaType": "Article",
+          "nlwebCategory": "content/article",
+          "properties": {
+            "headline": {
+              "schemaProperty": "headline",
+              "required": true
+            },
+            "author": {
+              "schemaProperty": "author",
+              "type": "Person"
+            },
+            "datePublished": {
+              "schemaProperty": "datePublished"
+            },
+            "dateModified": {
+              "schemaProperty": "dateModified"
+            },
+            "image": {
+              "schemaProperty": "image",
+              "type": "ImageObject"
+            },
+            "description": {
+              "schemaProperty": "description"
+            }
+          },
+          "aiHints": {
+            "context": "content",
+            "intent": [
+              "read",
+              "share",
+              "save"
+            ],
+            "queries": [
+              "article about {headline}",
+              "read {headline}"
+            ]
+          }
+        },
+        "author-bio": {
+          "schemaType": "Person",
+          "nlwebCategory": "content/author",
+          "properties": {
+            "name": {
+              "schemaProperty": "name",
+              "required": true
+            },
+            "image": {
+              "schemaProperty": "image"
+            },
+            "jobTitle": {
+              "schemaProperty": "jobTitle"
+            },
+            "url": {
+              "schemaProperty": "url"
+            },
+            "sameAs": {
+              "schemaProperty": "sameAs",
+              "array": true
+            }
+          },
+          "aiHints": {
+            "context": "identity",
+            "queries": [
+              "who is {name}",
+              "articles by {name}"
+            ]
+          }
+        },
+        "hero-section": {
+          "schemaType": "WPHeader",
+          "nlwebCategory": "layout/hero",
+          "properties": {
+            "headline": {
+              "schemaProperty": "headline"
+            },
+            "description": {
+              "schemaProperty": "description"
+            },
+            "image": {
+              "schemaProperty": "primaryImageOfPage"
+            }
+          },
+          "aiHints": {
+            "context": "marketing",
+            "intent": [
+              "awareness",
+              "engagement"
+            ],
+            "position": "above-fold"
+          }
+        },
+        "feature-grid": {
+          "schemaType": "ItemList",
+          "nlwebCategory": "layout/features",
+          "properties": {
+            "items": {
+              "schemaProperty": "itemListElement",
+              "type": "ListItem",
+              "array": true
+            }
+          },
+          "aiHints": {
+            "context": "marketing",
+            "intent": [
+              "comparison",
+              "education"
+            ],
+            "queries": [
+              "features of",
+              "what does {product} include"
+            ]
+          }
+        },
+        "testimonial-card": {
+          "schemaType": "Review",
+          "nlwebCategory": "social-proof/testimonial",
+          "properties": {
+            "reviewBody": {
+              "schemaProperty": "reviewBody",
+              "required": true
+            },
+            "author": {
+              "schemaProperty": "author",
+              "type": "Person"
+            },
+            "reviewRating": {
+              "schemaProperty": "reviewRating",
+              "type": "Rating"
+            },
+            "datePublished": {
+              "schemaProperty": "datePublished"
+            }
+          },
+          "aiHints": {
+            "context": "social-proof",
+            "intent": [
+              "trust",
+              "validation"
+            ],
+            "queries": [
+              "reviews",
+              "what do customers say"
+            ]
+          }
+        },
+        "pricing-table": {
+          "schemaType": "Offer",
+          "nlwebCategory": "commerce/pricing",
+          "properties": {
+            "name": {
+              "schemaProperty": "name"
+            },
+            "price": {
+              "schemaProperty": "price"
+            },
+            "priceCurrency": {
+              "schemaProperty": "priceCurrency"
+            },
+            "description": {
+              "schemaProperty": "description"
+            },
+            "itemOffered": {
+              "schemaProperty": "itemOffered",
+              "type": "Service"
+            }
+          },
+          "aiHints": {
+            "context": "pricing",
+            "intent": [
+              "comparison",
+              "purchase"
+            ],
+            "queries": [
+              "pricing",
+              "plans",
+              "how much does {name} cost"
+            ]
+          }
+        },
+        "nav-menu": {
+          "schemaType": "SiteNavigationElement",
+          "nlwebCategory": "navigation/menu",
+          "properties": {
+            "name": {
+              "schemaProperty": "name"
+            },
+            "url": {
+              "schemaProperty": "url"
+            }
+          },
+          "aiHints": {
+            "context": "navigation",
+            "queries": [
+              "go to {name}",
+              "where is {name}"
+            ]
+          }
+        },
+        "breadcrumb-trail": {
+          "schemaType": "BreadcrumbList",
+          "nlwebCategory": "navigation/breadcrumb",
+          "properties": {
+            "items": {
+              "schemaProperty": "itemListElement",
+              "type": "ListItem",
+              "array": true
+            }
+          },
+          "aiHints": {
+            "context": "navigation",
+            "hierarchical": true
+          }
+        },
+        "search-box": {
+          "schemaType": "SearchAction",
+          "nlwebCategory": "navigation/search",
+          "properties": {
+            "target": {
+              "schemaProperty": "target",
+              "type": "EntryPoint"
+            },
+            "queryInput": {
+              "schemaProperty": "query-input"
+            }
+          },
+          "aiHints": {
+            "context": "search",
+            "intent": [
+              "find",
+              "discover"
+            ],
+            "queries": [
+              "search for",
+              "find"
+            ]
+          }
+        },
+        "contact-form": {
+          "schemaType": "ContactPoint",
+          "nlwebCategory": "forms/contact",
+          "properties": {
+            "contactType": {
+              "schemaProperty": "contactType"
+            },
+            "email": {
+              "schemaProperty": "email"
+            },
+            "telephone": {
+              "schemaProperty": "telephone"
+            }
+          },
+          "aiHints": {
+            "context": "contact",
+            "intent": [
+              "contact",
+              "support"
+            ],
+            "queries": [
+              "contact",
+              "get in touch",
+              "support"
+            ]
+          }
+        },
+        "faq-section": {
+          "schemaType": "FAQPage",
+          "nlwebCategory": "content/faq",
+          "properties": {
+            "questions": {
+              "schemaProperty": "mainEntity",
+              "type": "Question",
+              "array": true
+            }
+          },
+          "aiHints": {
+            "context": "support",
+            "intent": [
+              "answer",
+              "help"
+            ],
+            "queries": [
+              "how do I",
+              "what is",
+              "can I"
+            ]
+          }
+        },
+        "event-card": {
+          "schemaType": "Event",
+          "nlwebCategory": "content/event",
+          "properties": {
+            "name": {
+              "schemaProperty": "name",
+              "required": true
+            },
+            "startDate": {
+              "schemaProperty": "startDate",
+              "required": true
+            },
+            "endDate": {
+              "schemaProperty": "endDate"
+            },
+            "location": {
+              "schemaProperty": "location",
+              "type": "Place"
+            },
+            "description": {
+              "schemaProperty": "description"
+            },
+            "image": {
+              "schemaProperty": "image"
+            }
+          },
+          "aiHints": {
+            "context": "events",
+            "intent": [
+              "attend",
+              "register",
+              "learn"
+            ],
+            "queries": [
+              "events",
+              "when is {name}",
+              "register for {name}"
+            ]
+          }
+        },
+        "video-player": {
+          "schemaType": "VideoObject",
+          "nlwebCategory": "media/video",
+          "properties": {
+            "name": {
+              "schemaProperty": "name"
+            },
+            "description": {
+              "schemaProperty": "description"
+            },
+            "thumbnailUrl": {
+              "schemaProperty": "thumbnailUrl"
+            },
+            "uploadDate": {
+              "schemaProperty": "uploadDate"
+            },
+            "duration": {
+              "schemaProperty": "duration"
+            },
+            "contentUrl": {
+              "schemaProperty": "contentUrl"
+            }
+          },
+          "aiHints": {
+            "context": "media",
+            "intent": [
+              "watch",
+              "learn"
+            ],
+            "queries": [
+              "watch {name}",
+              "video about"
+            ]
+          }
+        }
+      },
+      "nlwebConfig": {
+        "version": "1.0",
+        "indexableAttribute": "nlweb-indexable",
+        "categoryAttribute": "nlweb-category",
+        "queriesAttribute": "nlweb-queries",
+        "actionsAttribute": "nlweb-actions"
+      },
+      "aiConfig": {
+        "contextAttribute": "ai-context",
+        "intentAttribute": "ai-intent",
+        "trackAttribute": "ai-track",
+        "personalizeAttribute": "ai-personalize",
+        "variantAttribute": "ai-variant",
+        "segmentAttribute": "ai-segment"
+      }
+    }
+  }
+}

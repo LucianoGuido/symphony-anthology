@@ -8,6 +8,7 @@ const rootDir = path.resolve(scriptDir, '..');
 const htmlFiles = [
   'index.html',
   'docs/index.html',
+  'docs/playground/index.html',
   'docs/examples/landing-page.html',
   'docs/examples/ai-first-demo.html',
   'testing/index.html',
@@ -19,9 +20,13 @@ const localReferencePattern = /\b(?:href|src)="([^"]+)"/g;
 for (const relativeFile of htmlFiles) {
   const absoluteFile = path.resolve(rootDir, relativeFile);
   const html = fs.readFileSync(absoluteFile, 'utf8');
+  const htmlForLinkChecks = html
+    .replace(/<pre[\s\S]*?<\/pre>/gi, '')
+    .replace(/<code[\s\S]*?<\/code>/gi, '')
+    .replace(/<script[\s\S]*?<\/script>/gi, '');
 
   let match;
-  while ((match = localReferencePattern.exec(html)) !== null) {
+  while ((match = localReferencePattern.exec(htmlForLinkChecks)) !== null) {
     const reference = match[1];
 
     if (
